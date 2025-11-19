@@ -1,0 +1,111 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'swiper/css';
+@import 'swiper/css/effect-fade';
+@import 'swiper/css/pagination';
+/* Fondo global */
+body {
+  background-color: #C3C3C3; /* cambia este al color que quieras */
+  color: white;              /* opcional */
+  
+  height: 100%;
+  margin: 0;
+  padding: 0;
+ 
+   
+}
+html {
+  scroll-behavior: smooth;         /* ya lo tienes */
+  scroll-snap-type: y mandatory;   /* habilita el scroll snap vertical */
+  height: 100%;
+  overflow-y: scroll;          
+      /* el scroll vertical está en html */
+}
+
+#app-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #191919;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+/*
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #ffc800;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+ HTML: <div class="loader"></div> */
+.loader {
+  width: fit-content;
+  font-size: 55px;
+  line-height: 1.5;
+  font-family: system-ui,sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ffee0600;
+  -webkit-text-stroke: 2px #000000;
+
+  background:
+    radial-gradient(1.13em at 50% 1.6em, #ffc800 99%, #0000 101%) calc(50% - 1.6em) 0 / 3.2em 100% text,
+    radial-gradient(1.13em at 50% -0.8em, #00000000 99%, #ffc800 101%) 50% 0.8em / 3.2em 100% repeat-x text;
+
+    animation: l9 2s linear infinite;
+}
+.loader:before {
+  content: "Loading";
+}
+@keyframes l9 {
+  to {background-position: calc(50% + 1.6em) 0,calc(50% + 3.2em) .8em}
+}
+
+/* Scrollbar global */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffc800;
+  border-radius: 6px;
+  border: 2px solid #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffee06;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ffc800 #1a1a1a;
+}
+mark.highlight {
+  background-color: rgb(53, 198, 255);
+  color: black;
+  border-radius: 1px;
+
+  transition: all 0.3s ease;
+}
+
+mark.highlight.active {
+  background-color: rgb(0, 38, 255) !important;
+  color: rgb(0, 0, 0) !important;
+  box-shadow: 0 0 8px 2px rgba(0, 0, 255, 0.6);
+}

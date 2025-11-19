@@ -1,0 +1,531 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar-tecnic {
+  background-color: #2c3e50;
+}
+
+.navbar-personal {
+  background-color: #8e44ad;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+   /* evitar que se pase del ancho de ventana */
+   /* para que no sea demasiado pequeño */
+  padding: 25px 100px 25px 100px; /* padding simétrico horizontal */
+  box-sizing: border-box;
+  font-family: Tahoma;
+  font-weight: bold;
+  font-size: 14px;
+  z-index: 1000;
+  background-color: #191919; /* o segun clase */
+  overflow: hidden;          /* evitar scroll horizontal */
+  white-space: nowrap;       /* evita que texto se rompa */
+}
+
+.right-controls {
+ margin-left: auto; /* empuja el grupo a la derecha */
+  display: flex;
+  align-items: center;
+  gap: 10px; /* espacio entre búsqueda y toggle */
+}
+.nav-container {
+  display: flex;
+  flex-wrap: nowrap;     /* NO permite que los hijos salten a otra linea */
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;        /* para centrar horizontalmente */
+  padding-left: 0;
+  box-sizing: border-box;
+}
+
+/* Contenedor búsqueda a la derecha */
+.search-container {
+   
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Botón lupa */
+.search-button {
+  background-color: transparent;
+  border: 2px solid #fdfdfd;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+/* Cuando búsqueda está activa: fondo amarillo y rota 90 grados */
+.search-container.active .search-button {
+  background-color: #f5c000;
+  transform: rotate(90deg);
+}
+
+/* SVG icono lupa */
+.search-button svg {
+  pointer-events: none;
+  transition: fill 0.3s ease;
+  fill: #ffffff;
+}
+
+/* SVG cambia a negro cuando activo (contraste) */
+.search-container.active .search-button svg {
+  fill: #191919;
+}
+
+/* Hover botón */
+.search-button:hover {
+  background-color: #FFC90E;
+  transition: background-color 0.3s ease;
+}
+
+/* Barra de búsqueda */
+.search-bar {
+  width: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: width 0.3s ease, opacity 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 12px; /* un poco más de espacio */
+  background-color: #333;
+  border-radius: 6px;
+  border: 1px solid #FFC90E;
+  padding: 5px 14px; /* más padding para separar contenido de borde */
+  margin-left: 10px;
+}
+
+/* Barra expandida visible */
+.search-container.active .search-bar {
+  width: 320px; /* más ancho para que entren input + flechas */
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Input búsqueda */
+.search-input {
+  flex: 1;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  padding-right: 10px;
+  min-width: 0; /* para evitar overflow */
+}
+
+.search-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #FFC90E;
+  font-size: 14px;
+  user-select: none;
+  flex-shrink: 0; /* para que no se reduzca */
+}
+
+/* Botones navegación flechas */
+.search-nav-button {
+  background: transparent;
+  border: 1px solid #FFC90E;
+  color: #FFC90E;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 1;
+  transition: background-color 0.3s ease;
+  padding: 0;
+}
+
+.search-nav-button:hover {
+  background-color: #FFC90E;
+  color: #191919;
+}
+
+/* Barra vertical decorativa */
+.barra-vertical {
+  display: inline-block;
+  font-size: 30px;
+  line-height: 1;
+  color: white;
+  vertical-align: middle;
+  margin: 0 10px;
+}
+
+.logo {
+  color: #FFC90E;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1px;
+    cursor: pointer; 
+  
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-family: Tahoma, sans-serif;
+  font-weight: bold;
+  padding: 0.5rem 0.5rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.nav-links a:hover {
+  color: #FFC90E;
+  transform: translateY(-2px);
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 3px 0;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    flex-direction: column;
+    padding: 1rem;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+
+
+/* Estilos toogles------------------------------------------------ */
+.toggle {
+  margin-left: auto;
+  flex-shrink: 0;
+  width: 100px;
+  height: 40px;
+  user-select: none;
+}
+
+/* Ocultar checkbox original */
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+/* Label que actúa como toggle */
+label {
+  border: 2px solid #FFC90E;
+  cursor: pointer;
+  background-color: #edfdb4;
+  border-radius: 20px;
+  display: block;
+  position: relative;
+  height: 40px;
+  width: 100px;
+  
+  /* Transición mejorada para fondo y borde */
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Track detrás del thumb */
+.track {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: #000000;
+  top: 0;
+  left: 0;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* El "botón" redondo que se mueve */
+.thumb {
+  position: absolute;
+  top: 3px;
+  left: 7px;
+  width: 34px;
+  height: 30px;
+  background-color: #ffc800;
+  border-radius: 50%;
+
+  /* Transición suave y con curva natural para el movimiento */
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+  z-index: 2;
+}
+
+/* Cambia color al hacer hover en el label */
+label:hover .thumb {
+  background-color: #daab00;
+}
+
+/* Labels EN y ES */
+label .label-on,
+label .label-off {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+  font-size: 14px;
+  pointer-events: none;
+  user-select: none;
+  width: 40px;
+  text-align: center;
+  z-index: 1;
+}
+
+/* EN label */
+label .label-on {
+  left: 10px;
+  color: #333;
+  transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ES label */
+label .label-off {
+  right: 10px;
+  color: #FFC90E;
+  transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Estado checked */
+input:checked + label {
+  background-color: #333;
+}
+
+/* Track cambia fondo */
+input:checked + label .track {
+  background-color: #030303;
+}
+
+/* Thumb se mueve con transición fluida */
+input:checked + label .thumb {
+  transform: translateX(60px);
+}
+
+/* Cambios colores de labels al cambiar toggle */
+input:checked + label .label-on {
+  color: #FFC90E;
+}
+
+input:checked + label .label-off {
+  color: #333;
+}
+
+/* Ajuste específico para evitar conflicto de posición al estar checked */
+input[type="checkbox"]:checked + label .thumb {
+  left: -3px; /* mantiene el mismo left, pero el translateX hace el movimiento */
+}
+
+/* para marcar don estas seccion---------------------------------- */
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.nav-links li a:hover {
+  box-shadow: 0 1px 1px 0 rgba(255, 255, 255, 0.4); /* sombra suave beige al pasar el ratón */
+}
+.nav-links li.active a {
+  color: #ffc800; /* resalta la sección activa */
+  font-weight: bold;
+}/* ====== RESPONSIVE ====== */
+
+
+
+@media (max-width: 768px) {
+    /* ------------------- CONTENEDORES PRINCIPALES DE LA BARRA ------------------- */
+    .navbar {
+        /* Reducimos el padding y quitamos el padding vertical excesivo para los elementos apilados */
+        padding: 10px 15px; 
+        /* La altura se ajustará automáticamente a las dos filas */
+        height: auto; 
+    }
+.nav-container {
+        flex-wrap: wrap; 
+        align-items: flex-start;
+        gap: 5px; 
+    }
+    /* ------------------- PRIMERA FILA: LOGO / ENLACES ------------------- */
+    
+    .logo {
+       display: none;
+    }
+    
+   .nav-links {
+        /* CLAVE: Establecer un orden alto para que vaya segundo (abajo) */
+        order: 2; 
+        
+        /* Mantenemos el ancho y el centrado */
+        width: 100%; 
+        display: flex !important;
+        position: static;
+        padding: 0;
+        flex-direction: row;
+        flex-wrap: wrap; 
+        justify-content: center; 
+        gap: 5px;
+        
+        /* Eliminamos el margin-bottom de aquí (ahora va en .right-controls) */
+        margin-bottom: 0; 
+    }
+    
+    .nav-links a {
+        font-size: 12px; 
+        padding: 0.4rem 0.5rem; /* Ajuste para que se vean mejor */
+    }
+
+    /* Ocultar la barra vertical separadora en móvil */
+    .barra-vertical {
+        display: none;
+    }
+    
+    /* ------------------- SEGUNDA FILA: CONTROLES DERECHOS ------------------- */
+    
+   .right-controls {
+        /* CLAVE: Establecer un orden bajo para que vaya primero (arriba) */
+        order: 1; 
+        
+        /* Mantenemos el ancho y la alineación de la segunda fila */
+        width: 100%; 
+        margin-left: 0; 
+        justify-content: space-between; 
+        flex-shrink: 0; 
+        gap: 10px;
+        
+        /* Añadimos un margen inferior para separarlo de los enlaces */
+        margin-bottom: 10px; 
+    }
+
+    /* La búsqueda debe ir a la izquierda */
+    .search-container {
+        order: 1; /* Posición 1: Izquierda */
+        margin-right: auto; /* Empuja el toggle a la derecha (si right-controls no tuviera space-between) */
+    }
+
+    /* El toggle debe ir a la derecha */
+    .toggle {
+        order: 2; /* Posición 2: Derecha */
+        margin-left: auto; /* Solo por seguridad, space-between es el que manda */
+    }
+
+    /* Ocultar el logo para dejar más espacio a los enlaces */
+    .logo {
+      display: none;
+    }
+
+    /* ------------------- AJUSTES DE TAMAÑO EXISTENTES ------------------- */
+    
+    /* Reducir el tamaño del toggle */
+    .toggle {
+      width: 65px;
+      height: 30px;
+    }
+      
+    /* Ajustar label del toggle */
+    .toggle label {
+      height: 30px;
+      width: 65px;
+      border-radius: 15px;
+    }
+
+    /* Ajustar thumb del toggle */
+    .toggle .thumb {
+      top: 3px;
+      left: 5px;
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Ajustar el movimiento del thumb para el nuevo width */
+    input:checked + label .thumb {
+      transform: translateX(35px);
+    }
+      
+    /* Ajustar tamaño y posición de EN/ES */
+    .toggle .label-on,
+    .toggle .label-off {
+      font-size: 10px;
+      width: 30px;
+    }
+    .toggle .label-on {
+      left: 2px;
+    }
+    .toggle .label-off {
+      right: 2px;
+    }
+      
+    /* Ocultamos el ícono de la lupa/búsqueda para ganar espacio, si no está activa */
+    .search-button {
+      width: 30px;
+      height: 30px;
+      border-width: 1px;
+    }
+    
+    /* Evita que la barra de búsqueda se expanda demasiado */
+    .search-container.active .search-bar {
+      width: 180px !important; 
+    }
+}
+
+/* Mantenemos tu media query para 400px solo para el toggle si es necesaria */
+@media (max-width: 400px) {
+  /* ... tus estilos de 400px ... */
+  .toggle {
+    width: 65px;
+    height: 30px;
+  }
+  input:checked + label .thumb {
+    transform: translateX(35px); 
+  }
+}

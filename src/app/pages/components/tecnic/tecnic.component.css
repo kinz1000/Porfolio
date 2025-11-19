@@ -1,0 +1,274 @@
+/* ==================== SECTIONS ==================== */
+.section {
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 100px;
+  scroll-snap-align: start;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.section-dark {
+  background-color: #191919;
+}
+
+.estatua {
+  position: absolute;
+  bottom: -10px;
+  right: 0px;
+  width: 300px;
+  transform: scaleX(-1);
+  /* invertirla */
+  opacity: 0.25;
+  filter: brightness(0.9);
+  z-index: 0;
+  pointer-events: none;
+  /* que no interfiera al hacer clic */
+}
+
+/* Empuja el contenido para no montarse sobre la imagen */
+.fondo {
+  flex-shrink: 0;
+  /* la imagen no se encoge */
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  max-width: 80px;
+  min-width: 80px;
+  /* ancho fijo para la imagen */
+  height: auto;
+  margin-bottom: 10px;
+  /* separa del borde inferior */
+}
+
+/* ==================== BLOQUES ==================== */
+.imagen-contenedor {
+  margin-top: 10%;
+  width: 700px;
+  height: 450px;
+  border-radius: 20px;
+  /* bordes redondeados del contenedor */
+  overflow: visible;
+  background-image: url('/foto2.jpg');
+  /* reemplaza con tu fondo */
+  background-size: cover;
+  background-position: center;
+ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagen-contenedor img {
+  margin-left: 10%;
+  z-index: 100;
+  margin-top: 20%;
+  width: 75%;
+  /* la imagen ocupa el 60% del contenedor */
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  /* opcional: bordes redondeados de la imagen */
+ filter: brightness(0.9); /* 🔹 reduce brillo al 60% */
+}
+
+.texto-derecha {
+  text-align: left;
+  margin-top: 20%;
+}
+
+/* Estilos generales para centrar la demo en la página que lo importe */
+/* Contenedor principal */
+.code-card {
+  background: rgba(21, 21, 21, 0.131);
+  /* negro transparente */
+  color: #fff;
+  border-radius: 10px;
+  width: fit-content;
+  max-width: 600px;
+  padding: 14px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: 'JetBrains Mono', monospace;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(3px);
+}
+
+/* Puntos base */
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.8;
+  animation: glow 3s infinite ease-in-out;
+}
+
+/* Colores fijos */
+.red {
+  background: #ff5f56;
+  animation-delay: 0s;
+}
+
+.yellow {
+  background: #ffbd2e;
+  animation-delay: 1s;
+}
+
+.green {
+  background: #27c93f;
+  animation-delay: 2s;
+}
+
+/* Animación suave de brillo */
+@keyframes glow {
+
+  0%,
+  100% {
+    box-shadow: none;
+    opacity: 0.6;
+  }
+
+  50% {
+    box-shadow: 0 0 8px currentColor;
+    opacity: 1;
+  }
+}
+
+/* Encabezado con los tres puntos */
+.code-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.red {
+  background: #ff5f56;
+}
+
+.yellow {
+  background: #ffbd2e;
+}
+
+.green {
+  background: #27c93f;
+}
+
+/* Cuerpo del texto */
+.code-body {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #eaeaea;
+}
+
+/* Estilos para colores del texto */
+.orange {
+  color: #ffcc66;
+}
+
+.yellow {
+  color: #f7dc6f;
+}
+
+.red {
+  color: #ff6b6b;
+}
+
+.red-B {
+  color: #f74646;
+}
+
+.number {
+  color: #999;
+  margin-right: 4px;
+}
+
+.green-T {
+  color: #60d260;
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+  .code-card {
+    font-size: 14px;
+    padding: 10px 14px;
+    max-width: 90%;
+  }
+}
+
+.bloque-inferior {
+  font-size: small;
+  font-family: 'JetBrains Mono', monospace;
+  margin-top: 15px;
+  align-items: flex-start;
+  /* ← ahora se alinean arriba */
+  padding: 10px 130px;
+  line-height: 1.8;
+  /* 1.8 = 180% de la altura normal */
+}
+
+.titulo-imagen {
+  margin-top: -500px;
+  margin-left: 20px;
+  color: #f5c000;
+  font-size: 75px;
+  position: absolute;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  letter-spacing: -5px;
+  line-height: 0.9;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  /* 👈 sombra suave y profunda */
+}
+
+/* mueve solo la segunda línea (FERNÁNDEZ) */
+.titulo-imagen .apellido {
+  display: inline-block;
+  margin-left: -50px;
+  /* ← ajusta este valor a tu gusto */
+}
+
+
+
+/* ==================== SECTIONS ========================================================================= */
+
+
+.fondo-h {
+  flex-shrink: 0;
+  /* la imagen no se encoge */
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  max-width: 80px;
+  min-width: 80px;
+  /* ancho fijo para la imagen */
+  height: auto;
+  margin-bottom: 10px;
+  /* separa del borde inferior */
+}
+#habilidades.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/r4.png"); /* 👈 tu imagen */
+  background-repeat: no-repeat;
+  background-position: bottom center; /* 👈 se alinea al fondo */
+  background-size: contain; /* mantiene proporción sin recortar */
+  opacity: 0.15; /* ajusta transparencia (0.1–1) */
+/* filter: blur(2px) brightness(0.9); /* leve difuminado y suavizado */
+    background-size: 50%;
+  z-index: 0;
+  background-position: center calc(100% + 30px);
+}
+.color{
+  color:darksalmon;
+}

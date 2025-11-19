@@ -1,0 +1,339 @@
+<app-navbar
+  (searchEvent)="onSearch($event)"
+  (navigateResult)="onNavigateResult($event)"
+  [currentResultIndex]="currentResultIndex"
+  [totalResults]="totalResults"
+></app-navbar>
+<main class="personal-container animate-in">
+
+<main #mainContent>
+<!----------------------------------------------------------introduccion-------------------------------------------------------------------- -->
+<section id="introduccion" class="section" #introduccionSection>
+  <div class="texto-introduccion">
+
+    <h3>Hola, buenas 👋</h3>
+    <h1>
+      <span class="wrap">{{ displayText }}</span>
+
+    </h1>
+    <h2>Programador Backend</h2>
+    <p class="descripcion-pequeña">
+      Apasionado por transformar ideas en soluciones eficientes y escalables.
+      Me encanta trabajar en proyectos que desafían mis habilidades y contribuyen al crecimiento de la empresa.
+    </p>
+    <div class="botones-intro">
+      <button class="btn btn-elegante" (click)="cambiarComponente()">Más sobre mí</button>
+      <a href="/CV_I_DAVID.pdf" download class="btn btn-descargar">Descargar CV</a>
+    </div>
+  </div>
+
+  <div class="columna-derecha">
+    <div class="image-container">
+      <img src="/imagenfinal.png" alt="Perfil" />
+    </div>
+    <div class="logos-container">
+
+     <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="logo-link">
+  <img src="/in.png" alt="LinkedIn" class="logo-circle" />
+</a>
+
+<a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="logo-link">
+  <img src="/github.png" alt="GitHub (redirige a LinkedIn)" class="logo-circle" />
+</a>
+
+    </div>
+  </div>
+  <div class="scroll-downs">
+    <div class="mousey">
+      <div class="scroller"></div>
+    </div>
+  </div>
+
+</section>
+
+<!------------------------------------------------------------trayectoria----------------------------------------------------------------------------------------- -->
+
+<section id="trayectoria" class="section section-dark">
+
+
+  <!-- The Timeline -->
+
+  <ul class="timeline">
+    <h3 class="col-title">Estudios</h3>
+
+    <li>
+      <div class="direction-r">
+        <div class="flag-wrapper">
+          <span class="flag">Bachillerato en IES La Salle</span>
+          <span class="time-wrapper"><span class="time">2020 - 2022</span></span>
+        </div>
+        <div class="desc">
+          Finalicé el bachillerato científico-tecnológico en el IES La Salle, donde desarrollé una sólida base en
+          matemáticas, física e informática.
+        </div>
+        <div class="btn-certificado">
+          <a href="certificados/bachillerato.pdf" download class="cert-btn">
+            📄 Descargar Certificado
+          </a>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div class="direction-l">
+        <div class="flag-wrapper">
+          <span class="flag">Grado Superior DAM</span>
+          <span class="time-wrapper"><span class="time">2022 - 2024</span></span>
+        </div>
+        <div class="desc">
+          Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM), adquiriendo experiencia en Java, SQL,
+          Android y estructuras de datos.
+        </div>
+        <div class="btn-certificado">
+          <a href="certificados/bachillerato.pdf" download class="cert-btn">
+            📄 Descargar Certificado
+          </a>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div class="direction-r">
+        <div class="flag-wrapper">
+          <span class="flag">Curso de Python en IA</span>
+          <span class="time-wrapper"><span class="time">2024 - Actualidad</span></span>
+        </div>
+        <div class="desc">
+          Actualmente cursando en Toki School un programa de especialización en Python, IA y automatización con modelos
+          de aprendizaje automático.
+        </div>
+
+      </div>
+    </li>
+
+  </ul>
+
+  <!---------------------------------------------------------------------------------------------------------------- -->
+
+  <ul class="timeline">
+
+    <h3 class="col-title-ex">Experiencia
+      <br> Laboral
+    </h3>
+
+    <!-- Item 1 -->
+    <li>
+      <div class="direction-r">
+        <div class="flag-wrapper">
+          <span class="flag">Alten Spain</span>
+          <span class="time-wrapper"><span class="time">Septiembre - Diciembre 2024</span></span>
+        </div>
+        <div class="desc">
+          Realicé 250 horas de prácticas en <strong>Alten Spain</strong> como desarrollador junior,
+          colaborando en proyectos de software empresarial y automatización de procesos.
+          Durante esta experiencia, reforcé mis conocimientos en <em>Java, Spring Boot</em> y <em>SQL</em>,
+          además de adquirir experiencia en trabajo en equipo ágil.
+        </div>
+      </div>
+    </li>
+
+
+    <div class="direction-r">
+      <div class="flag-wrapper">
+        <br>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+
+
+  </ul>
+</section>
+<!------------------------------------------------------------------stack------------------------------------------------------------------------------------------------- -->
+<section id="stack" class="section">
+  <br>
+  <br>
+  <h1 class="stack-title">STACK</h1>
+  <!--<div class="vertical-line"></div>-->
+  <div class="stack-columns">
+    <!-- COLUMNA IZQUIERDA -->
+    <div class="stack-column">
+      <!-- Círculo fijo con texto -->
+      <div class="static-circle" >Skills</div>
+
+      <!-- Círculos animados -->
+      <ul
+        #containerStackLeft
+        class="container-stack"
+        (click)="rotateCircles('left')"
+      >
+        <li
+          class="wrap-stack"
+          *ngFor="let item of circleArrayLeft; let i = index"
+          #wrapElLeft
+          [ngClass]="item.class"
+          [title]="item.name"
+        >
+          <a>
+            <span class="icon__name">{{ item.name }}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- COLUMNA DERECHA -->
+    <div class="stack-column">
+      <!-- Círculo fijo con texto -->
+      <div class="static-circle">Tools</div>
+
+      <!-- Círculos animados -->
+      <ul
+        #containerStackRight
+        class="container-stack"
+        (click)="rotateCircles('right')"
+      >
+        <li
+          class="wrap-stack"
+          *ngFor="let item of circleArrayRight; let i = index"
+          #wrapElRight
+          [ngClass]="item.class"
+          [title]="item.name"
+        >
+          <a><span class="icon__name">{{ item.name }}</span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-----------------------------------------------------------proyectos----------------------------------------------------------------------------------------------------------- -->
+
+<section id="proyectos" class="section section-dark">
+  <h2>Proyectos</h2>
+
+ <div class="proyectos-container">
+  <div *ngFor="let proyecto of proyectos; let i = index" class="project-card">
+
+    <!-- Imagen a la izquierda -->
+    <div class="hero-image">
+      <img [src]="activeImages[i]" [class.fade]="fadeImages[i]" />
+    </div>
+
+    <!-- Slider de posts -->
+    <div class="blog-slider swiper blog-slider-{{i}}">
+      <div class="swiper-wrapper">
+        <div class="blog-slider__item swiper-slide" *ngFor="let post of proyecto.posts">
+          
+          <div class="blog-slider__content">
+    <br>
+            <span class="blog-slider__code">{{ post.date }}</span>
+            <div class="blog-slider__title">{{ post.title }}</div>
+            <div class="blog-slider__text">{{ post.text }}</div>
+         <div *ngIf="post.buttonText" class="icon-container">
+  <a *ngFor="let icon of post.icons" [href]="icon.url" target="_blank" class="icon-circle">
+    <img [src]="icon.img" alt="icon" />
+  </a>  
+</div> 
+          </div>
+         
+        </div>
+      </div>
+
+      <div class="blog-slider__pagination swiper-pagination blog-slider-pagination-{{i}}"></div>
+
+      <div class="custom-progress">
+        <div class="bar" *ngFor="let post of proyecto.posts; let j = index"
+             [class.active]="currentSlides[i] === j"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+<!----------------------------------contactame-------------------------------------------------------------------------------------------------------------- -->
+<section id="contactame" class="section">
+  <div class="contact-container">
+  <div class="contact-info">
+      <h3>Contáctame</h3>
+      <hr class="underline-blue" />
+      <h2>Creemos algo histórico <br> - Contáctame</h2>
+      <p>
+        Rellena el formulario y tu mensaje llegará directamente a mi correo electrónico. 
+        También puedes contactarme por teléfono o Gmail si lo prefieres.
+        La luz verede significa que el correo a sido enviado correctamente , la roja que ha habido un error.
+      </p>
+
+      <div class="contact-item">
+        <span class="icon">📞</span>
+        <span class="text">+34 123 456 789</span>
+      </div>
+
+      <div class="contact-item">
+        <span class="icon">✉️</span>
+        <span class="text">miemail&#64;gmail.com</span>
+      </div>
+    </div>
+    <!-- DERECHA: Formulario -->
+    <div class="form-container">
+      <div class="status-light" [ngClass]="statusLightClass"></div>
+
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+        <h2>Contacto</h2>
+
+        <div class="flex-row">
+          <div class="form-group name-field">
+            <label for="name">Nombre</label>
+            <input id="name" formControlName="name" type="text" placeholder="Tu nombre" />
+            <small>
+              {{ contactForm.get('name')?.touched && contactForm.get('name')?.invalid ? 'El nombre es obligatorio.' : '' }}
+            </small>
+          </div>
+
+          <div class="form-group email-field">
+            <label for="email">Correo electrónico</label>
+            <input id="email" formControlName="email" type="email" placeholder="tucorreo@gmail.com" />
+            <small>
+              {{ contactForm.get('email')?.touched && contactForm.get('email')?.invalid ? 'Introduce un correo válido.' : '' }}
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="title">Título</label>
+          <input id="title" formControlName="title" type="text" placeholder="Asunto del mensaje" />
+          <small>
+            {{ contactForm.get('title')?.touched && contactForm.get('title')?.invalid ? 'El título es obligatorio.' : '' }}
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Mensaje</label>
+          <textarea id="message" formControlName="message" rows="6" placeholder="Escribe tu mensaje..."></textarea>
+          <small>
+            {{ contactForm.get('message')?.touched && contactForm.get('message')?.invalid ? 'El mensaje no puede estar vacío.' : '' }}
+          </small>
+        </div>
+
+        <button type="submit" [disabled]="contactForm.invalid">Enviar</button>
+        <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+      </form>
+    </div>
+    <!-- IZQUIERDA: Información de contacto -->
+  
+
+
+  </div>
+</section>
+</main>
+</main>

@@ -1,0 +1,3 @@
+<app-loader *ngIf="showBlackhole" (finished)="onBlackholeFinished()"></app-loader>
+<router-outlet *ngIf="!showBlackhole"></router-outlet>
+<app-boton-cambio *ngIf="!showBlackhole"></app-boton-cambio>
