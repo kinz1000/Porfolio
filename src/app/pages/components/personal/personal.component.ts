@@ -220,26 +220,29 @@ proyectos = [
         date: 'Octubre 2024',
         title: 'WORLDHELP',
       
-        text: 'Trabajo Fin de Grado Superior orientado a ayudar a las personas afectadas por la DANA .',
-        buttonText: true,
+        text: 'Trabajo Fin de Grado Superior orientado a ayudar a las personas afectadas por la DANA .  Estoy trabajando para subirlo.',
+        buttonText: false,
    icons: [
-          { img: '/github.png', url: 'https://github.com/tuusuario/worldhelp' },
-          { img: 'd.jpg', url: 'https://worldhelp-demo.com' }
+         
         ]
       },
       {
         img: 'aaaa.png',
         date: '',
         title: 'Stack',
-        text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?',
+        text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus',
         buttonText: false
       },
       {
-        img: 'https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1535759871/alessandro-capuzzi-799180-unsplash.webp',
+        img: 'tip.png',
         date: '',
-        title: 'Lorem Ipsum Dolor 3',
-        text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?',
-        buttonText: false
+        title: 'Codigo Propio',
+text: 'El codigo se divide en <span class="azulTs">Frontend</span> y <span class="rojoTs">Backend</span>.',
+        buttonText: true,
+   icons: [
+          { img: 'logoAzul.jpg', url: 'https://github.com/kinz1000/AppWebFrontend' },
+          { img: 'logoRojo.png', url: 'https://github.com/kinz1000/AppWebBakend' }
+        ]
       }
     ]
   },
@@ -252,7 +255,11 @@ proyectos = [
     date: 'Octubre 2024',
     title: 'Porfolio Informatico',
     text: 'Una muestra de mis capacidades y proyectos en desarrollo web y software.',
-        buttonText: false
+       buttonText: true,
+   icons: [
+          { img: 'codigo.png', url: 'https://github.com/kinz1000/Porfolio' }
+         
+        ]
   },
   {
     img:'p.png',

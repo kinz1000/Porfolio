@@ -28,7 +28,7 @@
 /* Extra (si quieres que cada elemento interno también entre suavemente con delay) */
 .personal-container > * {
   opacity: 0;
-  animation: fadeElement 0.8s ease-out forwards;
+  animation: fadeElement 0.7s ease-out forwards;
 }
 
 .personal-container > *:nth-child(1) {
@@ -168,7 +168,20 @@
 .section-dark {
   background-color: #191919;
 }
+.sectionV2 {
+  height: 100vh;
+  
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 100px;
+  /* más espacio a los lados */
+  scroll-snap-align: start;
+  position: relative;
+ 
+  transform: translateZ(0);   
+  box-sizing: border-box; /* Para incluir el padding en el tamaño total */
 
+}
 /*------------------FIN ESTILO seccion-------------------------------------------- */
 
 /*------------------INICIO ESTILO INTRODUCCION-------------------------------------------- */
@@ -693,104 +706,6 @@ button.btn.btn-elegante:hover {
 
 
 
-@media screen and (max-width: 660px) {
-
-  .timeline {
-    width: 100%;
-    padding: 4em 0 1em 0;
-  }
-
-  .timeline li {
-    padding: 2em 0;
-  }
-
-  .direction-l,
-  .direction-r {
-    float: none;
-    width: 100%;
-
-    text-align: center;
-  }
-
-  .flag-wrapper {
-    text-align: center;
-  }
-
-  .flag {
-    background: rgb(255, 255, 255);
-    z-index: 15;
-  }
-
-  .direction-l .flag:before,
-  .direction-r .flag:before {
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    content: ' ';
-    display: block;
-    width: 12px;
-    height: 12px;
-    margin-left: -9px;
-    background: #fff;
-    border-radius: 10px;
-    border: 4px solid rgb(0, 0, 0);
-    z-index: 10;
-  }
-
-  .direction-l .flag:after,
-  .direction-r .flag:after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: -8px;
-    height: 0;
-    width: 0;
-    margin-left: -8px;
-    border: solid transparent;
-    border-bottom-color: rgb(255, 255, 255);
-    border-width: 8px;
-    pointer-events: none;
-  }
-
-  .time-wrapper {
-    display: block;
-    position: relative;
-    margin: 4px 0 0 0;
-    z-index: 14;
-  }
-
-  .direction-l .time-wrapper {
-    float: none;
-  }
-
-  .direction-r .time-wrapper {
-    float: none;
-  }
-
-  .desc {
-    position: relative;
-    margin: 1em 0 0 0;
-    padding: 1em;
-    background: rgb(245, 245, 245);
-    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.20);
-    -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.20);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.20);
-
-    z-index: 15;
-  }
-
-  .direction-l .desc,
-  .direction-r .desc {
-    position: relative;
-    margin: 1em 1em 0 1em;
-    padding: 1em;
-
-    z-index: 15;
-  }
-
-}
-
-
 
 
 /*=========================fin Trayectoria======================================== */
@@ -1259,7 +1174,15 @@ width: 100%; /* Ocupa todo el ancho de project-card */
   z-index: 50; /* Para asegurarnos que quede sobre fondo oscuro */
 }
 
+::ng-deep .azulTs {
+  color: #2196f3;
+  font-weight: bold;
+}
 
+::ng-deep .rojoTs {
+  color: #ff5959;
+  font-weight: bold;
+}
 .icon-container {
   display: flex;
   gap: 12px;
@@ -1308,6 +1231,7 @@ width: 100%; /* Ocupa todo el ancho de project-card */
   padding: 25px;   /* opcional, si quieres espacio interno */
   box-sizing: border-box;
   color: #fff;
+  margin-top: 120px;
 }
 
 /* Formulario */
@@ -1494,6 +1418,68 @@ button:hover {
 }
 
 
+.signature-phrase {
+  text-align: center;
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: #000;
+  font-family: "Montserrat", serif;
+  margin-top: 105px;
+  margin-bottom: 10px;
+  opacity: 0.85;
+  letter-spacing: 0.6px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*================== Responsive ==================*/
 @media screen and (max-width: 900px) {
   .contact-container {
@@ -1515,7 +1501,7 @@ button:hover {
 @media (max-width: 992px) {
    /* ------------------- GENERAL ------------------- */
 .section {
-    height: 100vh;
+   min-height: 100vh;
     justify-content: center;
     overflow-y: auto;
     box-sizing: border-box;
@@ -1551,7 +1537,7 @@ button:hover {
     order: 2; 
     
     /* Aseguramos que ocupe todo el ancho y se centre el texto */
-    width: 100%; 
+    width: 50%; 
     max-width: 100%;
     text-align: center; 
 }
@@ -1653,83 +1639,171 @@ button.btn.btn-elegante {
     gap: 10px; /* Reducimos el espacio entre ellos */
 }
 
-/* ------------------- TRAYECTORIA ------------------- */
-#trayectoria.section {
-    padding-left: 20px;
-}
+/* ------------------- TRAYECTORIA --------------------------------------------------------------------------------------------------------------------- */
 
-.timeline {
+@media screen and (max-width: 900px) {
+
+  #trayectoria.section {
+    padding-left: 10px;
+    padding-right: 10px;
+    justify-content: flex-start;
+  }
+ .btn-certificado .cert-btn {
+    padding: 2px 4px !important;        /* reduce padding */
+    font-size: 0.5rem !important;       /* reduce tamaño del texto */
+    line-height: 1.1 !important;        /* ajusta altura de línea */
+    border-radius: 1px !important;      /* bordes más pequeños */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important; /* sombra proporcional */
+    white-space: normal !important;     /* permite dividir el texto */
+    word-break: break-word !important;  /* evita overflow */
+  }
+
+  /* Títulos reducidos */
+  .col-title{
+    font-size: 0.9rem; /* 50% del original 1.8rem */
+
+    margin-top: -87px;
+  }
+  .col-title-ex {
+    font-size: 0.9rem; /* 50% del original 1.8rem */
+
+    margin-top: -55px;
+  }
+
+  .col-title::after,
+  .col-title-ex::after {
+    width: 40px; /* 50% del original 80px */
+    height: 1.5px;
+  }
+
+  /* Timeline */
+  .timeline {
     width: 100%;
-}
+    margin-top: -100px;
+    padding: 0.5em 0;
+  }
 
-.trayectoria-container {
+  /* Apilar timeline verticalmente */
+  .direction-l,
+  .direction-r {
+    float: none;
+    width: 90%;
+    text-align: left;
+    margin-bottom: 1px; /* más compacto */
+    padding-left: 3px;
+ 
+  }
+
+  .timeline:before {
+    left: 10px; /* línea vertical más cerca */
+    width: 3px;  /* mitad de grosor original */
+  }
+
+  /* Flags */
+  .direction-l .flag,
+  .direction-r .flag {
+    font-size: 0.45rem; /* 50% de 0.9 rem */
+    padding: 3px 5px;   /* reducido */
+  }
+
+  .direction-l .flag:before,
+  .direction-r .flag:before {
     top: 0;
     left: 0;
-    align-items: center;
-    flex-direction: column;
-}
+    right: auto;
+    width: 6px;  /* 50% de 12px */
+    height: 6px; /* 50% de 12px */
+    border-width: 2px; /* mitad del borde original */
+    margin-top: 0;
+  }
 
-.blog-slider {
-    width: 100%;
-    height: auto;
-    padding: 20px;
-}
+  .direction-l .flag:after,
+  .direction-r .flag:after {
+    display: none; /* elimina flechas */
+  }
 
-.hero-image {
-    position: static;
-    width: 100%;
-    height: auto;
-    transform: none;
-    margin-bottom: 20px;
-}
+  /* Time wrapper */
+  .time-wrapper {
+    font-size: 0.35em; /* mitad de 0.7em */
+  }
 
-.hero-image img {
-    height: 250px;
-}
+  .time {
+    padding: 1.5px 2.5px; /* 50% de padding */
+  }
 
-.blog-slider__content {
-    padding-left: 0;
-    text-align: center;
+  /* Descripción */
+  .desc {
+    font-size: 0.375em; /* mitad de 0.75em */
+    margin: 0.25em 0 0 0; /* márgenes reducidos */
+  }
 }
 
 /* ------------------- STACK ------------------- */
-#stack.section {
-    overflow-y: auto;
-    justify-content: flex-start;
-    padding-top: 100px;
-}
+@media screen and (max-width: 900px) {
 
-.stack-title {
-    font-size: 3rem;
-    letter-spacing: 0.5rem;
-    margin-bottom: 50px;
-}
+  #stack {
+    width: 95%;
+    padding-top: 20px;
+    min-height: auto;
+    max-height: auto;
+  }
 
-.stack-title::before,
-.stack-title::after {
-    width: 20px;
-    left: -30px;
-    right: -30px;
-}
+  /* Título principal */
+  .stack-title {
+    font-size: 3rem;           /* 50% del original 6rem */
+    letter-spacing: 0.5rem;    /* reducir espacio entre letras */
+    margin-bottom: 80px;       /* reducir margen inferior */
+    margin-left: 0;            /* centrar en móvil */
+    text-align: center;
+  }
 
-.stack-columns {
-    flex-direction: column;
-    gap: 100px;
+  .stack-title::before,
+  .stack-title::after {
+    width: 40px;  /* reducir líneas a la mitad */
+    height: 1px;
+    left: -45px;
+    right: -45px;
+  }
+
+  /* Contenedores de skill circles */
+  .stack-columns {
     width: 100%;
-}
+    margin-left: 0;
+    justify-content: center;
+    flex-wrap: wrap; /* si no caben, pasan a otra fila */
+    gap: 15px;
+  }
 
-.stack-column,
-.container-stack {
-    width: 200px;
-    height: 200px;
-}
+  .stack-column,
+  .container-stack {
+    width: 150px;   /* reducir tamaño de círculo */
+    height: 150px;
+  }
 
-.static-circle {
-    width: 100px;
-    height: 100px;
-    font-size: 1.2rem;
-}
+  .static-circle {
+    width: 70px;
+    height: 70px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transform: translate(-0%, +10%);
+    border-width: 1px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  }
 
+  .wrap-stack {
+    width: 30px;
+    height: 30px;
+  }
+
+  .wrap-stack a {
+    border-radius: 5px;
+    background-size: 60%;
+  }
+
+  .icon__name {
+    font-size: 10px;
+  }
+}
 /* ------------------- PROYECTOS ------------------- */
 #proyectos.section {
     overflow-y: auto;

@@ -7,7 +7,7 @@
 >
   <div class="nav-container">
     <!-- ================== LOGO / FECHA ================== -->
-    <a href="#" class="logo">
+    <a href="#" class="logo" title="Ultima actualización de la página">
       {{ esTecnico ? fechaAct : esPersonal ? fechaAct : 'No se encuentra la ruta' }}
     </a>
 
@@ -18,29 +18,29 @@
       <!-- 🔹 Menú para Técnico -->
       <ng-container *ngIf="esTecnico">
         <li [class.active]="activeSection === 'sobre-mi'">
-          <a (click)="scrollToSection('sobre-mi')">Sobre mí</a>
+          <a (click)="scrollToSection('sobre-mi')" title="Página inicial">Sobre mí</a>
         </li>
         <li [class.active]="activeSection === 'habilidades'">
-          <a (click)="scrollToSection('habilidades')">Habilidades</a>
+          <a (click)="scrollToSection('habilidades')" >Habilidades</a>
         </li>
       </ng-container>
 
       <!-- 🔹 Menú para Personal -->
       <ng-container *ngIf="esPersonal">
         <li [class.active]="activeSection === 'introduccion'">
-          <a (click)="scrollToSection('introduccion')">Sobre mí</a>
+          <a title="Página inicial" (click)="scrollToSection('introduccion')">Sobre mí</a>
         </li>
         <li [class.active]="activeSection === 'trayectoria'">
-          <a (click)="scrollToSection('trayectoria')">Trayectoria</a>
+          <a title="Página sobre ni trayectoria tanto laboral como academica" (click)="scrollToSection('trayectoria')">Trayectoria</a>
         </li>
         <li [class.active]="activeSection === 'stack'">
-          <a (click)="scrollToSection('stack')">Stack</a>
+          <a title="Página sobre mis conocimientos"(click)="scrollToSection('stack')">Stack</a>
         </li>
         <li [class.active]="activeSection === 'proyectos'">
-          <a (click)="scrollToSection('proyectos')">Proyectos</a>
+          <a title="Pagina para guardar y mostrar los proyectos que voy desarrollando" (click)="scrollToSection('proyectos')">Proyectos</a>
         </li>
         <li [class.active]="activeSection === 'contactame'">
-          <a (click)="scrollToSection('contactame')">Contáctame</a>
+          <a title="Pagina para facilitar el contacto" (click)="scrollToSection('contactame')">Contáctame</a>
         </li>
       </ng-container>
     </ul>

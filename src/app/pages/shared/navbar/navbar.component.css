@@ -227,7 +227,7 @@
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+  
     flex-direction: column;
     padding: 1rem;
     display: none;
@@ -390,6 +390,7 @@ input[type="checkbox"]:checked + label .thumb {
         padding: 10px 15px; 
         /* La altura se ajustará automáticamente a las dos filas */
         height: auto; 
+   
     }
 .nav-container {
         flex-wrap: wrap; 

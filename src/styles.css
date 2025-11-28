@@ -55,11 +55,11 @@ html {
   font-family: system-ui,sans-serif;
   font-weight: bold;
   text-transform: uppercase;
-  color: #ffee0600;
+  color: #000000;
   -webkit-text-stroke: 2px #000000;
 
   background:
-    radial-gradient(1.13em at 50% 1.6em, #ffc800 99%, #0000 101%) calc(50% - 1.6em) 0 / 3.2em 100% text,
+    radial-gradient(1.13em at 50% 1.6em, #ffc800 99%, #0000 100%) calc(50% - 1.6em) 0 / 3.2em 100% text,
     radial-gradient(1.13em at 50% -0.8em, #00000000 99%, #ffc800 101%) 50% 0.8em / 3.2em 100% repeat-x text;
 
     animation: l9 2s linear infinite;

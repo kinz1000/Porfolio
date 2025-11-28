@@ -33,11 +33,11 @@
     </div>
     <div class="logos-container">
 
-     <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="logo-link">
+     <a href="https://www.linkedin.com/in/david-quintana-657066347/" target="_blank" rel="noopener noreferrer" class="logo-link">
   <img src="/in.png" alt="LinkedIn" class="logo-circle" />
 </a>
 
-<a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="logo-link">
+<a href="https://github.com/kinz1000" target="_blank" rel="noopener noreferrer" class="logo-link">
   <img src="/github.png" alt="GitHub (redirige a LinkedIn)" class="logo-circle" />
 </a>
 
@@ -239,7 +239,7 @@
     <br>
             <span class="blog-slider__code">{{ post.date }}</span>
             <div class="blog-slider__title">{{ post.title }}</div>
-            <div class="blog-slider__text">{{ post.text }}</div>
+         <div class="blog-slider__text" [innerHTML]="post.text"></div>
          <div *ngIf="post.buttonText" class="icon-container">
   <a *ngFor="let icon of post.icons" [href]="icon.url" target="_blank" class="icon-circle">
     <img [src]="icon.img" alt="icon" />
@@ -262,7 +262,8 @@
 </div>
 </section>
 <!----------------------------------contactame-------------------------------------------------------------------------------------------------------------- -->
-<section id="contactame" class="section">
+<section id="contactame" class="sectionV2">
+
   <div class="contact-container">
   <div class="contact-info">
       <h3>Contáctame</h3>
@@ -329,11 +330,14 @@
         <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
       </form>
     </div>
-    <!-- IZQUIERDA: Información de contacto -->
   
 
 
   </div>
+<p class="signature-phrase">
+  Hecho por una mente humana curiosa… con buenos aliados digitales.
+</p>
 </section>
+
 </main>
 </main>

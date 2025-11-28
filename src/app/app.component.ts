@@ -30,9 +30,10 @@ export class AppComponent implements OnInit {
   onBlackholeFinished(): void {
     this.showBlackhole = false;
     sessionStorage.setItem('blackholeShown', 'true');
-
-    setTimeout(() => {
-      this.router.navigate(['/personal']); // Redirige después de 3s
-    }, 3000);
-  }
+ setTimeout(() => {
+    this.router.navigate(['/personal'], {
+      state: { animate: true }   // ← AQUÍ activamos la animación SOLO al venir desde el loader
+    });
+  }, 3000);
+}
 }
