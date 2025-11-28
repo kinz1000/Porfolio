@@ -7,9 +7,10 @@
 >
   <div class="nav-container">
     <!-- ================== LOGO / FECHA ================== -->
-    <a href="#" class="logo" title="Ultima actualización de la página">
-      {{ esTecnico ? fechaAct : esPersonal ? fechaAct : 'No se encuentra la ruta' }}
-    </a>
+    <!-- Muestra la fecha de actualización si estamos en secciones Técnico o Personal -->
+ <a href="#" class="logo" title="Última actualización de la página">
+  {{ esTecnico || esPersonal ? fechaAct : 'No se encuentra la ruta' }}
+</a>
 
     <span class="barra-vertical">│</span>
 
@@ -17,30 +18,46 @@
     <ul class="nav-links">
       <!-- 🔹 Menú para Técnico -->
       <ng-container *ngIf="esTecnico">
+        <!-- Cada <li> activa la clase 'active' si coincide con la sección visible -->
         <li [class.active]="activeSection === 'sobre-mi'">
-          <a (click)="scrollToSection('sobre-mi')" title="Página inicial">Sobre mí</a>
+          <a (click)="scrollToSection('sobre-mi')" title="Página inicial">
+            {{ selectedLang === 'ES' ? 'Sobre mí' : 'About me' }}
+          </a>
         </li>
         <li [class.active]="activeSection === 'habilidades'">
-          <a (click)="scrollToSection('habilidades')" >Habilidades</a>
+          <a (click)="scrollToSection('habilidades')">
+            {{ selectedLang === 'ES' ? 'Habilidades' : 'Skills' }}
+          </a>
         </li>
       </ng-container>
 
       <!-- 🔹 Menú para Personal -->
       <ng-container *ngIf="esPersonal">
+        <!-- Secciones principales traducibles según selectedLang -->
         <li [class.active]="activeSection === 'introduccion'">
-          <a title="Página inicial" (click)="scrollToSection('introduccion')">Sobre mí</a>
+          <a title="Pagina principal del porfolio" (click)="scrollToSection('introduccion')">
+            {{ selectedLang === 'ES' ? 'Sobre mí' : 'About me' }}
+          </a>
         </li>
         <li [class.active]="activeSection === 'trayectoria'">
-          <a title="Página sobre ni trayectoria tanto laboral como academica" (click)="scrollToSection('trayectoria')">Trayectoria</a>
+          <a (click)="scrollToSection('trayectoria')">
+            {{ selectedLang === 'ES' ? 'Trayectoria' : 'Career' }}
+          </a>
         </li>
         <li [class.active]="activeSection === 'stack'">
-          <a title="Página sobre mis conocimientos"(click)="scrollToSection('stack')">Stack</a>
+          <a (click)="scrollToSection('stack')">
+            {{ selectedLang === 'ES' ? 'Stack' : 'Tech Stack' }}
+          </a>
         </li>
         <li [class.active]="activeSection === 'proyectos'">
-          <a title="Pagina para guardar y mostrar los proyectos que voy desarrollando" (click)="scrollToSection('proyectos')">Proyectos</a>
+          <a (click)="scrollToSection('proyectos')">
+            {{ selectedLang === 'ES' ? 'Proyectos' : 'Projects' }}
+          </a>
         </li>
         <li [class.active]="activeSection === 'contactame'">
-          <a title="Pagina para facilitar el contacto" (click)="scrollToSection('contactame')">Contáctame</a>
+          <a (click)="scrollToSection('contactame')">
+            {{ selectedLang === 'ES' ? 'Contáctame' : 'Contact me' }}
+          </a>
         </li>
       </ng-container>
     </ul>
@@ -48,72 +65,45 @@
     <!-- ================== LADO DERECHO ================== -->
     <div class="right-controls">
       <!-- 🔍 BÚSQUEDA -->
-      <div
-        class="search-container"
-        #searchContainer
-        [class.active]="isSearchActive"
-      >
-        <!-- Botón de búsqueda -->
-        <button
-          class="search-button"
-          aria-label="Abrir búsqueda"
-          (click)="toggleSearch()"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="#FFC90E"
-            viewBox="0 0 24 24"
-            width="20"
-            height="20"
-          >
-            <path
-              d="M10 2a8 8 0 015.292 13.708l4.5 4.5-1.414 1.414-4.5-4.5A8 8 0 1110 2zm0 2a6 6 0 100 12 6 6 0 000-12z"
-            />
+      <div class="search-container" #searchContainer [class.active]="isSearchActive">
+        <!-- Botón de búsqueda con ícono SVG -->
+        <button class="search-button" aria-label="Abrir búsqueda" (click)="toggleSearch()">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="#FFC90E" viewBox="0 0 24 24" width="20" height="20">
+            <path d="M10 2a8 8 0 015.292 13.708l4.5 4.5-1.414 1.414-4.5-4.5A8 8 0 1110 2zm0 2a6 6 0 100 12 6 6 0 000-12z"/>
           </svg>
         </button>
 
-        <!-- Barra de búsqueda -->
+        <!-- Barra de búsqueda con navegación de resultados -->
+        <!-- La placeholder cambia dinámicamente según selectedLang -->
         <div class="search-bar">
           <input
             #searchInput
             type="text"
             class="search-input"
-            placeholder="Buscar..."
+            [placeholder]="selectedLang === 'ES' ? 'Buscar...' : 'Search...'"
             (input)="onInputChange($event)"
           />
-
-          <!-- Navegación de resultados -->
           <div class="search-controls">
-            <span class="results-counter"
-              >{{ currentResultIndex }}/{{ totalResults }}</span
-            >
-            <button
-              class="search-nav-button"
-              (click)="navigate(-1)"
-              [disabled]="totalResults === 0"
-            >
-              &#9664;
-            </button>
-            <button
-              class="search-nav-button"
-              (click)="navigate(1)"
-              [disabled]="totalResults === 0"
-            >
-              &#9654;
-            </button>
+            <!-- Contador dinámico de resultados -->
+            <span class="results-counter">{{ currentResultIndex }}/{{ totalResults }}</span>
+            <!-- Botones de navegación entre resultados -->
+            <button class="search-nav-button" (click)="navigate(-1)" [disabled]="totalResults === 0">&#9664;</button>
+            <button class="search-nav-button" (click)="navigate(1)" [disabled]="totalResults === 0">&#9654;</button>
           </div>
         </div>
       </div>
 
       <!-- 🌐 SELECTOR DE IDIOMA -->
+      <!-- Toggle switch: usa checkbox para ES/EN -->
       <div class="toggle">
         <input
           type="checkbox"
           id="btn"
           (change)="toggleLang()"
-          [checked]="selectedLang === 'EN'"
-        />
+          [checked]="selectedLang === 'EN'"/>       <!-- Sincroniza estado con el servicio de idioma -->
+        
         <label for="btn">
+          <!-- track y thumb son puramente visuales, label-on/off muestran el texto del idioma -->
           <span class="track"></span>
           <span class="thumb"></span>
           <span class="label-on">EN</span>

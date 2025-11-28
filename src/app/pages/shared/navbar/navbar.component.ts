@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Renderer2, ViewChild, OnDestroy, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { IdiomaServiceService } from '../../services/idioma-service.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,87 +11,88 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit, OnDestroy {
 
-  // =================== BÚSQUEDA =====================
-  isSearchActive = false;
-  @ViewChild('searchContainer') searchContainer!: ElementRef;
-  @ViewChild('searchInput') searchInput!: ElementRef;
+  // =================== Cambio de idioma ==================
+  selectedLang: 'ES' | 'EN';
 
-@Output() searchEvent = new EventEmitter<string>();
-  @Output() navigateResult = new EventEmitter<number>(); // 🔹 Emite dirección (±1)
+  constructor(
+    private router: Router,
+    private renderer: Renderer2,
+    private languageService: IdiomaServiceService
+  ) {
+    // Inicializamos idioma desde el servicio
+    this.selectedLang = this.languageService.currentLanguage;
 
-  @Input() currentResultIndex = 0; // 🔹 Recibe índice actual del padre
-  @Input() totalResults = 0; // 🔹 Recibe total de resultados
-
-  private globalClickListener!: () => void;
-
-  // =================== INFO GENERAL =====================
-  fechaAct: string = 'Actualizado en 22/06/2024';
-  ruta: string = '';
-  selectedLang: 'ES' | 'EN' = 'ES';
-  activeSection: string = 'introduccion';
-  searchChanged: any;
-
-  constructor(private router: Router, private renderer: Renderer2) {
-    this.router.events.subscribe((event) => {
+    // Actualizamos ruta al navegar
+    this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.ruta = event.urlAfterRedirects;
       }
     });
   }
 
-  // =================== CICLO DE VIDA =====================
+  toggleLang() {
+    this.selectedLang = this.selectedLang === 'ES' ? 'EN' : 'ES';
+    this.languageService.setLanguage(this.selectedLang);
+  }
+
+  // =================== Fecha de actualización traducible ==================
+  get fechaAct(): string {
+    const fecha = '22/06/2024'; // Aquí puedes poner fecha dinámica si quieres
+    return this.selectedLang === 'ES' ? `Actualizado en ${fecha}` : `Updated on ${fecha}`;
+  }
+
+  // =================== Búsqueda ==================
+  isSearchActive = false;
+  @ViewChild('searchContainer') searchContainer!: ElementRef;
+  @ViewChild('searchInput') searchInput!: ElementRef;
+
+  @Output() searchEvent = new EventEmitter<string>();
+  @Output() navigateResult = new EventEmitter<number>();
+  @Input() currentResultIndex = 0;
+  @Input() totalResults = 0;
+  private globalClickListener!: () => void;
+
+  // =================== Información general ==================
+  ruta: string = '';
+  activeSection: string = 'introduccion';
+
+  // =================== Ciclo de vida ==================
   ngOnInit() {
     this.ruta = this.router.url;
 
-    // 🔹 Cerrar búsqueda al hacer click fuera
-    this.globalClickListener = this.renderer.listen(
-      'document',
-      'click',
-      (event: Event) => {
-        if (this.isSearchActive && this.searchContainer) {
-          const clickedInside = this.searchContainer.nativeElement.contains(
-            event.target
-          );
-          if (!clickedInside) {
-            this.closeSearch();
-          }
-        }
+    // Cerrar búsqueda al hacer click fuera
+    this.globalClickListener = this.renderer.listen('document', 'click', (event: Event) => {
+      if (this.isSearchActive && this.searchContainer) {
+        const clickedInside = this.searchContainer.nativeElement.contains(event.target);
+        if (!clickedInside) this.closeSearch();
       }
-    );
+    });
 
-    // 🔹 Activar scroll spy
+    // Activar scroll spy
     this.initScrollSpy();
   }
 
   ngOnDestroy() {
-    if (this.globalClickListener) {
-      this.globalClickListener();
-    }
+    if (this.globalClickListener) this.globalClickListener();
   }
 
-  // =================== LÓGICA DE BÚSQUEDA =====================
+  // =================== Búsqueda ==================
   toggleSearch() {
     this.isSearchActive = !this.isSearchActive;
-
     if (this.isSearchActive) {
-      setTimeout(() => {
-        this.searchInput.nativeElement.focus();
-      }, 0);
+      setTimeout(() => this.searchInput.nativeElement.focus(), 0);
     } else {
       this.clearSearch();
     }
   }
 
-
-
-onInputChange(event: Event) {
-  const value = (event.target as HTMLInputElement).value;
-  this.searchEvent.emit(value.trim());
-}
-
+  onInputChange(event: Event) {
+    const value = (event.target as HTMLInputElement).value;
+    this.searchEvent.emit(value.trim());
+  }
 
   navigate(direction: number) {
-    this.navigateResult.emit(direction); // 🔹 Mover entre resultados
+    this.navigateResult.emit(direction);
   }
 
   closeSearch() {
@@ -98,50 +100,29 @@ onInputChange(event: Event) {
     this.clearSearch();
   }
 
-clearSearch() {
-  if (this.searchInput) {
-    this.searchInput.nativeElement.value = '';
-  }
-  // emitimos cadena vacía para que el padre limpie highlights
-  this.searchEvent.emit('');
-}
-
-  // =================== MENÚ Y RUTAS =====================
-  get esTecnico(): boolean {
-    return this.ruta.includes('tecnic');
+  clearSearch() {
+    if (this.searchInput) this.searchInput.nativeElement.value = '';
+    this.searchEvent.emit('');
   }
 
-  get esPersonal(): boolean {
-    return this.ruta.includes('personal');
-  }
-
-  toggleLang() {
-    this.selectedLang = this.selectedLang === 'ES' ? 'EN' : 'ES';
-    console.log('Idioma seleccionado:', this.selectedLang);
-  }
+  // =================== Menú y rutas ==================
+  get esTecnico(): boolean { return this.ruta.includes('tecnic'); }
+  get esPersonal(): boolean { return this.ruta.includes('personal'); }
 
   scrollToSection(sectionId: string) {
     const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  // =================== MARCAR SECCIÓN ACTIVA =====================
+  // =================== Scroll spy ==================
   initScrollSpy() {
     const sections = document.querySelectorAll<HTMLElement>('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) this.activeSection = entry.target.id;
+      });
+    }, { threshold: 0.6 });
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            this.activeSection = entry.target.id;
-          }
-        });
-      },
-      { threshold: 0.6 } // 🔹 60% visible para activarse
-    );
-
-    sections.forEach((section) => observer.observe(section));
+    sections.forEach(section => observer.observe(section));
   }
 }

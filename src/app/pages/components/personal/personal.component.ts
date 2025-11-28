@@ -6,6 +6,7 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 import gsap from 'gsap';
 import Swiper from 'swiper';
 import emailjs from 'emailjs-com';
+import { IdiomaServiceService } from '../../services/idioma-service.service';
 @Component({
   selector: 'app-personal',
   standalone: true,
@@ -13,7 +14,49 @@ import emailjs from 'emailjs-com';
   templateUrl: './personal.component.html',
   styleUrls: ['./personal.component.css']
 })
+
+
+
+
 export class PersonalComponent implements AfterViewInit{
+ //----------------------------------------------------------------cambio de idioma --------------------------------------------------------------------------
+private typingTimeout: any; // para guardar el setTimeout
+
+ selectedLang: 'ES' | 'EN' = 'ES';
+
+
+
+getTranslation(key: keyof typeof this.translations['ES']): string | string[] {
+  return this.translations[this.selectedLang][key];
+}
+
+
+translations: {
+  ES: { typing: string[]; hello: string; jobTitle: string; description: string; moreAbout: string; downloadCV: string };
+  EN: { typing: string[]; hello: string; jobTitle: string; description: string; moreAbout: string; downloadCV: string };
+} = {
+  ES: {
+    hello: 'Hola, buenas 👋',
+    jobTitle: 'Programador Backend',
+    description: 'Apasionado por transformar ideas en soluciones eficientes y escalables. Me encanta trabajar en proyectos que desafían mis habilidades y contribuyen al crecimiento de la empresa.',
+    moreAbout: 'Más sobre mí',
+    downloadCV: 'Descargar CV',
+    typing: ['Soy David Quintana', 'Encantado de presentar', 'Mi porfolio :) ']
+  },
+  EN: {
+    hello: 'Hi there👋',
+    jobTitle: 'Backend Developer',
+    description: 'Passionate about transforming ideas into efficient and scalable solutions. I love working on projects that challenge my skills and contribute to the companys growth.',
+    moreAbout: 'More about me',
+    downloadCV: 'Download CV',
+    typing: ['I am David Quintana', 'Pleased to introduce', 'My portfolio :) ']
+  }
+};
+
+
+
+
+
   //-------------------------------------------------------------bootn cambio----------------------------------------------------------------
 
   rutaActual: string = '';
@@ -44,7 +87,7 @@ cambiarComponente() {
 
 
 
-  constructor(private router: Router, private el: ElementRef, private cd: ChangeDetectorRef, private fb: FormBuilder) {
+  constructor(private router: Router, private el: ElementRef, private cd: ChangeDetectorRef, private fb: FormBuilder,private languageService: IdiomaServiceService) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -59,39 +102,58 @@ cambiarComponente() {
 
 
   //----------------------------------------------------------------ANIMACION TECLADO -----------------------------------------------------------------
-
-  @Input() texts: string[] = ['Soy David Quintana', 'Encantado de presentar', 'Mi porfolio :) '];
-  @Input() period: number = 2000;
+@Input() texts: string[] = []; // ⬅ ya no le ponemos valor literal
+@Input() period: number = 2000;
 
   displayText: string = '';
   private loopNum = 0;
   private isDeleting = false;
 
+private tick() {
+  const i = this.loopNum % this.texts.length;
+  const fullText = this.texts[i];
 
-  private tick() {
-    const i = this.loopNum % this.texts.length;
-    const fullText = this.texts[i];
-
-    if (this.isDeleting) {
-      this.displayText = fullText.substring(0, this.displayText.length - 1);
-    } else {
-      this.displayText = fullText.substring(0, this.displayText.length + 1);
-    }
-
-    let delta = 200 - Math.random() * 100;
-    if (this.isDeleting) delta /= 2;
-
-    if (!this.isDeleting && this.displayText === fullText) {
-      delta = this.period;
-      this.isDeleting = true;
-    } else if (this.isDeleting && this.displayText === '') {
-      this.isDeleting = false;
-      this.loopNum++;
-      delta = 500;
-    }
-
-    setTimeout(() => this.tick(), delta);
+  if (this.isDeleting) {
+    this.displayText = fullText.substring(0, this.displayText.length - 1);
+  } else {
+    this.displayText = fullText.substring(0, this.displayText.length + 1);
   }
+
+  // ⬇ velocidad base más lenta
+  let delta = 100 + Math.random() * 210; // entre 300ms y 500ms por letra
+
+  if (this.isDeleting) delta /= 3;       // borrado un poco más rápido, pero no tan extremo
+
+  if (!this.isDeleting && this.displayText === fullText) {
+    delta = this.period; // pausa al final de la palabra
+    this.isDeleting = true;
+  } else if (this.isDeleting && this.displayText === '') {
+    this.isDeleting = false;
+    this.loopNum++;
+    delta = 500; // pausa al terminar de borrar
+  }
+
+  this.typingTimeout = setTimeout(() => this.tick(), delta);
+}
+
+
+private restartTypingAnimation() {
+  // ❌ Detenemos cualquier tick anterior
+  if (this.typingTimeout) clearTimeout(this.typingTimeout);
+
+  // ❌ Reiniciamos variables
+  this.loopNum = 0;
+  this.isDeleting = false;
+  this.displayText = '';
+
+  // ❌ Arrancamos la animación de nuevo
+  this.tick();
+}
+
+
+
+
+
   //--------------------------------------------------------------ANIMACION CIRCULOS-----------------------------------------------------------------
 
 // ===== SKILLS =====
@@ -297,9 +359,26 @@ text: 'El codigo se divide en <span class="azulTs">Frontend</span> y <span class
 
  
   ngOnInit() {
+
+   // Suscripción a cambios de idioma
+  // Inicializa textos y animación con idioma actual
+  this.texts = [...this.translations[this.selectedLang].typing];
+  this.restartTypingAnimation();
+
+  // Suscripción a cambios de idioma
+  this.languageService.lang$.subscribe(lang => {
+    this.selectedLang = lang;
+    this.texts = [...this.translations[lang].typing];
+    this.restartTypingAnimation(); // reinicia animación limpia
+  });
+
+
+
+
+
       this.rutaActual = this.router.url; // Obtiene la URL actual
   console.log('Ruta inicial:', this.rutaActual);
-       this.tick();
+   
     // Inicializa imágenes y estados antes de render
     this.proyectos.forEach((proyecto, i) => {
       this.activeImages[i] = proyecto.posts[0].img;
