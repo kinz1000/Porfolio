@@ -10,6 +10,9 @@ import { IdiomaServiceService } from '../../services/idioma-service.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit, OnDestroy {
+volverInicio() {
+  this.router.navigate(["/tecnic"]);
+}
 
   // =================== Cambio de idioma ==================
   selectedLang: 'ES' | 'EN';
@@ -37,7 +40,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   // =================== Fecha de actualización traducible ==================
   get fechaAct(): string {
-    const fecha = '22/06/2024'; // Aquí puedes poner fecha dinámica si quieres
+    const fecha = '04/12/2025'; // Aquí puedes poner fecha dinámica si quieres
     return this.selectedLang === 'ES' ? `Actualizado en ${fecha}` : `Updated on ${fecha}`;
   }
 
@@ -57,20 +60,23 @@ export class NavbarComponent implements OnInit, OnDestroy {
   activeSection: string = 'introduccion';
 
   // =================== Ciclo de vida ==================
-  ngOnInit() {
-    this.ruta = this.router.url;
+ngOnInit() {
+  // Suscribirse al idioma del servicio
+  this.languageService.lang$.subscribe(lang => {
+    this.selectedLang = lang;
+  });
 
-    // Cerrar búsqueda al hacer click fuera
-    this.globalClickListener = this.renderer.listen('document', 'click', (event: Event) => {
-      if (this.isSearchActive && this.searchContainer) {
-        const clickedInside = this.searchContainer.nativeElement.contains(event.target);
-        if (!clickedInside) this.closeSearch();
-      }
-    });
+  // Listener de rutas y scroll spy
+  this.ruta = this.router.url;
+  this.globalClickListener = this.renderer.listen('document', 'click', (event: Event) => {
+    if (this.isSearchActive && this.searchContainer) {
+      const clickedInside = this.searchContainer.nativeElement.contains(event.target);
+      if (!clickedInside) this.closeSearch();
+    }
+  });
 
-    // Activar scroll spy
-    this.initScrollSpy();
-  }
+  this.initScrollSpy();
+}
 
   ngOnDestroy() {
     if (this.globalClickListener) this.globalClickListener();
@@ -108,6 +114,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   // =================== Menú y rutas ==================
   get esTecnico(): boolean { return this.ruta.includes('tecnic'); }
   get esPersonal(): boolean { return this.ruta.includes('personal'); }
+    get esTerminos(): boolean { return this.ruta.includes('TermsandConditions'); }
+      get esPrivacidad(): boolean { return this.ruta.includes('Privacyandcookis'); }
 
   scrollToSection(sectionId: string) {
     const element = document.getElementById(sectionId);

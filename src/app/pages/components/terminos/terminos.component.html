@@ -1,0 +1,105 @@
+<app-navbar
+
+  (searchEvent)="onSearch($event)"
+  (navigateResult)="onNavigateResult($event)"
+  [currentResultIndex]="currentResultIndex"
+  [totalResults]="totalResults"
+></app-navbar>
+<main #mainContent>
+<!-- terminos.component.html -->
+  <div class="terminos-container">
+    <!-- Título -->
+    <h1>{{ selectedLang === 'ES' ? 'Términos y Condiciones' : 'Terms and Conditions' }}</h1>
+    <span class="fecha">
+      {{ selectedLang === 'ES' ? 'Última actualización: 1 de diciembre de 2025' : 'Last update: December 1, 2025' }}
+    </span>
+
+    <!-- 1. Propósito del sitio -->
+    <h3>1. {{ selectedLang === 'ES' ? 'Propósito del sitio' : 'Purpose of the Site' }}</h3>
+    <p>
+      {{ selectedLang === 'ES'
+        ? 'Este portafolio tiene fines informativos y profesionales, mostrando proyectos, habilidades y experiencia en desarrollo de software backend y tecnologías relacionadas. El contenido se ofrece únicamente con fines educativos, de demostración y de promoción profesional.'
+        : 'This portfolio serves informative and professional purposes, showcasing projects, skills, and experience in backend software development and related technologies. The content is provided solely for educational, demonstration, and professional promotion purposes.' }}
+    </p>
+
+    <!-- 2. Uso del contenido -->
+    <h3>2. {{ selectedLang === 'ES' ? 'Uso del contenido' : 'Content Usage' }}</h3>
+    <ul>
+      <li>
+        {{ selectedLang === 'ES'
+          ? 'Todo el contenido (texto, imágenes, código, diseños y proyectos) es propiedad del autor, a menos que se indique lo contrario.'
+          : 'All content (text, images, code, designs, and projects) is owned by the author unless otherwise indicated.' }}
+      </li>
+      <li>
+        {{ selectedLang === 'ES'
+          ? 'No se permite copiar, distribuir, reproducir ni usar el contenido para fines comerciales sin autorización expresa.'
+          : 'Copying, distributing, reproducing, or using the content for commercial purposes without express permission is not allowed.' }}
+      </li>
+      <li>
+        {{ selectedLang === 'ES'
+          ? 'Puedes referenciar o mostrar ejemplos para fines educativos siempre que se cite la fuente.'
+          : 'You may reference or display examples for educational purposes as long as the source is cited.' }}
+      </li>
+    </ul>
+
+    <!-- 3. Responsabilidad -->
+    <h3>3. {{ selectedLang === 'ES' ? 'Responsabilidad' : 'Liability' }}</h3>
+    <ul>
+      <li>
+        {{ selectedLang === 'ES'
+          ? 'El sitio se proporciona “tal cual”, sin garantías de ningún tipo.'
+          : 'The site is provided "as is", without any warranties.' }}
+      </li>
+      <li>
+        {{ selectedLang === 'ES'
+          ? 'No se garantiza que el contenido esté siempre actualizado o que todos los enlaces externos funcionen correctamente.'
+          : 'No guarantee is given that the content is always up-to-date or that all external links work properly.' }}
+      </li>
+      <li>
+        {{ selectedLang === 'ES'
+          ? 'No me hago responsable por pérdidas o daños derivados del uso de este sitio o de la información aquí contenida.'
+          : 'I am not responsible for any losses or damages resulting from the use of this site or the information contained herein.' }}
+      </li>
+    </ul>
+
+    <!-- 4. Propiedad intelectual -->
+    <h3>4. {{ selectedLang === 'ES' ? 'Propiedad intelectual' : 'Intellectual Property' }}</h3>
+    <p>
+      {{ selectedLang === 'ES'
+        ? 'Todo el material presentado (proyectos, código, imágenes y textos) es propiedad intelectual del autor. Los nombres de marcas o tecnologías mencionadas pertenecen a sus respectivos propietarios.'
+        : 'All material presented (projects, code, images, and texts) is the intellectual property of the author. Brand names or technologies mentioned belong to their respective owners.' }}
+    </p>
+
+    <!-- 5. Enlaces externos -->
+    <h3>5. {{ selectedLang === 'ES' ? 'Enlaces externos' : 'External Links' }}</h3>
+    <p>
+      {{ selectedLang === 'ES'
+        ? 'Este portafolio puede contener enlaces a sitios de terceros. No tengo control sobre esos sitios y no me hago responsable del contenido, seguridad o privacidad de los mismos.'
+        : 'This portfolio may contain links to third-party sites. I have no control over those sites and am not responsible for their content, security, or privacy.' }}
+    </p>
+
+    <!-- 6. Privacidad -->
+    <h3>6. {{ selectedLang === 'ES' ? 'Privacidad' : 'Privacy' }}</h3>
+    <p>
+      {{ selectedLang === 'ES'
+        ? 'No se recopila información personal de los visitantes sin consentimiento explícito. Si se habilitan formularios de contacto o suscripción, la información se utilizará únicamente para responder a consultas y no será compartida con terceros.'
+        : 'No personal information from visitors is collected without explicit consent. If contact or subscription forms are enabled, the information is used solely to respond to inquiries and is not shared with third parties.' }}
+    </p>
+
+    <!-- 7. Modificaciones -->
+    <h3>7. {{ selectedLang === 'ES' ? 'Modificaciones' : 'Modifications' }}</h3>
+    <p>
+      {{ selectedLang === 'ES'
+        ? 'Me reservo el derecho de modificar estos términos y condiciones en cualquier momento. Los cambios se publicarán en esta misma página y serán efectivos inmediatamente.'
+        : 'I reserve the right to modify these terms and conditions at any time. Changes will be posted on this page and will take effect immediately.' }}
+    </p>
+
+    <!-- 8. Contacto -->
+    <h3>8. {{ selectedLang === 'ES' ? 'Contacto' : 'Contact' }}</h3>
+    <p>
+      {{ selectedLang === 'ES'
+        ? 'Para cualquier consulta sobre estos términos o sobre el portafolio, puedes contactarme a través de la sección de contacto del sitio.'
+        : 'For any inquiries about these terms or the portfolio, you can contact me through the contact section of the site.' }}
+    </p>
+  </div>
+    </main>

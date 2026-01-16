@@ -9,13 +9,42 @@
     <!-- ================== LOGO / FECHA ================== -->
     <!-- Muestra la fecha de actualización si estamos en secciones Técnico o Personal -->
  <a href="#" class="logo" title="Última actualización de la página">
-  {{ esTecnico || esPersonal ? fechaAct : 'No se encuentra la ruta' }}
+  {{ esTecnico || esPersonal|| esTerminos||esPrivacidad ? fechaAct : 'No se encuentra la ruta' }}
 </a>
 
     <span class="barra-vertical">│</span>
 
     <!-- ================== MENÚ DE SECCIONES ================== -->
     <ul class="nav-links">
+ 
+    <ng-container *ngIf="esTerminos"> 
+      
+      <li [class.active]="activeSection === 'sobre-mi'">
+          <a (click)="volverInicio()" title="Volver al profolio">
+            {{ selectedLang === 'ES' ? 'Volver' : 'Return' }}
+          </a>
+        </li>
+        
+        
+        </ng-container>
+    <ng-container *ngIf="esPrivacidad"> 
+      
+      <li [class.active]="activeSection === 'sobre-mi'">
+          <a (click)="volverInicio()" title="Volver al profolio">
+            {{ selectedLang === 'ES' ? 'Volver' : 'Return' }}
+          </a>
+        </li>
+        
+        
+        </ng-container>
+
+
+
+
+
+
+
+
       <!-- 🔹 Menú para Técnico -->
       <ng-container *ngIf="esTecnico">
         <!-- Cada <li> activa la clase 'active' si coincide con la sección visible -->

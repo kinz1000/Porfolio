@@ -109,3 +109,36 @@ mark.highlight.active {
   color: rgb(0, 0, 0) !important;
   box-shadow: 0 0 8px 2px rgba(0, 0, 255, 0.6);
 }
+
+
+
+/* Estilos para colores del texto */
+.orange {
+  color: #ffcc66;
+}
+
+.yellow {
+  color: #f7dc6f;
+}
+
+.red {
+  color: #ff6b6b;
+}
+
+.red-B {
+  color: #f74646;
+}
+.red {
+  color: #f74646;
+}
+.number {
+  color: #999;
+  margin-right: 4px;
+}
+
+.green-T {
+  color: #60d260;
+}
+.green{
+  color: #60d260;
+}

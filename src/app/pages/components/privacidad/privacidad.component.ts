@@ -1,22 +1,16 @@
-import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { NavbarComponent } from "../../shared/navbar/navbar.component";
-import Swiper from 'swiper';
-import { CommonModule } from '@angular/common';
+import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { IdiomaServiceService } from '../../services/idioma-service.service';
-export interface Post {
-  img: string;
-  date: string;
-  title: string;
-  text: string;
-}
+import { NavbarComponent } from "../../shared/navbar/navbar.component";
 
 @Component({
-  selector: 'app-tecnic',
-  imports: [NavbarComponent,CommonModule ],
-  templateUrl: './tecnic.component.html',
-  styleUrl: './tecnic.component.css'
+  selector: 'app-privacidad',
+  imports: [NavbarComponent],
+  templateUrl: './privacidad.component.html',
+  styleUrl: './privacidad.component.css'
 })
-export class TecnicComponent  {
+export class PrivacidadComponent {
+
+
 
 
 constructor(private idiomaService: IdiomaServiceService) {
@@ -25,22 +19,7 @@ constructor(private idiomaService: IdiomaServiceService) {
   });
 }
 
-
-selectedLang!: 'ES' | 'EN';
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
+selectedLang: 'ES' | 'EN' = 'ES';
 
 
 @ViewChildren('sectionElement') sectionElements!: QueryList<ElementRef>;
@@ -127,23 +106,4 @@ clearHighlights() {
   });
   this.highlightedElements = [];
 }
-
-
-
-
-
-
-
-
-getCodeText(): string {
-  if (this.selectedLang === 'ES') {
-    return 'La verdadera <span class="green">madurez</span> llega cuando entiendes que no todo se puede <span class="orange">optimizar</span>; hay procesos que deben correr <span class="red">lento</span> para tener sentido.';
-  } else {
-    return 'True <span class="green">maturity</span> comes when you understand that not everything can be <span class="orange">optimized</span>; some processes must run <span class="red">slowly</span> to make sense.';
-  }
-}
-
-
-
-
 }

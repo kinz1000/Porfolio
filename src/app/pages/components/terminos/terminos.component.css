@@ -1,0 +1,67 @@
+/* Contenedor principal */
+.terminos-container {
+  max-width: 900px;       /* ancho máximo para lectura cómoda */
+  margin: 50px auto;       /* centrado horizontal con margen superior */
+  padding: 30px;           /* espacio interno */
+  background-color: #f9f9f9; /* fondo suave */
+  border-radius: 12px;      /* bordes redondeados */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* sombra sutil */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* Título principal */
+.terminos-container h1,
+.terminos-container h2 {
+  text-align: center;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+/* Subtítulos de secciones */
+.terminos-container h3 {
+  color: #444;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+/* Párrafos */
+.terminos-container p,
+.terminos-container li {
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+/* Listas */
+.terminos-container ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+/* Resaltado de fecha u otro info */
+.terminos-container .fecha {
+  display: block;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* Responsive: móvil */
+@media (max-width: 768px) {
+  .terminos-container {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .terminos-container h3 {
+    font-size: 1.1rem;
+  }
+
+  .terminos-container p,
+  .terminos-container li {
+    font-size: 0.95rem;
+  }
+}

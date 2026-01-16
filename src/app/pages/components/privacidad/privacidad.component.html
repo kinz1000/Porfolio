@@ -1,0 +1,57 @@
+<app-navbar
+
+  (searchEvent)="onSearch($event)"
+  (navigateResult)="onNavigateResult($event)"
+  [currentResultIndex]="currentResultIndex"
+  [totalResults]="totalResults"
+></app-navbar>
+<main #mainContent>
+
+<main #mainContent>
+  <div class="privacidad-container">
+    <h1>{{ selectedLang === 'ES' ? 'Privacidad y Cookies' : 'Privacy & Cookies' }}</h1>
+    <span class="fecha">
+      {{ selectedLang === 'ES' ? 'Última actualización: 1 de diciembre de 2025' : 'Last update: December 1, 2025' }}
+    </span>
+
+    <!-- 1. Información recopilada -->
+    <h3>1. {{ selectedLang === 'ES' ? 'Información recopilada' : 'Information Collected' }}</h3>
+    <p>
+      {{ selectedLang === 'ES'
+        ? 'No recopilamos información personal de los visitantes sin su consentimiento explícito. Cuando se usan formularios de contacto, la información se envía únicamente a mi correo para responder consultas.'
+        : 'We do not collect personal information from visitors without explicit consent. When contact forms are used, the information is sent only to my email to respond to inquiries.' }}
+    </p>
+
+    <!-- 2. Uso de la información -->
+    <h3>2. {{ selectedLang === 'ES' ? 'Uso de la información' : 'Use of Information' }}</h3>
+    <p>
+      {{ selectedLang === 'ES'
+        ? 'La información recopilada se utiliza únicamente para fines de contacto y comunicación profesional, nunca se comparte con terceros.'
+        : 'Collected information is used solely for contact and professional communication purposes and is never shared with third parties.' }}
+    </p>
+
+    <!-- 3. Cookies -->
+    <h3>3. {{ selectedLang === 'ES' ? 'Cookies' : 'Cookies' }}</h3>
+    <p>
+      {{ selectedLang === 'ES'
+        ? 'Este sitio web puede usar cookies técnicas para mejorar la experiencia del usuario y estadísticas básicas. No se usan cookies para publicidad ni seguimiento externo.'
+        : 'This website may use technical cookies to enhance user experience and basic analytics. No cookies are used for advertising or external tracking.' }}
+    </p>
+
+    <!-- 4. Modificaciones -->
+    <h3>4. {{ selectedLang === 'ES' ? 'Modificaciones' : 'Modifications' }}</h3>
+    <p>
+      {{ selectedLang === 'ES'
+        ? 'Me reservo el derecho de actualizar esta política de privacidad en cualquier momento. Los cambios se publicarán en esta misma página y serán efectivos inmediatamente.'
+        : 'I reserve the right to update this privacy policy at any time. Changes will be posted on this page and will take effect immediately.' }}
+    </p>
+
+    <!-- 5. Contacto -->
+    <h3>5. {{ selectedLang === 'ES' ? 'Contacto' : 'Contact' }}</h3>
+    <p>
+      {{ selectedLang === 'ES'
+        ? 'Para cualquier consulta sobre privacidad o cookies, puedes contactarme a través de la sección de contacto del portafolio.'
+        : 'For any inquiries about privacy or cookies, you can contact me through the portfolio contact section.' }}
+    </p>
+  </div>
+    </main>

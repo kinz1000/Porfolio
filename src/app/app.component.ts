@@ -1,6 +1,5 @@
 import { ChangeDetectorRef, Component, HostListener, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { BotonCambioComponent } from "./pages/shared/boton-cambio/boton-cambio.component";
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { LoaderComponent } from "./pages/components/loader/loader.component";
@@ -8,7 +7,7 @@ import { LoaderComponent } from "./pages/components/loader/loader.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, BotonCambioComponent, CommonModule, LoaderComponent],
+  imports: [RouterOutlet,  CommonModule, LoaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -212,7 +212,9 @@
 .red-B {
   color: #f74646;
 }
-
+.red {
+  color: #f74646;
+}
 .number {
   color: #999;
   margin-right: 4px;
@@ -221,7 +223,9 @@
 .green-T {
   color: #60d260;
 }
-
+.green{
+  color: #60d260;
+}
 /* Responsivo */
 @media (max-width: 480px) {
   .code-card {
@@ -232,7 +236,7 @@
 }
 
 .bloque-inferior {
-  font-size: small;
+  font-size: 11.3px;
   font-family: 'JetBrains Mono', monospace;
   margin-top: 30px;
   align-items: flex-start;
@@ -381,3 +385,116 @@
     align-items: center;
   }
 }
+
+
+
+
+/*===============================================================================================================================*/
+
+
+
+.wrapper-sm {
+    transform: translateX(35vw) translateY(15vh);
+  
+  --card-trans-duration: 1000ms;
+  --card-trans-easing:linear(0, 0.01 0.8%, 0.038 1.6%, 0.154 3.4%, 0.781 9.7%, 1.01 12.5%, 1.089 13.8%, 1.153 15.2%, 1.195 16.6%, 1.219 18%, 1.224 19.7%, 1.208 21.6%, 1.172 23.6%, 1.057 28.6%, 1.007 31.2%, 0.969 34.1%, 0.951 37.1%, 0.953 40.9%, 0.998 50.4%, 1.011 56%, 0.998 74.7%, 1);
+  
+  
+  --card-border-radius: 10px;
+  --card-width: 20vmin;
+  --radius: 65vmin; 
+  --cards: sibling-count();
+  @supports not (order:sibling-index()) {
+    --cards: 7;
+  }
+  --arc-size: 0.32;          /* essentially the distance between cards */
+  --arc-center: 0.75;        /* top */
+  --arc-start: calc(var(--arc-center) - var(--arc-size) / 2);
+  --arc-shift: 0;
+  --arc-shift-delta: 0.01;
+
+  position: relative;
+  width: var(--card-width);
+  aspect-ratio:4/6;
+  /*outline: 1px dashed red;*/
+ & > div {
+   --card-i: sibling-index();
+   @supports not (order:sibling-index()) {
+     &:nth-child(1){--card-i:1}
+     &:nth-child(2){--card-i:2}
+     &:nth-child(3){--card-i:3}
+     &:nth-child(4){--card-i:4}
+     &:nth-child(5){--card-i:5}
+     &:nth-child(6){--card-i:6}
+     &:nth-child(7){--card-i:7}
+   }
+  --arc-step: calc(var(--arc-size) / (var(--cards) - 1));
+    
+  position: absolute;
+  width: var(--card-width);
+  aspect-ratio:4/6;
+  background: white;
+  border-radius: var(--card-border-radius);
+
+  offset-path: circle(var(--radius) at 50% 100%);
+  offset-distance: calc(
+    (var(--arc-start)
+     + (var(--card-i) - 1) * var(--arc-step)
+     + var(--arc-shift)
+    ) * 100%
+  );
+	
+
+  offset-rotate: auto;
+  offset-anchor:50% 0%;
+  transition: all var(--card-trans-duration) var(--card-trans-easing);
+
+   &:where(:nth-child(1),:nth-child(7)){
+     z-index: 0;
+   }
+    &:where(:nth-child(2),:nth-child(6)){
+     z-index: 1;
+   }
+    &:where(:nth-child(3),:nth-child(5)){
+     z-index: 3;
+   }
+    &:nth-child(4){
+     z-index: 4;
+   }
+   &:hover{
+     offset-anchor: 50% 10%;
+     & + div{
+      --arc-shift: calc(var(--arc-shift-delta) * 3);  
+     }
+    & + div + div{
+      --arc-shift: calc(var(--arc-shift-delta) * 2);   
+     }
+      & + div + div + div{
+      --arc-shift: calc(var(--arc-shift-delta) * 1);    
+     }
+    }
+    &:has(+*:hover){
+      --arc-shift: calc(var(--arc-shift-delta) * -3);    
+    }
+     &:has(+*+*:hover){
+      --arc-shift: calc(var(--arc-shift-delta) * -2);    
+    }
+     &:has(+*+*+*:hover){
+      --arc-shift: calc(var(--arc-shift-delta) * -1);   
+    }
+
+  
+    & > img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: inherit;
+    } 
+  }
+}
+
+  
+
+
+

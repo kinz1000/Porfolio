@@ -61,28 +61,25 @@
 </section>
 
 <!------------------------------------------------------------trayectoria----------------------------------------------------------------------------------------- -->
+<!------------------------------------------------------------trayectoria----------------------------------------------------------------------------------------- -->
 
 <section id="trayectoria" class="section section-dark">
-
 
   <!-- The Timeline -->
 
   <ul class="timeline">
-    <h3 class="col-title">Estudios</h3>
+    <h3 class="col-title">{{ getTranslation('studies') }}</h3>
 
     <li>
       <div class="direction-r">
         <div class="flag-wrapper">
-          <span class="flag">Bachillerato en IES La Salle</span>
+          <span class="flag">{{ getTranslation('bachillerato') }}</span>
           <span class="time-wrapper"><span class="time">2020 - 2022</span></span>
         </div>
-        <div class="desc">
-          Finalicé el bachillerato científico-tecnológico en el IES La Salle, donde desarrollé una sólida base en
-          matemáticas, física e informática.
-        </div>
+        <div class="desc">{{ getTranslation('bachilleratoDesc') }}</div>
         <div class="btn-certificado">
           <a href="certificados/bachillerato.pdf" download class="cert-btn">
-            📄 Descargar Certificado
+            📄 {{ getTranslation('downloadCertificate') }}
           </a>
         </div>
       </div>
@@ -91,16 +88,13 @@
     <li>
       <div class="direction-l">
         <div class="flag-wrapper">
-          <span class="flag">Grado Superior DAM</span>
+          <span class="flag">{{ getTranslation('gradoSuperior') }}</span>
           <span class="time-wrapper"><span class="time">2022 - 2024</span></span>
         </div>
-        <div class="desc">
-          Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM), adquiriendo experiencia en Java, SQL,
-          Android y estructuras de datos.
-        </div>
+        <div class="desc">{{ getTranslation('gradoSuperiorDesc') }}</div>
         <div class="btn-certificado">
           <a href="certificados/bachillerato.pdf" download class="cert-btn">
-            📄 Descargar Certificado
+            📄 {{ getTranslation('downloadCertificate') }}
           </a>
         </div>
       </div>
@@ -109,14 +103,12 @@
     <li>
       <div class="direction-r">
         <div class="flag-wrapper">
-          <span class="flag">Curso de Python en IA</span>
-          <span class="time-wrapper"><span class="time">2024 - Actualidad</span></span>
+          <span class="flag">{{ getTranslation('cursoPython') }}</span>
+     <span class="time-wrapper">
+  <span class="time">2024 - {{ getTranslation('present') }}</span>
+</span>
         </div>
-        <div class="desc">
-          Actualmente cursando en Toki School un programa de especialización en Python, IA y automatización con modelos
-          de aprendizaje automático.
-        </div>
-
+        <div class="desc">{{ getTranslation('cursoPythonDesc') }}</div>
       </div>
     </li>
 
@@ -126,26 +118,30 @@
 
   <ul class="timeline">
 
-    <h3 class="col-title-ex">Experiencia
-      <br> Laboral
-    </h3>
+    <h3 class="col-title-ex">{{ getTranslation('workExperience') }}</h3>
 
     <!-- Item 1 -->
     <li>
       <div class="direction-r">
         <div class="flag-wrapper">
-          <span class="flag">Alten Spain</span>
-          <span class="time-wrapper"><span class="time">Septiembre - Diciembre 2024</span></span>
+          <span class="flag">{{ getTranslation('alten') }}</span>
+          <span class="time-wrapper"> <span class="time">{{ getTranslation('monthSept') }} - {{ getTranslation('monthDec') }} 2024</span></span>
         </div>
-        <div class="desc">
-          Realicé 250 horas de prácticas en <strong>Alten Spain</strong> como desarrollador junior,
-          colaborando en proyectos de software empresarial y automatización de procesos.
-          Durante esta experiencia, reforcé mis conocimientos en <em>Java, Spring Boot</em> y <em>SQL</em>,
-          además de adquirir experiencia en trabajo en equipo ágil.
-        </div>
+        <div class="desc">{{ getTranslation('altenDesc') }}</div>
       </div>
     </li>
 
+    <li>
+      <div class="direction-l">
+        <div class="flag-wrapper">
+          <span class="flag">{{ getTranslation('indra') }}</span>
+        <span class="time-wrapper">
+  <span class="time">2025 - {{ getTranslation('present') }}</span>
+</span>
+        </div>
+        <div class="desc">{{ getTranslation('indraDesc') }}</div>
+      </div>
+    </li>
 
     <div class="direction-r">
       <div class="flag-wrapper">
@@ -159,22 +155,21 @@
       <br>
       <br>
       <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
     </div>
-
 
   </ul>
 </section>
+
 <!------------------------------------------------------------------stack------------------------------------------------------------------------------------------------- -->
 <section id="stack" class="section">
   <br>
   <br>
   <h1 class="stack-title">STACK</h1>
+  
+  <!-- Texto explicativo debajo del título -->
+<p class="stack-description">
+  {{ getTranslation('stackDescription') }}
+</p>
   <!--<div class="vertical-line"></div>-->
   <div class="stack-columns">
     <!-- COLUMNA IZQUIERDA -->
@@ -229,9 +224,13 @@
 <!-----------------------------------------------------------proyectos----------------------------------------------------------------------------------------------------------- -->
 
 <section id="proyectos" class="section section-dark">
+ 
   <h2>Proyectos</h2>
 
+
+
  <div class="proyectos-container">
+   
   <div *ngFor="let proyecto of proyectos; let i = index" class="project-card">
 
     <!-- Imagen a la izquierda -->
@@ -274,24 +273,20 @@
 <section id="contactame" class="sectionV2">
 
   <div class="contact-container">
-  <div class="contact-info">
-      <h3>Contáctame</h3>
+    <div class="contact-info">
+      <h3>{{ getTranslation('contactMe') }}</h3>
       <hr class="underline-blue" />
-      <h2>Creemos algo histórico <br> - Contáctame</h2>
-      <p>
-        Rellena el formulario y tu mensaje llegará directamente a mi correo electrónico. 
-        También puedes contactarme por teléfono o Gmail si lo prefieres.
-        La luz verede significa que el correo a sido enviado correctamente , la roja que ha habido un error.
-      </p>
+     <h2 [innerHTML]="getTranslation('contactHeader')"></h2>
+      <p>{{ getTranslation('contactDescription') }}</p>
 
       <div class="contact-item">
         <span class="icon">📞</span>
-        <span class="text">+34 123 456 789</span>
+        <span class="text">{{ getTranslation('phoneNumber') }}</span>
       </div>
 
       <div class="contact-item">
         <span class="icon">✉️</span>
-        <span class="text">miemail&#64;gmail.com</span>
+        <span class="text">{{ getTranslation('emailAddress') }}</span>
       </div>
     </div>
     <!-- DERECHA: Formulario -->
@@ -299,53 +294,49 @@
       <div class="status-light" [ngClass]="statusLightClass"></div>
 
       <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
-        <h2>Contacto</h2>
+        <h2>{{ getTranslation('contactFormTitle') }}</h2>
 
         <div class="flex-row">
           <div class="form-group name-field">
-            <label for="name">Nombre</label>
-            <input id="name" formControlName="name" type="text" placeholder="Tu nombre" />
+            <label for="name">{{ getTranslation('labelName') }}</label>
+            <input id="name" formControlName="name" type="text" placeholder="{{ getTranslation('placeholderName') }}" />
             <small>
-              {{ contactForm.get('name')?.touched && contactForm.get('name')?.invalid ? 'El nombre es obligatorio.' : '' }}
+              {{ contactForm.get('name')?.touched && contactForm.get('name')?.invalid ? getTranslation('errorNameRequired') : '' }}
             </small>
           </div>
 
           <div class="form-group email-field">
-            <label for="email">Correo electrónico</label>
-            <input id="email" formControlName="email" type="email" placeholder="tucorreo@gmail.com" />
+            <label for="email">{{ getTranslation('labelEmail') }}</label>
+            <input id="email" formControlName="email" type="email" placeholder="{{ getTranslation('placeholderEmail') }}" />
             <small>
-              {{ contactForm.get('email')?.touched && contactForm.get('email')?.invalid ? 'Introduce un correo válido.' : '' }}
+              {{ contactForm.get('email')?.touched && contactForm.get('email')?.invalid ? getTranslation('errorEmailInvalid') : '' }}
             </small>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="title">Título</label>
-          <input id="title" formControlName="title" type="text" placeholder="Asunto del mensaje" />
+          <label for="title">{{ getTranslation('labelTitle') }}</label>
+          <input id="title" formControlName="title" type="text" placeholder="{{ getTranslation('placeholderTitle') }}" />
           <small>
-            {{ contactForm.get('title')?.touched && contactForm.get('title')?.invalid ? 'El título es obligatorio.' : '' }}
+            {{ contactForm.get('title')?.touched && contactForm.get('title')?.invalid ? getTranslation('errorTitleRequired') : '' }}
           </small>
         </div>
 
         <div class="form-group">
-          <label for="message">Mensaje</label>
-          <textarea id="message" formControlName="message" rows="6" placeholder="Escribe tu mensaje..."></textarea>
+          <label for="message">{{ getTranslation('labelMessage') }}</label>
+          <textarea id="message" formControlName="message" rows="6" placeholder="{{ getTranslation('placeholderMessage') }}"></textarea>
           <small>
-            {{ contactForm.get('message')?.touched && contactForm.get('message')?.invalid ? 'El mensaje no puede estar vacío.' : '' }}
+            {{ contactForm.get('message')?.touched && contactForm.get('message')?.invalid ? getTranslation('errorMessageRequired') : '' }}
           </small>
         </div>
 
-        <button type="submit" [disabled]="contactForm.invalid">Enviar</button>
+        <button type="submit" [disabled]="contactForm.invalid">{{ getTranslation('sendButton') }}</button>
         <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
       </form>
     </div>
-  
-
 
   </div>
-<p class="signature-phrase">
-  Hecho por una mente humana curiosa… con buenos aliados digitales.
-</p>
+  <p class="signature-phrase">{{ getTranslation('signaturePhrase') }}</p>
 </section>
 
 </main>

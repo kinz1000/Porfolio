@@ -4,94 +4,135 @@
   [currentResultIndex]="currentResultIndex"
   [totalResults]="totalResults"
 ></app-navbar>
+
 <main #mainContent>
-<section id="sobre-mi" class="section section-dark">
-  <div class="bloque-superior">
-    <div>
-      <div class="imagen-contenedor"> <img src="foto final.png" alt="Imagen"> </div>
-      <h1 class="titulo-imagen"> <span class="nombre">DAVID QUINTANA</span><br> <span class="apellido">FERNÁNDEZ</span>
-      </h1>
-    </div>
-    <div class="texto-derecha">
-      <div class="code-card">
-        <div class="code-header"> <span class="dot red"></span> <span class="dot yellow"></span> <span
-            class="dot green"></span> </div>
-        <div class="code-body"> <span class="number">1.</span> La verdadera <span class="orange">madurez</span> llega
-          cuando entiendes que no todo se puede <span class="orange">optimizar</span>; hay procesos que deben correr
-          <span class="red-B">lento</span> para tener <span class="green-T">sentido</span>. </div>
+  <!-- Sobre mí -->
+  <section id="sobre-mi" class="section section-dark">
+    <div class="bloque-superior">
+      <div>
+        <div class="imagen-contenedor">
+          <img src="foto final.png" alt="{{ selectedLang === 'ES' ? 'Imagen' : 'Image' }}">
+        </div>
+        <h1 class="titulo-imagen">
+          <span class="nombre">DAVID QUINTANA</span><br>
+          <span class="apellido">FERNÁNDEZ</span>
+        </h1>
+      </div>
+      <div class="texto-derecha">
+        <div class="code-card">
+          <div class="code-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+    <div class="code-body" [innerHTML]="getCodeText()"></div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="bloque-inferior">👋 ¡Hola! <span class="color">Soy un recién titulado en Desarrollo de Aplicaciones Multiplataforma (DAM)</span>
 
-Vivo en Madrid, España, y desde hace años tengo claro que mi futuro está en el mundo del desarrollo y la tecnología. Siempre he sentido curiosidad por cómo funcionan las aplicaciones que utilizamos a diario, y eso me llevó a estudiar DAM para poder crear yo mismo herramientas útiles, eficientes y bien diseñadas. Me considero una persona constante, autodidacta y con una gran motivación por seguir aprendiendo.
+    <div class="bloque-inferior">
+      👋 {{ selectedLang === 'ES' ? '¡Hola!' : 'Hello!' }} 
+      <span class="color">{{ selectedLang === 'ES' 
+        ? 'Soy un recién titulado en Desarrollo de Aplicaciones Multiplataforma (DAM)'
+        : 'I am a recent graduate in Multiplatform Application Development (DAM)'
+      }}</span>
 
-💻 La programación es mi pasión
+      <p>
+        {{ selectedLang === 'ES' 
+          ? 'Vivo en Madrid, España, y desde hace años tengo claro que mi futuro está en el mundo del desarrollo y la tecnología. Siempre he sentido curiosidad por cómo funcionan las aplicaciones que utilizamos a diario, y eso me llevó a estudiar DAM para poder crear yo mismo herramientas útiles, eficientes y bien diseñadas. Me considero una persona constante, autodidacta y con una gran motivación por seguir aprendiendo.'
+          : 'I live in Madrid, Spain, and for years I have been clear that my future is in development and technology. I have always been curious about how the applications we use daily work, which led me to study DAM so I could create useful, efficient, and well-designed tools myself. I consider myself persistent, self-taught, and highly motivated to keep learning.'
+        }}
+      </p>
 
-Disfruto muchísimo programando, probando ideas y buscando formas de mejorar mis proyectos. A lo largo de mis estudios he trabajado con diferentes lenguajes y entornos —como Java, Kotlin, 
-Python, JavaScript o bases de datos SQL— y cada uno de ellos me ha ayudado a desarrollar una visión más amplia del sector.
-<span class="color">Me gusta entender el “por qué” de las cosas, no solo el “cómo”, y por eso dedico parte de mi tiempo libre a realizar pequeños proyectos personales.</span>
-<br>
+      <p>💻 {{ selectedLang === 'ES' ? 'La programación es mi pasión' : 'Programming is my passion' }}</p>
 
-🚀 En mis primeros pasos como Junior, con ganas de crecer
+      <p>
+       {{ selectedLang === 'ES' 
+          ? 'Disfruto muchísimo programando, probando ideas y buscando formas de mejorar mis proyectos. A lo largo de mis estudios he trabajado con diferentes lenguajes y entornos —como Java, Kotlin, Python, JavaScript o bases de datos SQL— y cada uno de ellos me ha ayudado a desarrollar una visión más amplia del sector. Me gusta entender el “por qué” de las cosas, no solo el “cómo”, y por eso dedico parte de mi tiempo libre a realizar pequeños proyectos personales.'
+          : 'I greatly enjoy programming, testing ideas, and finding ways to improve my projects. Throughout my studies, I have worked with different languages and environments—such as Java, Kotlin, Python, JavaScript, and SQL databases—and each has helped me develop a broader vision of the sector. I like understanding the “why” of things, not just the “how,” which is why I spend part of my free time working on small personal projects.'
+        }}
+      </p>
 
-Aunque estoy comenzando mi camino profesional y aún no tengo mucha experiencia en empresas, he realizado proyectos académicos
- y varias prácticas personales que me han permitido comprender la importancia de la organización, el trabajo en equipo y las buenas prácticas de desarrollo.
-Sé que me queda mucho por aprender, pero precisamente eso es lo que más me motiva:
- cada día es una nueva oportunidad para mejorar, adquirir nuevas habilidades y convertirme en un desarrollador
- más completo. Busco un entorno donde pueda aportar y, sobre todo, evolucionar junto a profesionales de los que pueda aprender.
-<br>
-🎯 Con un fuerte compromiso con mi formación continua
+      <p>🚀 {{ selectedLang === 'ES' ? 'En mis primeros pasos como Junior, con ganas de crecer' : 'In my first steps as a Junior, eager to grow' }}</p>
 
-<span class="color">Mi objetivo a corto plazo es incorporarme a una empresa o realizar prácticas donde pueda aplicar mis conocimientos</span> y seguir fortaleciéndolos.
- A la vez, tengo la intención de continuar estudiando y obtener una carrera universitaria relacionada con la informática.
-<span class="color">Creo firmemente que la clave está en aprovechar el tiempo, ser constante y no dejar nunca de crecer. Para mí, formarse no es una obligación,
- es una inversión</span>: el esfuerzo que haga hoy será el que marque los resultados que obtenga mañana. Estoy dispuesto a compatibilizar estudios y
- trabajo porque sé que es el camino para construir una trayectoria sólida en el sector tecnológico.
-<br>
-🤝 Abierto a nuevas oportunidades y con mucha ilusión por el futuro
+      <p>
+        {{ selectedLang === 'ES' 
+          ? 'Aunque estoy comenzando mi camino profesional y aún no tengo mucha experiencia en empresas, he realizado proyectos académicos y varias prácticas personales que me han permitido comprender la importancia de la organización, el trabajo en equipo y las buenas prácticas de desarrollo. Sé que me queda mucho por aprender, pero precisamente eso es lo que más me motiva: cada día es una nueva oportunidad para mejorar, adquirir nuevas habilidades y convertirme en un desarrollador más completo. Busco un entorno donde pueda aportar y, sobre todo, evolucionar junto a profesionales de los que pueda aprender.'
+          : 'Although I am starting my professional path and do not yet have much experience in companies, I have completed academic projects and several personal practices that have allowed me to understand the importance of organization, teamwork, and good development practices. I know I have much to learn, but that is exactly what motivates me most: every day is a new opportunity to improve, acquire new skills, and become a more complete developer. I am looking for an environment where I can contribute and, above all, grow alongside professionals from whom I can learn.'
+        }}
+      </p>
 
-<span class="color">Me encantaría formar parte de un equipo donde pueda aportar</span> mis ganas, mi dedicación y mi actitud positiva. Estoy abierto a oportunidades en desarrollo de software, prácticas, proyectos junior o entornos donde pueda adquirir experiencia real y asumir nuevas responsabilidades.
-Si buscas a alguien motivado, con muchas ganas de aprender, adaptable y con un fuerte compromiso por crecer profesionalmente, estaré encantado de conectar y conversar. Creo plenamente en el trabajo bien hecho, en la colaboración y en el aprendizaje continuo.</div>
-  <div class="fondo"> <img src="/r3.png" alt="Estatua" class="estatua" /> </div>
-</section>
-<!------------------------------------------------------------------stack------------------------------------------------------------------------------------------------- -->
+      <p>🎯 {{ selectedLang === 'ES' ? 'Con un fuerte compromiso con mi formación continua' : 'With a strong commitment to continuous learning' }}</p>
 
-<section id="habilidades" class="section">
+      <p>
+        {{ selectedLang === 'ES' 
+          ? 'Mi objetivo a corto plazo es incorporarme a una empresa o realizar prácticas donde pueda aplicar mis conocimientos y seguir fortaleciéndolos. A la vez, tengo la intención de continuar estudiando y obtener una carrera universitaria relacionada con la informática. Creo firmemente que la clave está en aprovechar el tiempo, ser constante y no dejar nunca de crecer. Para mí, formarse no es una obligación, es una inversión: el esfuerzo que haga hoy será el que marque los resultados que obtenga mañana. Estoy dispuesto a compatibilizar estudios y trabajo porque sé que es el camino para construir una trayectoria sólida en el sector tecnológico.'
+          : 'My short-term goal is to join a company or undertake an internship where I can apply my knowledge and continue strengthening it. At the same time, I plan to continue studying and obtain a university degree related to computer science. I firmly believe that the key is to make the most of your time, be consistent, and never stop growing. For me, learning is not an obligation, it is an investment: the effort I make today will determine the results I achieve tomorrow. I am willing to combine studies and work because I know it is the way to build a solid career in the tech sector.'
+        }}
+      </p>
 
-<div class="three-columns-footer">
-  <div class="column">
-    <h3>Quick Links</h3>
-    <ul>
-      <li><a href="#">Inicio</a></li>
-      <li><a href="#">Acerca de</a></li>
-      <li><a href="#">Servicios</a></li>
-      <li><a href="#">Proyectos</a></li>
-      <li><a href="#">Contacto</a></li>
-    </ul>
-  </div>
+      <p>🤝 {{ selectedLang === 'ES' ? 'Abierto a nuevas oportunidades y con mucha ilusión por el futuro' : 'Open to new opportunities and excited about the future' }}</p>
 
-  <div class="column">
-    <h3>Soporte</h3>
-    <ul>
-      <li><a href="#">Blog</a></li>
-      <li><a href="#">FAQs</a></li>
-      <li><a href="#">Tutoriales</a></li>
-      <li><a href="#">Documentación</a></li>
-      <li><a href="#">Soporte</a></li>
-    </ul>
-  </div>
+      <p>
+        {{ selectedLang === 'ES' 
+          ? 'Me encantaría formar parte de un equipo donde pueda aportar mis ganas, mi dedicación y mi actitud positiva. Estoy abierto a oportunidades en desarrollo de software, prácticas, proyectos junior o entornos donde pueda adquirir experiencia real y asumir nuevas responsabilidades. Si buscas a alguien motivado, con muchas ganas de aprender, adaptable y con un fuerte compromiso por crecer profesionalmente, estaré encantado de conectar y conversar. Creo plenamente en el trabajo bien hecho, en la colaboración y en el aprendizaje continuo.'
+          : 'I would love to be part of a team where I can contribute my enthusiasm, dedication, and positive attitude. I am open to opportunities in software development, internships, junior projects, or environments where I can gain real experience and take on new responsibilities. If you are looking for someone motivated, eager to learn, adaptable, and strongly committed to professional growth, I would be delighted to connect and chat. I fully believe in well-done work, collaboration, and continuous learning.'
+        }}
+      </p>
+    </div>
 
-  <div class="column">
-    <h3>Ponte en contacto</h3>
-    <ul>
-      <li><a href="#">Facebook</a></li>
-      <li><a href="#">Twitter</a></li>
-      <li><a href="#">LinkedIn</a></li>
-      <li><a href="#">Instagram</a></li>
-      <li><a href="#">YouTube</a></li>
-    </ul>
-  </div>
-</div>
-</section>
+    <div class="fondo">
+      <img src="/r3.png" alt="{{ selectedLang === 'ES' ? 'Estatua' : 'Statue' }}" class="estatua" />
+    </div>
+  </section>
+ 
+
+
+     
+
+
+
+  <!-- Footer / Habilidades -->
+  <section id="habilidades" class="section">
+     <div class="wrapper-sm">
+      <div><img src="https://picsum.photos/id/660/1200/1200" alt="sparkler"></div>
+      <div><img src="https://picsum.photos/id/669/1200/1200" alt="hat"></div>
+      <div><img src="https://picsum.photos/id/823/1200/1200" alt="camera"></div>
+      <div><img src="https://picsum.photos/id/64/1200/1200" alt="flowers"></div>
+      <div><img src="https://picsum.photos/id/836/1200/1200" alt="guitar"></div>
+      <div><img src="https://picsum.photos/id/1027/1200/1200" alt="pensive"></div>
+      <div><img src="https://picsum.photos/id/646/1200/1200" alt="sunlight"></div>
+      </div>
+    <div class="three-columns-footer">
+      <div class="column">
+        <h3>{{ selectedLang === 'ES' ? 'Links rápidos' : 'Quick Links' }}</h3>
+        <ul>
+          <li><a href="#">{{ selectedLang === 'ES' ? 'Inicio' : 'Home' }}</a></li>
+          <li><a href="#">{{ selectedLang === 'ES' ? 'Trayectoria' : 'Journey' }}</a></li>
+          <li><a href="#">{{ selectedLang === 'ES' ? 'Stack' : 'Tech Stack' }}</a></li>
+          <li><a href="#">{{ selectedLang === 'ES' ? 'Proyectos' : 'Projects' }}</a></li>
+          <li><a href="#">{{ selectedLang === 'ES' ? 'Contacto' : 'Contact' }}</a></li>
+        </ul>
+      </div>
+
+      <div class="column">
+        <h3>{{ selectedLang === 'ES' ? 'Soporte' : 'Support' }}</h3>
+        <ul>
+          <li><a href="/TermsandConditions">{{ selectedLang === 'ES' ? 'Términos y condiciones' : 'Terms and Conditions' }}</a></li>
+          <li><a href="/Privacyandcookis">{{ selectedLang === 'ES' ? 'Privacidad & Cookies' : 'Privacy & Cookies' }}</a></li>
+        </ul>
+      </div>
+
+      <div class="column">
+        <h3>{{ selectedLang === 'ES' ? 'Ponte en contacto' : 'Get in Touch' }}</h3>
+        <ul>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">InfoJobs</a></li>
+          <li><a href="#">Gmail</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+    
 </main>

@@ -486,7 +486,7 @@ button.btn.btn-elegante:hover {
   color: #f5d67b;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-
+margin-right: 355%;
   margin-bottom: 35px;
   margin-top: 10px;
   font-family: 'Poppins', sans-serif;
@@ -736,7 +736,8 @@ button.btn.btn-elegante:hover {
 }
 
 .stack-title {
-  margin-bottom: 150px; /* ya lo tenías */
+  margin-top: -1px;
+  margin-bottom: 0px; /* ya lo tenías */
 margin-left: 200px;
   font-size: 6rem;
   font-weight: 900;
@@ -755,7 +756,16 @@ margin-left: 200px;
   -webkit-text-fill-color: transparent;
   animation: text-shine 9s linear infinite;
 }
-
+.stack-description{
+  margin-left: 200px;
+    font-size: 0.95rem;
+ 
+  text-align: center;
+  position: relative;
+  display: inline-block;
+ color: #000; /* fallback */
+ font-style: italic;
+}
 /* ===== Líneas horizontales a los lados del texto ===== */
 .stack-title::before,
 .stack-title::after {
@@ -788,6 +798,7 @@ margin-left: 200px;
 /* ===== Círculos fijos (Skills / Tools) ===== */
 .stack-column {
   position: relative;
+  margin-top: 190px;
   width: 250px;
   height: 250px;
   display: flex;
@@ -802,9 +813,10 @@ margin-left: 200px;
   align-items: center;
   width: 85%;
   max-width: 1600px;
-  margin-left: 200px;
+  margin-left: 220px;
  
 }
+
 .static-circle {
   position: absolute;
   width: 130px;
@@ -914,15 +926,23 @@ margin-left: 200px;
 .icon--html5 a { background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg'); }
 .icon--css3 a { background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg'); }
 .icon--javascript a { background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg'); }
-.icon--git a { background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg'); }
-.icon--github a { background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg'); }
-.icon--gitlab a { background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg'); }
+.icon--outlook a {
+    background-image: url('/logos/outlook.png');
+}
+.icon--forticlient a {
+  background-image: url('/logos/forticlient.png');}
+.icon--github a {
+  background-image: url('/logos/git.png');}
+
+
 .icon--android a { background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg'); }
 .icon--intellij a { background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg'); }
 .icon--vscode a { background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg'); }
 .icon--eclipse a { background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eclipse/eclipse-original.svg'); }
 .icon--postman a { background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg'); }
-.icon--teams a { background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoft/microsoft-original.svg'); }/* SKILLS */
+.icon--teams a {
+  background-image: url('/logos/teams.png');
+}
 .icon--python a,
 .icon--java a,
 .icon--kotlin a,
@@ -938,9 +958,9 @@ margin-left: 200px;
 .icon--html5 a,
 .icon--css3 a,
 .icon--javascript a,
-.icon--git a,
+.icon--forticlient a,
 .icon--github a,
-.icon--gitlab a,
+.icon--outlook a,
 .icon--android a,
 .icon--intellij a,
 .icon--vscode a,
@@ -968,14 +988,14 @@ margin-left: 200px;
   left: 40px;
   right: 40px;
   bottom: 40px;
-  
+ background-color: #191919;
   /* 3. CONFIGURACIÓN FLEXBOX INTERNA */
   display: flex;
   flex-wrap: wrap; /* ✅ permite que los elementos bajen a la siguiente línea */
   gap: 40px;
   justify-content: flex-start;
   align-items: flex-start;
-  
+  z-index: 1001;
   /* 4. MANEJO DE SCROLL Y BORDES */
   overflow-x: hidden; /* ❌ sin scroll lateral */
   overflow-y: auto;   /* ✅ permite scroll vertical si no cabe todo */
@@ -1160,7 +1180,7 @@ width: 100%; /* Ocupa todo el ancho de project-card */
 }
 
 #proyectos h2 {
-  top: 123px;
+  top: 125px;
   font-size: 3rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -1172,6 +1192,7 @@ width: 100%; /* Ocupa todo el ancho de project-card */
   text-shadow: 19px 5px 8px #fdbb2dc0;
   position: fixed; /* NO fixed */
   z-index: 50; /* Para asegurarnos que quede sobre fondo oscuro */
+ 
 }
 
 ::ng-deep .azulTs {
@@ -1480,9 +1501,8 @@ button:hover {
 
 
 
-/*================== Responsive ==================*/
-@media screen and (max-width: 900px) {
-  .contact-container {
+/*==
+
     flex-direction: column;
     gap: 30px;
   }

@@ -7,6 +7,7 @@ import gsap from 'gsap';
 import Swiper from 'swiper';
 import emailjs from 'emailjs-com';
 import { IdiomaServiceService } from '../../services/idioma-service.service';
+import { BehaviorSubject } from 'rxjs';
 @Component({
   selector: 'app-personal',
   standalone: true,
@@ -22,40 +23,226 @@ export class PersonalComponent implements AfterViewInit{
  //----------------------------------------------------------------cambio de idioma --------------------------------------------------------------------------
 private typingTimeout: any; // para guardar el setTimeout
 
- selectedLang: 'ES' | 'EN' = 'ES';
-
+selectedLang!: 'ES' | 'EN';
 
 
 getTranslation(key: keyof typeof this.translations['ES']): string | string[] {
-  return this.translations[this.selectedLang][key];
+  const lang = this.selectedLang || 'ES'; // fallback
+  return this.translations[lang][key];
 }
-
-
 translations: {
-  ES: { typing: string[]; hello: string; jobTitle: string; description: string; moreAbout: string; downloadCV: string };
-  EN: { typing: string[]; hello: string; jobTitle: string; description: string; moreAbout: string; downloadCV: string };
+  ES: { 
+    typing: string[]; 
+    hello: string; 
+    jobTitle: string; 
+    description: string; 
+    moreAbout: string; 
+    downloadCV: string;
+    studies: string;
+    bachillerato: string;
+    bachilleratoDesc: string;
+    gradoSuperior: string;
+    gradoSuperiorDesc: string;
+    cursoPython: string;
+    cursoPythonDesc: string;
+    downloadCertificate: string;
+    // Experiencia laboral
+    workExperience: string;
+    alten: string;
+    altenDesc: string;
+    indra: string;
+    indraDesc: string;
+    //meses
+     monthSept: string,
+    monthDec:  string,
+    present: string,
+    //stack
+    stackDescription:string  ,
+    //contaCTAME
+  contactMe: string  ,
+  contactHeader: string  ,
+  contactDescription: string  ,
+  phoneNumber: string  ,
+  emailAddress: string  ,
+  contactFormTitle: string  ,
+  labelName: string  ,
+  placeholderName: string  ,
+  errorNameRequired:string  ,
+  labelEmail: string  ,
+  placeholderEmail: string  ,
+  errorEmailInvalid:string  ,
+  labelTitle: string  ,
+  placeholderTitle: string  ,
+  errorTitleRequired: string  ,
+  labelMessage: string  ,
+  placeholderMessage: string  ,
+  errorMessageRequired: string  ,
+  sendButton:string  ,
+  signaturePhrase:string  ,
+
+
+  };
+  EN: { 
+    typing: string[]; 
+    hello: string; 
+    jobTitle: string; 
+    description: string; 
+    moreAbout: string; 
+    downloadCV: string;
+    studies: string;
+    bachillerato: string;
+    bachilleratoDesc: string;
+    gradoSuperior: string;
+    gradoSuperiorDesc: string;
+    cursoPython: string;
+    cursoPythonDesc: string;
+    downloadCertificate: string;
+    // Experiencia laboral
+    workExperience: string;
+    alten: string;
+    altenDesc: string;
+    indra: string;
+    indraDesc: string;
+      //meses
+     monthSept: string,
+    monthDec:  string,
+    present: string,
+     //stack
+    stackDescription:string  ,
+        //contaCTAME
+  contactMe: string  ,
+  contactHeader: string  ,
+  contactDescription: string  ,
+  phoneNumber: string  ,
+  emailAddress: string  ,
+  contactFormTitle: string  ,
+  labelName: string  ,
+  placeholderName: string  ,
+  errorNameRequired:string  ,
+  labelEmail: string  ,
+  placeholderEmail: string  ,
+  errorEmailInvalid:string  ,
+  labelTitle: string  ,
+  placeholderTitle: string  ,
+  errorTitleRequired: string  ,
+  labelMessage: string  ,
+  placeholderMessage: string  ,
+  errorMessageRequired: string  ,
+  sendButton:string  ,
+  signaturePhrase:string  ,
+  };
 } = {
   ES: {
+    // Introducción
     hello: 'Hola, buenas 👋',
     jobTitle: 'Programador Backend',
     description: 'Apasionado por transformar ideas en soluciones eficientes y escalables. Me encanta trabajar en proyectos que desafían mis habilidades y contribuyen al crecimiento de la empresa.',
     moreAbout: 'Más sobre mí',
     downloadCV: 'Descargar CV',
-    typing: ['Soy David Quintana', 'Encantado de presentar', 'Mi porfolio :) ']
+    typing: ['Soy David Quintana', 'Encantado de presentar', 'Mi portafolio :) '],
+    
+    // Trayectoria
+    studies: 'Estudios',
+    bachillerato: 'Bachillerato en IES La Salle',
+    bachilleratoDesc: 'Finalicé el bachillerato científico-tecnológico en el IES La Salle, donde desarrollé una sólida base en matemáticas, física e informática.',
+    gradoSuperior: 'Grado Superior DAM',
+    gradoSuperiorDesc: 'Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM), adquiriendo experiencia en Java, SQL, Android y estructuras de datos.',
+    cursoPython: 'Curso de Python en IA',
+    cursoPythonDesc: 'Actualmente cursando en Toki School un programa de especialización en Python, IA y automatización con modelos de aprendizaje automático.',
+    downloadCertificate: 'Descargar Certificado',
+
+    // Experiencia laboral
+    workExperience: 'Experiencia Laboral',
+    alten: 'Alten Spain',
+    altenDesc: 'Realicé 250 horas de prácticas en Alten Spain como desarrollador junior, colaborando en proyectos de software empresarial y automatización de procesos. Durante esta experiencia, reforcé mis conocimientos en Java, Spring Boot y SQL, además de adquirir experiencia en trabajo en equipo ágil.',
+    indra: 'Nuek Mindaist (INDRA)',
+    indraDesc: 'Realizo mi actividad profesional en INDRA como desarrollador Full Stack, participando en un proyecto basado en Spring. Colaboro en el desarrollo y mantenimiento de software empresarial, trabajando tanto en el backend con Java y Spring Boot como en el frontend, además de la integración con bases de datos mediante SQL.',
+  
+   //meses
+    monthSept: 'Septiembre',
+    monthDec: 'Diciembre',
+    present: 'Actualidad',
+   //stack
+    stackDescription:'Todas estas habilidades las he adquirido a través de mis estudios en informática y desarrollo de software, la realización de proyectos personales, colaboraciones en equipo y experiencias prácticas en entornos profesionales. Gracias a estas experiencias, he podido dominar tecnologías clave, comprender buenas prácticas de desarrollo backend, trabajar con bases de datos, APIs y arquitecturas escalables, y aplicar soluciones eficientes para problemas reales.'
+   //contactame
+   , contactMe: 'Contáctame',
+  contactHeader: 'Creemos algo histórico <br> - Contáctame',
+  contactDescription: 'Rellena el formulario y tu mensaje llegará directamente a mi correo electrónico. También puedes contactarme por teléfono o Gmail si lo prefieres. La luz verde significa que el correo ha sido enviado correctamente, la roja que ha habido un error.',
+  phoneNumber: '+34 123 456 789',
+  emailAddress: 'miemail@gmail.com',
+  contactFormTitle: 'Contacto',
+  labelName: 'Nombre',
+  placeholderName: 'Tu nombre',
+  errorNameRequired: 'El nombre es obligatorio.',
+  labelEmail: 'Correo electrónico',
+  placeholderEmail: 'tucorreo@gmail.com',
+  errorEmailInvalid: 'Introduce un correo válido.',
+  labelTitle: 'Título',
+  placeholderTitle: 'Asunto del mensaje',
+  errorTitleRequired: 'El título es obligatorio.',
+  labelMessage: 'Mensaje',
+  placeholderMessage: 'Escribe tu mensaje...',
+  errorMessageRequired: 'El mensaje no puede estar vacío.',
+  sendButton: 'Enviar',
+  signaturePhrase: 'Hecho por una mente humana curiosa… con buenos aliados digitales.'
+
   },
+
   EN: {
-    hello: 'Hi there👋',
+    // Introducción
+    hello: 'Hi there 👋',
     jobTitle: 'Backend Developer',
-    description: 'Passionate about transforming ideas into efficient and scalable solutions. I love working on projects that challenge my skills and contribute to the companys growth.',
+    description: 'Passionate about transforming ideas into efficient and scalable solutions. I love working on projects that challenge my skills and contribute to the company’s growth.',
     moreAbout: 'More about me',
     downloadCV: 'Download CV',
-    typing: ['I am David Quintana', 'Pleased to introduce', 'My portfolio :) ']
+    typing: ['I am David Quintana', 'Pleased to introduce', 'My portfolio :) '],
+    
+    // Trayectoria
+    studies: 'Education',
+    bachillerato: 'High School at IES La Salle',
+    bachilleratoDesc: 'I completed the scientific-technological high school at IES La Salle, where I built a solid foundation in mathematics, physics, and computer science.',
+    gradoSuperior: 'Higher Degree DAM',
+    gradoSuperiorDesc: 'Higher Technician in Multi-Platform Application Development (DAM), gaining experience in Java, SQL, Android, and data structures.',
+    cursoPython: 'Python Course in AI',
+    cursoPythonDesc: 'Currently attending a specialization program at Toki School in Python, AI, and automation using machine learning models.',
+    downloadCertificate: 'Download Certificate',
+
+    // Experiencia laboral
+    workExperience: 'Work Experience',
+    alten: 'Alten Spain',
+    altenDesc: 'I completed 250 hours of internship at Alten Spain as a junior developer, collaborating on enterprise software and process automation projects. During this experience, I strengthened my knowledge in Java, Spring Boot, and SQL, and gained experience working in agile teams.',
+    indra: 'Nuek Mindaist (INDRA)',
+    indraDesc: 'I work professionally at INDRA as a Full Stack Developer, participating in a Spring-based project. I collaborate in the development and maintenance of enterprise software, working both on the backend with Java and Spring Boot and on the frontend, including integration with databases using SQL.',
+  
+    //meses
+     monthSept: 'September',
+    monthDec: 'December',
+    present: 'Knowadays',
+   //stack
+  stackDescription: 'I have acquired all these skills through my studies in computer science and software development, personal projects, team collaborations, and practical experience in professional environments. Thanks to these experiences, I have mastered key technologies, understood good backend development practices, worked with databases, APIs, and scalable architectures, and applied efficient solutions to real-world problems.'
+  //contactame
+  , contactMe: 'Contact Me',
+  contactHeader: 'Let’s create something historic <br> - Contact Me',
+  contactDescription: 'Fill out the form and your message will be sent directly to my email. You can also contact me by phone or Gmail if you prefer. Green light means the email was sent successfully, red means there was an error.',
+  phoneNumber: '+34 123 456 789',
+  emailAddress: 'myemail@gmail.com',
+  contactFormTitle: 'Contact',
+  labelName: 'Name',
+  placeholderName: 'Your name',
+  errorNameRequired: 'Name is required.',
+  labelEmail: 'Email',
+  placeholderEmail: 'youremail@gmail.com',
+  errorEmailInvalid: 'Enter a valid email.',
+  labelTitle: 'Title',
+  placeholderTitle: 'Message subject',
+  errorTitleRequired: 'Title is required.',
+  labelMessage: 'Message',
+  placeholderMessage: 'Write your message...',
+  errorMessageRequired: 'Message cannot be empty.',
+  sendButton: 'Send',
+  signaturePhrase: 'Made by a curious human mind… with great digital allies.'
   }
 };
-
-
-
-
 
   //-------------------------------------------------------------bootn cambio----------------------------------------------------------------
 
@@ -83,11 +270,15 @@ cambiarComponente() {
   @ViewChild('introduccionSection') introduccionSection!: ElementRef;
 
 
+  langSubject: BehaviorSubject<string> = new BehaviorSubject('en');
 
 
 
 
   constructor(private router: Router, private el: ElementRef, private cd: ChangeDetectorRef, private fb: FormBuilder,private languageService: IdiomaServiceService) {
+
+     const lang = localStorage.getItem('language');
+  if (lang === 'ES' || lang === 'EN') this.langSubject.next(lang);
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -176,9 +367,9 @@ circleArrayLeft = [
 // html javascript css 
 // ===== TOOLS =====
 circleArrayRight = [
-  { name: 'Git', class: 'icon--git' },
+  { name: 'Outlook', class: 'icon--outlook' },
   { name: 'GitHub', class: 'icon--github' },
-  { name: 'GitLab', class: 'icon--gitlab' },
+  { name: 'FortiClient', class: 'icon--forticlient' },
 
   { name: 'Android Studio', class: 'icon--android' },
   { name: 'IntelliJ', class: 'icon--intellij' },
@@ -360,17 +551,17 @@ text: 'El codigo se divide en <span class="azulTs">Frontend</span> y <span class
  
   ngOnInit() {
 
+     this.languageService.lang$.subscribe(lang => {
+    this.selectedLang = lang;
+    this.texts = [...this.translations[lang].typing];
+    this.restartTypingAnimation();
+  });
    // Suscripción a cambios de idioma
   // Inicializa textos y animación con idioma actual
   this.texts = [...this.translations[this.selectedLang].typing];
   this.restartTypingAnimation();
 
-  // Suscripción a cambios de idioma
-  this.languageService.lang$.subscribe(lang => {
-    this.selectedLang = lang;
-    this.texts = [...this.translations[lang].typing];
-    this.restartTypingAnimation(); // reinicia animación limpia
-  });
+
 
 
 
