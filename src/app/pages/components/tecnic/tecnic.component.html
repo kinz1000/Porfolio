@@ -95,14 +95,27 @@
   <!-- Footer / Habilidades -->
   <section id="habilidades" class="section">
      <div class="wrapper-sm">
-      <div><img src="https://picsum.photos/id/660/1200/1200" alt="sparkler"></div>
-      <div><img src="https://picsum.photos/id/669/1200/1200" alt="hat"></div>
-      <div><img src="https://picsum.photos/id/823/1200/1200" alt="camera"></div>
-      <div><img src="https://picsum.photos/id/64/1200/1200" alt="flowers"></div>
-      <div><img src="https://picsum.photos/id/836/1200/1200" alt="guitar"></div>
-      <div><img src="https://picsum.photos/id/1027/1200/1200" alt="pensive"></div>
-      <div><img src="https://picsum.photos/id/646/1200/1200" alt="sunlight"></div>
+      <div><img src="cards/card1.jpg"></div>
+      <div><img src="cards/card2.jpg" alt="hat"></div>
+      <div><img src="cards/card3.jpg" alt="camera"></div>
+      <div><img src="cards/card4.jpg" alt="flowers"></div>
+      <div><img src="cards/card5.jpg" alt="guitar"></div>
+      <div><img src="cards/card6.jpg" alt="pensive"></div>
+      <div><img src="cards/card7.jpg" alt="sunlight"></div>
       </div>
+ <div class="circular-title-container">
+  <svg viewBox="0 0 500 200" class="circular-svg">
+    <path id="curve" d="M 50,150 A 200,150 0 0 1 450,150" fill="transparent" />
+    
+    <path d="M 60,165 A 190,140 0 0 1 440,165" class="underline-arc" />
+
+    <text>
+      <textPath xlink:href="#curve" startOffset="50%" text-anchor="middle" class="curved-text">
+        {{ selectedLang === 'ES' ? 'MIS HABILIDADES SOCIALES' : 'MY SOCIAL SKILLS' }}
+      </textPath>
+    </text>
+  </svg>
+</div>
     <div class="three-columns-footer">
       <div class="column">
         <h3>{{ selectedLang === 'ES' ? 'Links rápidos' : 'Quick Links' }}</h3>

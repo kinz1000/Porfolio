@@ -80,7 +80,10 @@ translations: {
   sendButton:string  ,
   signaturePhrase:string  ,
 
-
+    //proyectos
+   projectsTitle: string;      // ✅ aquí
+  proyectos: any[];
+   
   };
   EN: { 
     typing: string[]; 
@@ -130,6 +133,10 @@ translations: {
   errorMessageRequired: string  ,
   sendButton:string  ,
   signaturePhrase:string  ,
+
+  //pryoectos
+     projectsTitle: string;      // ✅ aquí
+  proyectos: any[];
   };
 } = {
   ES: {
@@ -184,8 +191,82 @@ translations: {
   placeholderMessage: 'Escribe tu mensaje...',
   errorMessageRequired: 'El mensaje no puede estar vacío.',
   sendButton: 'Enviar',
-  signaturePhrase: 'Hecho por una mente humana curiosa… con buenos aliados digitales.'
-
+  signaturePhrase: 'Hecho por una mente humana curiosa… con buenos aliados digitales.',
+    projectsTitle: 'Proyectos',
+    proyectos: [
+      {
+        nombre: 'Proyecto A',
+        descripcion: 'Descripción general del proyecto A',
+        posts: [
+          {
+            date: 'Octubre 2024',
+            title: 'WORLDHELP',
+            text: 'Trabajo Fin de Grado Superior orientado a ayudar a las personas afectadas por la DANA. Estoy trabajando para subirlo.',
+            buttonText: false,
+            icons: []
+          },
+          {
+            date: '',
+            title: 'Stack',
+            text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus',
+            buttonText: false,
+            icons: []
+          },
+          {
+            date: '',
+            title: 'Codigo Propio',
+            text: 'El codigo se divide en <span class="azulTs">Frontend</span> y <span class="rojoTs">Backend</span>.',
+            buttonText: true,
+            icons: [
+              { img: 'logoAzul.jpg', url: 'https://github.com/kinz1000/AppWebFrontend' },
+              { img: 'logoRojo.png', url: 'https://github.com/kinz1000/AppWebBackend' }
+            ]
+          }
+        ]
+      },
+      {
+        nombre: 'Proyecto B',
+        descripcion: 'Otro proyecto de ejemplo',
+        posts: [
+          {
+            date: 'Octubre 2024',
+            title: 'Portfolio Informatico',
+            text: 'Una muestra de mis capacidades y proyectos en desarrollo web y software.',
+            buttonText: true,
+            icons: [
+              { img: 'codigo.png', url: 'https://github.com/kinz1000/Porfolio' }
+            ]
+          },
+          {
+            date: '',
+            title: 'Stack',
+            text: 'Los colores del cielo se mezclan con el mar en un espectáculo único.',
+            buttonText: false,
+            icons: []
+          },
+          {
+            date: '',
+            title: 'Codigo Propio',
+            text: 'Aunque sea programador backend he decidido meterme en CSS para la realización de este proyecto.',
+            buttonText: false,
+            icons: []
+          }
+        ]
+      },
+      {
+        nombre: 'Proyecto C',
+        descripcion: 'Otro proyecto de ejemplo',
+        posts: [
+          {
+            date: '...',
+            title: 'Proximamente...',
+            text: 'En construcción.',
+            buttonText: false,
+            icons: []
+          }
+        ]
+      }
+    ]
   },
 
   EN: {
@@ -240,7 +321,83 @@ translations: {
   placeholderMessage: 'Write your message...',
   errorMessageRequired: 'Message cannot be empty.',
   sendButton: 'Send',
-  signaturePhrase: 'Made by a curious human mind… with great digital allies.'
+  signaturePhrase: 'Made by a curious human mind… with great digital allies.',
+  //proyectos
+   projectsTitle: 'Projects',
+    proyectos: [
+      {
+        nombre: 'Project A',
+        descripcion: 'General description of Project A',
+        posts: [
+          {
+            date: 'October 2024',
+            title: 'WORLDHELP',
+            text: 'Final degree project focused on helping people affected by the DANA. I am working on uploading it.',
+            buttonText: false,
+            icons: []
+          },
+          {
+            date: '',
+            title: 'Stack',
+            text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus',
+            buttonText: false,
+            icons: []
+          },
+          {
+            date: '',
+            title: 'Own Code',
+            text: 'The code is divided into <span class="azulTs">Frontend</span> and <span class="rojoTs">Backend</span>.',
+            buttonText: true,
+            icons: [
+              { img: 'logoAzul.jpg', url: 'https://github.com/kinz1000/AppWebFrontend' },
+              { img: 'logoRojo.png', url: 'https://github.com/kinz1000/AppWebBackend' }
+            ]
+          }
+        ]
+      },
+      {
+        nombre: 'Project B',
+        descripcion: 'Another example project',
+        posts: [
+          {
+            date: 'October 2024',
+            title: 'IT Portfolio',
+            text: 'A sample of my skills and projects in web development and software.',
+            buttonText: true,
+            icons: [
+              { img: 'codigo.png', url: 'https://github.com/kinz1000/Porfolio' }
+            ]
+          },
+          {
+            date: '',
+            title: 'Stack',
+            text: 'The sky colors mix with the sea in a unique spectacle.',
+            buttonText: false,
+            icons: []
+          },
+          {
+            date: '',
+            title: 'Own Code',
+            text: 'Even as a backend developer, I decided to use CSS for this project.',
+            buttonText: false,
+            icons: []
+          }
+        ]
+      },
+      {
+        nombre: 'Project C',
+        descripcion: 'Another example project',
+        posts: [
+          {
+            date: '...',
+            title: 'Coming Soon...',
+            text: 'Under construction.',
+            buttonText: false,
+            icons: []
+          }
+        ]
+      }
+    ]
   }
 };
 

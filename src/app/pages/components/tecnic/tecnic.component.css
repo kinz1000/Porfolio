@@ -402,12 +402,12 @@
   
   --card-border-radius: 10px;
   --card-width: 20vmin;
-  --radius: 65vmin; 
+  --radius: 67vmin; 
   --cards: sibling-count();
   @supports not (order:sibling-index()) {
     --cards: 7;
   }
-  --arc-size: 0.32;          /* essentially the distance between cards */
+  --arc-size: 0.30;          /* essentially the distance between cards */
   --arc-center: 0.75;        /* top */
   --arc-start: calc(var(--arc-center) - var(--arc-size) / 2);
   --arc-shift: 0;
@@ -496,5 +496,43 @@
 
   
 
+/*--------------------------------------titulo arqueado ------------------------------------------*/
 
+.circular-title-container {
+  position: absolute;
+  /* Alineamos con el transform que usaste en .wrapper-sm para que coincidan */
+  left: 45%;
+  transform: translateX(-50%) translateY(17vh); 
+  width: 38vw; /* Ajusta el ancho según cuánto quieras que abarque el arco */
+  pointer-events: none; /* Para que no interfiera con los hovers de las fotos */
+  z-index: 5;
+}
+
+.circular-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.curved-text {
+  font-family: 'Poppins', sans-serif; /* Usando la fuente de tu título principal */
+  font-size: 24px;
+  font-weight: 800;
+  fill: #f5c000; /* El color amarillo que usas en el título superior */
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  opacity: 0.8;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+}
+
+.underline-arc {
+  fill: transparent;         /* No queremos que el arco tenga fondo */
+  stroke: #000000;           /* El color del subrayado (amarillo) */
+  stroke-width: 1px;         /* Grosor de la línea */
+  stroke-linecap: round;     /* Puntas redondeadas para que quede más elegante */
+  opacity: 0.6;              /* Un poco de transparencia para no quitar peso al texto */
+  
+  /* Opcional: Si quieres que la línea sea punteada */
+  /* stroke-dasharray: 10, 5; */
+}
 
