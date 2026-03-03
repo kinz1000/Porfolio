@@ -142,3 +142,35 @@ mark.highlight.active {
 .green{
   color: #60d260;
 }
+
+
+/* LAPTOPS (Escalado 0.85) */
+@media (max-width: 1440px) and (min-width: 1025px) {
+  .section {
+    transform: scale(0.85);
+    transform-origin: top center;
+    width: 117.6%; /* 1 / 0.85 */
+    /* Este margen negativo "succiona" el espacio negro de abajo */
+    margin-bottom: -15%; 
+  }
+}
+
+/* TABLETS (Escalado 0.65) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .section {
+    transform: scale(0.65);
+    transform-origin: top center;
+    width: 153.8%; /* 1 / 0.65 */
+    margin-bottom: -35%; 
+  }
+}
+
+/* MÓVILES (Escalado 0.40 - subido de 0.30 para que se lea algo) */
+@media (max-width: 768px) {
+  .section {
+    transform: scale(0.40);
+    transform-origin: top center;
+    width: 250%; /* 1 / 0.40 */
+    margin-bottom: -60%; 
+  }
+}

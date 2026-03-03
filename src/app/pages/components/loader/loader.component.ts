@@ -171,7 +171,7 @@ export class LoaderComponent  implements OnInit {
       requestAnimationFrame(loop);
     };
 
-    for (let i = 0; i < 2500; i++) new Star();
+    for (let i = 0; i < 2000; i++) new Star();
     loop();
   }
 
