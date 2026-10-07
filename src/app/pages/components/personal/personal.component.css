@@ -1,4 +1,4 @@
-/*Animacon de introduccion personal.component.css */
+/**Animacon de introduccion personal.component.css */
 /* Contenedor base */
 .personal-container {
   opacity: 0;
@@ -55,8 +55,8 @@
 
 
 
-/*========================================INTRODUCCION====================================== */
-/*------------------INICIO ESTILO IMAGEN-------------------------------------------- */
+/**========================================INTRODUCCION====================================== */
+/**------------------INICIO ESTILO IMAGEN-------------------------------------------- */
 /* Contenedor para la imagen y los logos */
 
 
@@ -102,8 +102,8 @@
   }
 }
 
-/*------------------FIN ESTILO IMAGEN-------------------------------------------- */
-/*------------------INICIO ESTILO LOGO-------------------------------------------- */
+/**------------------FIN ESTILO IMAGEN-------------------------------------------- */
+/**------------------INICIO ESTILO LOGO-------------------------------------------- */
 /* Centrar los logos debajo de la imagen */
 .logos-container {
   display: flex;
@@ -148,7 +148,7 @@
   font-family: sans-serif;
 }
 
-/*------------------FIN ESTILO LOGO-------------------------------------------- */
+/**------------------FIN ESTILO LOGO-------------------------------------------- */
 /*------------------INICIO ESTILO seccion-------------------------------------------- */
 .section {
   height: 100vh;
@@ -422,9 +422,56 @@
     opacity: 0;
   }
 }
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .image-container {
+  
+  width: 380px;
+  height: 380px;
+ 
+}
 
+.image-container img {
+  width: 480px;
+  height: 480px;
+   margin-left: -30px;
+}
+
+.texto-introduccion {
+  font-size: small;
+  width: 530px;
+  height: 330px;
+
+
+  /* para que la imagen de fondo respete el borde */
+
+}
+
+.texto-introduccion h2 {
+  font-size: 2rem;
+  /* +10% de 2rem */
+  font-weight: 700;
+  margin-top: 0%;
+ 
+  color: rgb(133, 123, 108)
+}
+.wrap {
+
+
+
+
+  font-weight: 900;
+  font-size: 2.3rem;
+  color: #ffffff;
+
+
+  height: 4.5rem;
+  /* altura fija según el tamaño de fuente, ajusta si necesitas */
+
+}
+
+}
 /*-------------------------------FIN animACION TECLADO ---------------------------------------------------*/
-/*========================================== FIN INTRODUCCION ======================================================================================= */
+/**========================================== FIN INTRODUCCION ======================================================================================= */
 button.btn {
   all: unset;
   /* borra estilos nativos */
@@ -453,6 +500,41 @@ button.btn.btn-elegante:hover {
 
 /*====================================TRayectoria======================================== */
 
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .section {
+  min-height: 100vh; /* Cambia height por min-height para evitar que el contenido se corte */
+  
+  gap: 0px; /* 👈 AÑADE: Esto da una separación controlada entre las columnas */
+  padding: 0; /* 👈 CAMBIO: Usa % en lugar de px para que se adapte al ancho */
+ 
+}
+
+#trayectoria.section {
+  justify-content: flex-start;
+  padding-left: 0px;
+  padding-right: 0 !important;
+  /* sobrescribe el de .section */
+  box-sizing: border-box;
+}
+.timeline {
+  flex: 1;                /* Ambas columnas crecen igual */
+  max-width: 600px;       /* Evita que se estiren demasiado */
+  list-style: none;
+  padding: 0;             /* Reset de paddings por defecto de las listas */
+  margin: 0;
+}
+.stack-columns {
+  display: flex;
+  justify-content: space-evenly; /* Separa los círculos Skills/Tools */
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;  /* BORRA el margin-right: 330px y usa AUTO */
+  padding: 0;      /* Limpia paddings extra */
+}
+
+
+}
 
 
 .col-title {
@@ -706,6 +788,14 @@ margin-right: 355%;
 }
 
 
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+
+
+
+
+
+}
 
 /*========================================================fin Trayectoria============================================================================================================= */
 /*====================================STACK======================================== */
@@ -1320,6 +1410,7 @@ form h2 {
 .flex-row .form-group {
   display: flex;
   flex-direction: column;
+  
 }
 
 .name-field { flex: 1; }
@@ -1457,26 +1548,6 @@ button:hover {
   opacity: 0.85;
   letter-spacing: 0.6px;
 }
-
- /*--------------------------------------------------------------------responsive----------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -4,9 +4,9 @@
   [currentResultIndex]="currentResultIndex"
   [totalResults]="totalResults"
 ></app-navbar>
-<main class="personal-container animate-in">
+<main #mainContent class="personal-container animate-in">
 
-<main #mainContent>
+
 <!----------------------------------------------------------introduccion-------------------------------------------------------------------- -->
 <section id="introduccion" class="section" #introduccionSection>
   <div class="texto-introduccion">
@@ -144,16 +144,9 @@
 
     <div class="direction-r">
       <div class="flag-wrapper">
-        <br>
+       
       </div>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
+   
     </div>
 
   </ul>
@@ -161,7 +154,7 @@
 
 <!------------------------------------------------------------------stack------------------------------------------------------------------------------------------------- -->
 <section id="stack" class="section">
-  <br>
+  <br>  <!--quitar-->
   <br>
   <h1 class="stack-title">STACK</h1>
   
@@ -337,5 +330,5 @@
   <p class="signature-phrase">{{ getTranslation('signaturePhrase') }}</p>
 </section>
 
-</main>
+
 </main>
