@@ -1,0 +1,620 @@
+:host {
+  display: block;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero-section {
+  min-height: 100vh;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  padding-top: 100px;
+  padding-bottom: 40px;
+
+  background-color: #c3c3c3;
+
+  overflow: hidden;
+}
+
+/* Estatua del fondo */
+.hero-section::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image: url("/r2.png");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: min(45%, 750px);
+
+  opacity: 0.15;
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* =========================================================
+   TARJETA IZQUIERDA
+   ========================================================= */
+
+.texto-introduccion {
+  width: 100%;
+   max-width: 760px;
+
+  padding: 40px;
+
+  background-image: url("/7971.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border-radius: 2%;
+  overflow: hidden;
+
+  color: #222;
+}
+
+.texto-introduccion h3 {
+  margin-bottom: 22px;
+
+  color: rgb(133, 123, 108);
+
+  font-size: 1.15rem;
+}
+
+.texto-introduccion h1 {
+  width: 100%;
+
+  margin-bottom: 0.35rem;
+
+  min-height: 90px;
+}
+
+.texto-introduccion h2 {
+  margin-bottom: 0.7rem;
+
+  font-size: clamp(1.7rem, 2.4vw, 2.2rem);
+  font-weight: 700;
+
+  color: rgb(133, 123, 108);
+}
+
+
+/* =========================================================
+   TYPING
+   ========================================================= */
+
+.wrap {
+  display: inline-block;
+
+  width: 50ch;
+  max-width: 100%;
+
+  font-weight: 900;
+   font-size: clamp(1.6rem, 2.6vw, 2.7rem);
+  line-height: 1.1;
+
+  color: #fff;
+
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.wrap::after {
+  content: "";
+
+  display: inline-block;
+
+  height: 1em;
+
+  margin-left: 4px;
+
+  border-right: 0.08em solid #fff;
+
+  animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN
+   ========================================================= */
+
+.descripcion-pequena {
+  margin-bottom: 1.65rem;
+
+  font-size: 1.05rem;
+  line-height: 1.5;
+
+  color: #555;
+
+  font-style: italic;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.botones-intro {
+  display: flex;
+
+  gap: 12px;
+
+  flex-wrap: wrap;
+}
+
+
+.btn-elegante,
+.btn-descargar {
+  min-height: 44px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding:
+    0
+    18px;
+
+  border-radius: 3px;
+
+  font-family:
+    'Poppins',
+    sans-serif;
+
+  font-size: 0.78rem;
+
+  font-weight: 500;
+
+  letter-spacing: 0.3px;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.22s ease,
+    color 0.22s ease,
+    border-color 0.22s ease,
+    transform 0.22s ease;
+}
+
+
+/* PRIMARY */
+
+.btn-elegante {
+  border:
+    1px solid
+    #c9a549;
+
+  background:
+    #c9a549;
+
+  color:
+    #171717;
+}
+
+
+.btn-elegante:hover {
+  border-color:
+    #d9bc6a;
+
+  background:
+    #d9bc6a;
+
+  color:
+    #111;
+
+  transform:
+    translateY(-2px);
+}
+
+
+/* SECONDARY */
+
+.btn-descargar {
+  border:
+    1px solid
+    rgba(201, 165, 73, 0.65);
+
+  background:
+    transparent;
+
+  color:
+    #d6bd73;
+}
+
+
+.btn-descargar:hover {
+  border-color:
+    #c9a549;
+
+  background:
+    rgba(201, 165, 73, 0.08);
+
+  color:
+    #e0c77d;
+
+  transform:
+    translateY(-2px);
+}
+
+/* =========================================================
+   COLUMNA DERECHA
+   ========================================================= */
+
+.columna-derecha {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 24px;
+}
+
+
+/* =========================================================
+   FOTO
+   ========================================================= */
+
+.image-container {
+  position: relative;
+
+  width: min(100%, 504px);
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
+
+  border-radius: 50%;
+
+  background-color: #fff;
+
+  background-image: url("/fondos/a.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  animation: floatUpDown 4s ease-in-out infinite;
+}
+
+
+/* PERSONA */
+.image-container img {
+  position: absolute;
+
+  left: 50%;
+  bottom: -30%;
+
+  transform: translateX(-50%);
+
+  height: 120%;
+  width: auto;
+
+ 
+  max-height: none;
+
+  object-fit: contain;
+  object-position: center bottom;
+
+  display: block;
+
+  filter: brightness(0.95);
+}
+@keyframes floatUpDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-22px);
+  }
+}
+
+
+/* =========================================================
+   REDES
+   ========================================================= */
+
+.logos-container {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 60px;
+}
+
+.logo-circle {
+  width: 66px;
+  height: 66px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+
+  transition: transform 0.3s ease;
+}
+
+.logo-circle:hover {
+  transform: scale(1.1);
+}
+
+
+/* =========================================================
+   SCROLL INDICATOR
+   ========================================================= */
+
+.scroll-downs {
+  position: absolute;
+
+  bottom: 45px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  z-index: 2;
+}
+
+.mousey {
+  width: 4px;
+  height: 42px;
+
+  padding: 12px 18px;
+
+  border: 2px solid #000;
+
+  border-radius: 30px;
+
+  opacity: 0.75;
+
+  box-sizing: content-box;
+}
+
+.scroller {
+  width: 4px;
+  height: 12px;
+
+  border-radius: 30%;
+
+  background-color: #000;
+
+  animation:
+    scroll 2.2s
+    cubic-bezier(.15, .41, .69, .94)
+    infinite;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    transform: translateY(0);
+
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(15px);
+
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1199.98px) {
+
+  .texto-introduccion {
+    padding: 32px;
+  }
+
+  .image-container {
+    max-width: 420px;
+  }
+}
+
+
+/* =========================================================
+   TABLET / MÓVIL VERTICAL
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+
+  .hero-section {
+    min-height: auto;
+
+    padding-top: 120px;
+    padding-bottom: 80px;
+  }
+
+  .texto-introduccion {
+    max-width: 100%;
+
+    margin-inline: auto;
+
+    text-align: center;
+  }
+
+  .botones-intro {
+    justify-content: center;
+  }
+
+  .columna-derecha {
+    margin-top: 20px;
+  }
+
+  .image-container {
+    width: min(78vw, 430px);
+  }
+
+  .logos-container {
+    gap: 35px;
+  }
+
+  .scroll-downs {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   MÓVIL PEQUEÑO
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+  .hero-section {
+    padding-top: 95px;
+    padding-bottom: 60px;
+  }
+
+  .texto-introduccion {
+    padding: 24px 18px;
+  }
+
+  .texto-introduccion h3 {
+    font-size: 0.95rem;
+  }
+
+  .texto-introduccion h1 {
+    min-height: 100px;
+
+    margin-bottom: 0.35rem;
+  }
+
+  .wrap {
+    width: 100%;
+
+    max-width: 100%;
+
+    font-size: clamp(1.7rem, 8vw, 2.2rem);
+
+    white-space: normal;
+  }
+
+  .texto-introduccion h2 {
+    font-size: 1.4rem;
+  }
+
+  .descripcion-pequena {
+    font-size: 0.95rem;
+  }
+
+  .botones-intro {
+    flex-direction: column;
+  }
+
+  .btn-elegante,
+  .btn-descargar {
+    width: 100%;
+
+    text-align: center;
+  }
+
+  .image-container {
+    width: min(82vw, 330px);
+  }
+
+  .logo-circle {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+
+/* =========================================================
+   TABLET HORIZONTAL / PORTÁTIL PEQUEÑO
+   ========================================================= */
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+  .wrap {
+    width: 24ch;
+
+    font-size: 2rem;
+
+    white-space: nowrap;
+  }
+
+  .texto-introduccion {
+    padding: 28px;
+  }
+
+  .texto-introduccion h1 {
+    min-height: 90px;
+  }
+}
+
+
+/* =========================================================
+   ESCRITORIO
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  .wrap {
+    width: 24ch;
+
+    white-space: nowrap;
+  }
+
+  .texto-introduccion h1 {
+    min-height: 90px;
+  }
+
+  .texto-introduccion {
+    margin-right: 2rem;
+  }
+
+  .columna-derecha {
+    margin-left: 2rem;
+  }
+}
+
+
+/* =========================================================
+   ESCRITORIO GRANDE
+   ========================================================= */
+
+@media (min-width: 1400px) {
+
+  .texto-introduccion {
+    margin-right: 3.5rem;
+  }
+
+  .columna-derecha {
+    margin-left: 3.5rem;
+  }
+}

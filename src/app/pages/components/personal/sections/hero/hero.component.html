@@ -1,0 +1,114 @@
+<section
+  id="introduccion"
+  class="hero-section"
+>
+<span class="section-kicker">
+  01 / INTRO
+</span>
+  <div class="container hero-container">
+
+<div class="row align-items-center gy-5 gx-lg-5">      <!-- IZQUIERDA -->
+      <div class="col-12 col-lg-6">
+
+        <div class="texto-introduccion">
+
+          <h3>
+            {{ getTranslation('hello') }}
+          </h3>
+
+          <h1>
+            <span class="wrap">
+              {{ displayText }}
+            </span>
+          </h1>
+
+          <h2>
+            {{ getTranslation('jobTitle') }}
+          </h2>
+
+          <p class="descripcion-pequena">
+            {{ getTranslation('description') }}
+          </p>
+
+          <div class="botones-intro">
+
+            <button
+              class="btn-elegante"
+              (click)="cambiarComponente()"
+            >
+              {{ getTranslation('moreAbout') }}
+            </button>
+
+            <a
+              href="/CV_I_DAVID.pdf"
+              download
+              class="btn-descargar"
+            >
+              {{ getTranslation('downloadCV') }}
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- DERECHA -->
+      <div class="col-12 col-lg-6">
+
+        <div class="columna-derecha">
+
+          <div class="image-container">
+
+            <img
+              src="/imagenfinal.png"
+              alt="David Quintana"
+            >
+
+          </div>
+
+          <div class="logos-container">
+
+            <a
+              href="https://www.linkedin.com/in/david-quintana-657066347/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="/in.png"
+                alt="LinkedIn"
+                class="logo-circle"
+              >
+            </a>
+
+            <a
+              href="https://github.com/kinz1000"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="/github.png"
+                alt="GitHub"
+                class="logo-circle"
+              >
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="scroll-downs">
+    <div class="mousey">
+      <div class="scroller"></div>
+    </div>
+  </div>
+
+</section>

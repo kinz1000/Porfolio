@@ -1,0 +1,1155 @@
+:host {
+  display: block;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   SECCIÓN
+   ========================================================= */
+
+.contact-section {
+  width: 100%;
+  min-height: 100vh;
+
+  padding:
+    110px
+    40px
+    50px;
+
+  box-sizing:
+    border-box;
+
+  background-color:
+    #c3c3c3;
+
+  overflow:
+    hidden;
+
+  scroll-margin-top:
+    80px;
+
+  font-family:
+    var(--font-text);
+}
+
+
+/* =========================================================
+   CONTENEDOR
+   ========================================================= */
+
+.contact-container {
+  width: 100%;
+  max-width: 1400px;
+
+  margin:
+    0
+    auto;
+
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  align-items:
+    center;
+
+  gap:
+    70px;
+}
+
+
+/* =========================================================
+   INFORMACIÓN
+   ========================================================= */
+
+.contact-info {
+  flex: 1;
+
+  max-width: 600px;
+
+  display: flex;
+
+  flex-direction:
+    column;
+
+  justify-content:
+    center;
+
+  align-items:
+    flex-start;
+
+  gap:
+    15px;
+
+  color:
+    #222;
+}
+
+
+.contact-info h3 {
+  margin:
+    0;
+
+  color:
+    #493a01;
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    1rem;
+
+  font-weight:
+    700;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    1px;
+}
+
+
+/* =========================================================
+   LÍNEA
+   ========================================================= */
+
+.underline-blue {
+  width:
+    50px;
+
+  height:
+    2px;
+
+  margin:
+    -5px
+    0
+    10px;
+
+  border:
+    0;
+
+  background-color:
+    #493a01;
+}
+
+
+/* =========================================================
+   TÍTULO INFORMACIÓN
+   ========================================================= */
+
+.contact-info h2 {
+  margin:
+    0
+    0
+    10px;
+
+  color:
+    #111;
+
+  font-family:
+    var(--font-title);
+
+  font-size:
+    clamp(
+      1.8rem,
+      3vw,
+      2.5rem
+    );
+
+  line-height:
+    1.25;
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN
+   ========================================================= */
+
+.contact-info p {
+  margin:
+    0;
+
+  color:
+    #333;
+
+  font-family:
+    var(--font-text);
+
+  font-size:
+    0.95rem;
+
+  line-height:
+    1.6;
+}
+
+
+/* =========================================================
+   ITEMS CONTACTO
+   ========================================================= */
+
+.contact-item {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    12px;
+
+  color:
+    #222;
+
+  font-family:
+    var(--font-text);
+
+  font-size:
+    0.95rem;
+}
+
+
+.contact-item .icon {
+  width:
+    40px;
+
+  height:
+    40px;
+
+  flex-shrink:
+    0;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  border-radius:
+    50%;
+
+  background-color:
+    #000;
+
+  color:
+    #fff;
+
+  font-size:
+    1.2rem;
+}
+
+
+/* =========================================================
+   FORMULARIO
+   ========================================================= */
+
+.form-container {
+  position:
+    relative;
+
+  flex:
+    1;
+
+  width:
+    100%;
+
+  max-width:
+    650px;
+
+  padding:
+    45px;
+
+  box-sizing:
+    border-box;
+
+  border-radius:
+    15px;
+
+  background:
+    rgba(
+      30,
+      30,
+      30,
+      0.95
+    );
+
+  box-shadow:
+    0
+    5px
+    20px
+    rgba(
+      0,
+      0,
+      0,
+      0.3
+    );
+
+  font-family:
+    var(--font-text);
+}
+
+
+/* =========================================================
+   LUZ ESTADO
+   ========================================================= */
+
+.status-light {
+  position:
+    absolute;
+
+  top:
+    20px;
+
+  right:
+    20px;
+
+  width:
+    24px;
+
+  height:
+    24px;
+
+  border-radius:
+    50%;
+
+  background-color:
+    #555;
+
+  box-shadow:
+    0
+    0
+    5px
+    #555;
+
+  transition:
+    background-color
+    0.3s
+    ease,
+    box-shadow
+    0.3s
+    ease;
+}
+
+
+/* =========================================================
+   ANIMACIÓN LUZ
+   ========================================================= */
+
+@keyframes blink {
+
+  0%,
+  50%,
+  100% {
+    box-shadow:
+      0
+      0
+      10px
+      currentColor;
+  }
+
+
+  25%,
+  75% {
+    box-shadow:
+      0
+      0
+      25px
+      currentColor;
+  }
+
+}
+
+
+/* =========================================================
+   ESTADOS
+   ========================================================= */
+
+.orange {
+  background-color:
+    orange;
+
+  color:
+    orange;
+
+  box-shadow:
+    0
+    0
+    10px
+    orange;
+}
+
+
+.orange-blink {
+  background-color:
+    orange;
+
+  color:
+    orange;
+
+  box-shadow:
+    0
+    0
+    10px
+    orange;
+
+  animation:
+    blink
+    1s
+    infinite;
+}
+
+
+.green {
+  background-color:
+    limegreen !important;
+
+  box-shadow:
+    0
+    0
+    20px
+    limegreen !important;
+}
+
+
+.red-blink {
+  background-color:
+    red;
+
+  color:
+    red;
+
+  box-shadow:
+    0
+    0
+    10px
+    red;
+
+  animation:
+    blink
+    1s
+    infinite;
+}
+
+
+/* =========================================================
+   TÍTULO FORM
+   ========================================================= */
+
+form h2 {
+  margin:
+    0
+    0
+    25px;
+
+  text-align:
+    center;
+
+  color:
+    #00c4ff;
+
+  font-family:
+    var(--font-title);
+
+  font-size:
+    1.6rem;
+}
+
+
+/* =========================================================
+   FILA NOMBRE / EMAIL
+   ========================================================= */
+
+.flex-row {
+  display:
+    flex;
+
+  gap:
+    25px;
+}
+
+
+.name-field {
+  flex:
+    1;
+}
+
+
+.email-field {
+  flex:
+    2;
+}
+
+
+/* =========================================================
+   CAMPOS
+   ========================================================= */
+
+.form-group {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  margin-bottom:
+    18px;
+}
+
+
+label {
+  margin-bottom:
+    8px;
+
+  color:
+    #fff;
+
+  font-family:
+    var(--font-text);
+
+  font-size:
+    0.9rem;
+
+  font-weight:
+    500;
+}
+
+
+input,
+textarea {
+  width:
+    100%;
+
+  padding:
+    11px
+    12px;
+
+  box-sizing:
+    border-box;
+
+  border:
+    none;
+
+  border-radius:
+    8px;
+
+  outline:
+    none;
+
+  background:
+    #2a2a2a;
+
+  color:
+    #fff;
+
+  font-family:
+    var(--font-text);
+}
+
+
+textarea {
+  min-height:
+    130px;
+
+  resize:
+    vertical;
+}
+
+
+input:focus,
+textarea:focus {
+  box-shadow:
+    0
+    0
+    0
+    2px
+    rgba(
+      0,
+      196,
+      255,
+      0.35
+    );
+}
+
+
+/* =========================================================
+   ERRORES
+   ========================================================= */
+
+small {
+  display:
+    block;
+
+  min-height:
+    18px;
+
+  margin-top:
+    5px;
+
+  color:
+    #ff5a5a;
+
+  font-family:
+    var(--font-text);
+
+  font-size:
+    0.75rem;
+}
+
+
+.error {
+  margin-top:
+    15px;
+
+  color:
+    #ff5a5a;
+
+  text-align:
+    center;
+
+  font-family:
+    var(--font-text);
+
+  font-size:
+    0.85rem;
+}
+
+
+/* =========================================================
+   BOTÓN
+   ========================================================= */
+
+button {
+  width:
+    100%;
+
+  padding:
+    11px;
+
+  border:
+    none;
+
+  border-radius:
+    8px;
+
+  background-color:
+    #00c4ff;
+
+  color:
+    #fff;
+
+  font-family:
+    var(--font-text);
+
+  font-weight:
+    700;
+
+  cursor:
+    pointer;
+
+  transition:
+    background-color
+    0.3s
+    ease,
+    transform
+    0.2s
+    ease,
+    opacity
+    0.2s
+    ease;
+}
+
+
+button:hover:not(:disabled) {
+  background-color:
+    #009dcc;
+
+  transform:
+    translateY(-1px);
+}
+
+
+button:disabled {
+  opacity:
+    0.45;
+
+  cursor:
+    not-allowed;
+}
+
+
+/* =========================================================
+   FIRMA
+   ========================================================= */
+
+.signature-phrase {
+  margin:
+    60px
+    0
+    0;
+
+  color:
+    #000;
+
+  font-family:
+    var(--font-title);
+
+  font-size:
+    0.6rem;
+
+  font-weight:
+    400;
+
+  letter-spacing:
+    0.6px;
+
+  text-align:
+    center;
+
+  opacity:
+    0.85;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (
+  max-width:
+  991.98px
+) {
+
+  .contact-section {
+    min-height:
+      auto;
+
+    padding:
+      100px
+      25px
+      60px;
+  }
+
+
+  .contact-container {
+    flex-direction:
+      column;
+
+    align-items:
+      stretch;
+
+    gap:
+      50px;
+  }
+
+
+  .contact-info,
+  .form-container {
+    width:
+      100%;
+
+    max-width:
+      700px;
+
+    margin:
+      0
+      auto;
+  }
+
+}
+
+
+/* =========================================================
+   MÓVIL
+   ========================================================= */
+
+@media (
+  max-width:
+  575.98px
+) {
+
+  .contact-section {
+    padding:
+      90px
+      14px
+      45px;
+  }
+
+
+  .contact-container {
+    gap:
+      35px;
+  }
+
+
+  .contact-info h2 {
+    font-size:
+      1.65rem;
+  }
+
+
+  .contact-info p {
+    font-size:
+      0.85rem;
+  }
+
+
+  .contact-item {
+    font-size:
+      0.85rem;
+  }
+
+
+  .contact-item .icon {
+    width:
+      36px;
+
+    height:
+      36px;
+
+    font-size:
+      1rem;
+  }
+
+
+  .form-container {
+    padding:
+      32px
+      20px;
+  }
+
+
+  .flex-row {
+    flex-direction:
+      column;
+
+    gap:
+      0;
+  }
+
+
+  form h2 {
+    font-size:
+      1.4rem;
+  }
+
+
+  .signature-phrase {
+    margin-top:
+      40px;
+  }
+
+}
+
+
+/* =========================================================
+   MÓVIL - FORMULARIO POR FILAS
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+  .contact-section {
+    width: 100%;
+
+    padding:
+      85px
+      16px
+      50px;
+
+    box-sizing:
+      border-box;
+  }
+
+
+  /* =========================
+     CONTENEDOR GENERAL
+     ========================= */
+
+  .contact-container {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction:
+      column;
+
+    align-items:
+      stretch;
+
+    gap:
+      45px;
+  }
+
+
+  /* =========================
+     INFORMACIÓN
+     ========================= */
+
+  .contact-info {
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+
+    gap:
+      18px;
+  }
+
+
+  .contact-info h3 {
+    font-size:
+      0.9rem;
+  }
+
+
+  .contact-info h2 {
+    width: 100%;
+
+    margin: 0;
+
+    font-size:
+      1.65rem;
+
+    line-height:
+      1.25;
+  }
+
+
+  .contact-info p {
+    width: 100%;
+
+    font-size:
+      0.9rem;
+
+    line-height:
+      1.6;
+  }
+
+
+  /* =========================
+     TELÉFONO / EMAIL
+     ========================= */
+
+  .contact-item {
+    width: 100%;
+
+    display: flex;
+
+    align-items:
+      center;
+
+    gap:
+      12px;
+
+    font-size:
+      0.88rem;
+  }
+
+
+  .contact-item .icon {
+    width:
+      38px;
+
+    height:
+      38px;
+
+    flex-shrink:
+      0;
+  }
+
+
+  /* =========================
+     FORMULARIO
+     ========================= */
+
+  .form-container {
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+
+    padding:
+      35px
+      22px;
+
+    box-sizing:
+      border-box;
+
+    border-radius:
+      14px;
+  }
+
+
+  form {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction:
+      column;
+  }
+
+
+  form h2 {
+    margin-bottom:
+      28px;
+
+    font-size:
+      1.4rem;
+  }
+
+
+  /* =========================
+     NOMBRE + CORREO
+     AHORA EN FILAS
+     ========================= */
+
+  .flex-row {
+    width: 100%;
+
+    display:
+      flex !important;
+
+    flex-direction:
+      column !important;
+
+    gap:
+      0 !important;
+  }
+
+
+  .flex-row .form-group,
+  .name-field,
+  .email-field {
+    width:
+      100% !important;
+
+    flex:
+      none !important;
+  }
+
+
+  /* =========================
+     CADA CAMPO
+     ========================= */
+
+  .form-group {
+    width: 100%;
+
+    margin-bottom:
+      22px;
+  }
+
+
+  label {
+    display:
+      block;
+
+    margin-bottom:
+      8px;
+
+    font-size:
+      0.85rem;
+  }
+
+
+  input,
+  textarea {
+    display:
+      block;
+
+    width: 100%;
+
+    padding:
+      12px
+      13px;
+
+    box-sizing:
+      border-box;
+
+    font-size:
+      0.9rem;
+  }
+
+
+  input {
+    min-height:
+      44px;
+  }
+
+
+  textarea {
+    min-height:
+      150px;
+  }
+
+
+  small {
+    width: 100%;
+
+    min-height:
+      16px;
+
+    margin-top:
+      6px;
+
+    font-size:
+      0.72rem;
+  }
+
+
+  /* =========================
+     BOTÓN
+     ========================= */
+
+  button {
+    width: 100%;
+
+    min-height:
+      44px;
+
+    margin-top:
+      5px;
+  }
+
+
+  /* =========================
+     LUZ
+     ========================= */
+
+  .status-light {
+    top:
+      18px;
+
+    right:
+      18px;
+
+    width:
+      20px;
+
+    height:
+      20px;
+  }
+
+
+  /* =========================
+     FIRMA
+     ========================= */
+
+  .signature-phrase {
+    margin-top:
+      45px;
+
+    padding:
+      0
+      10px;
+
+    line-height:
+      1.5;
+  }
+
+}

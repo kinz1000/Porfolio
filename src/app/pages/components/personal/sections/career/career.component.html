@@ -1,0 +1,256 @@
+<section id="trayectoria" class="career-section">
+<span class="section-kicker">
+  02 /
+  {{
+    selectedLang === 'ES'
+      ? 'TRAYECTORIA'
+      : 'CAREER'
+  }}
+</span>
+  <div class="container-fluid career-container">
+
+    <div class="row g-5">
+
+      <!-- =====================================================
+           ESTUDIOS
+           ===================================================== -->
+      <div class="col-12 col-xl-6">
+
+        <div class="career-column">
+
+          <h3 class="career-title">
+            {{ getTranslation('studies') }}
+          </h3>
+
+          <ul class="timeline">
+
+            <!-- Bachillerato -->
+            <li class="timeline-item">
+
+              <div class="timeline-content direction-r">
+
+                <div class="flag-wrapper">
+
+                  <span class="flag">
+                    {{ getTranslation('bachillerato') }}
+                  </span>
+
+                  <span class="time-wrapper">
+                    <span class="time">
+                      2020 - 2022
+                    </span>
+                  </span>
+
+                </div>
+
+                <div class="desc">
+                  {{ getTranslation('bachilleratoDesc') }}
+                </div>
+
+                <div class="btn-certificado">
+
+                  <a
+                    href="certificados/bachillerato.pdf"
+                    download
+                    class="cert-btn"
+                  >
+                    📄
+                    {{ getTranslation('downloadCertificate') }}
+                  </a>
+
+                </div>
+
+              </div>
+
+            </li>
+
+
+            <!-- DAM -->
+            <li class="timeline-item">
+
+              <div class="timeline-content direction-l">
+
+                <div class="flag-wrapper">
+
+                  <span class="flag">
+                    {{ getTranslation('gradoSuperior') }}
+                  </span>
+
+                  <span class="time-wrapper">
+                    <span class="time">
+                      2022 - 2024
+                    </span>
+                  </span>
+
+                </div>
+
+                <div class="desc">
+                  {{ getTranslation('gradoSuperiorDesc') }}
+                </div>
+
+                <div class="btn-certificado">
+
+                  <a
+                    href="certificados/bachillerato.pdf"
+                    download
+                    class="cert-btn"
+                  >
+                    📄
+                    {{ getTranslation('downloadCertificate') }}
+                  </a>
+
+                </div>
+
+              </div>
+
+            </li>
+
+
+            <!-- Python -->
+            <li class="timeline-item">
+
+              <div class="timeline-content direction-r">
+
+                <div class="flag-wrapper">
+
+                  <span class="flag">
+                    {{ getTranslation('cursoPython') }}
+                  </span>
+
+                  <span class="time-wrapper">
+                    <span class="time">
+                      2024 -
+                      {{ getTranslation('present') }}
+                    </span>
+                  </span>
+
+                </div>
+
+                <div class="desc">
+                  {{ getTranslation('cursoPythonDesc') }}
+                </div>
+
+              </div>
+
+            </li>
+            <!-- UNED - Ingeniería en IA -->
+            <li class="timeline-item">
+
+            <div class="timeline-content direction-l">
+
+                <div class="flag-wrapper">
+
+                <span class="flag flag-uned" >
+                    {{ getTranslation('uned') }}
+                </span>
+
+                <span class="time-wrapper">
+                    <span class="time">
+                    2026 -
+                    {{ getTranslation('present') }}
+                    </span>
+                </span>
+
+                </div>
+
+                <div class="desc">
+                {{ getTranslation('unedDesc') }}
+                </div>
+
+            </div>
+
+            </li>
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================================
+           EXPERIENCIA
+           ===================================================== -->
+      <div class="col-12 col-xl-6">
+
+        <div class="career-column">
+
+          <h3 class="career-title">
+            {{ getTranslation('workExperience') }}
+          </h3>
+
+          <ul class="timeline">
+
+            <!-- Alten -->
+            <li class="timeline-item">
+
+              <div class="timeline-content direction-r">
+
+                <div class="flag-wrapper">
+
+                  <span class="flag">
+                    {{ getTranslation('alten') }}
+                  </span>
+
+                  <span class="time-wrapper">
+
+                    <span class="time">
+                      {{ getTranslation('monthSept') }}
+                      -
+                      {{ getTranslation('monthDec') }}
+                      2024
+                    </span>
+
+                  </span>
+
+                </div>
+
+                <div class="desc">
+                  {{ getTranslation('altenDesc') }}
+                </div>
+
+              </div>
+
+            </li>
+
+
+            <!-- Indra -->
+            <li class="timeline-item">
+
+              <div class="timeline-content direction-l">
+
+                <div class="flag-wrapper">
+
+                  <span class="flag">
+                    {{ getTranslation('indra') }}
+                  </span>
+
+                  <span class="time-wrapper">
+
+                    <span class="time">
+                      2025 -
+                      {{ getTranslation('present') }}
+                    </span>
+
+                  </span>
+
+                </div>
+
+                <div class="desc">
+                  {{ getTranslation('indraDesc') }}
+                </div>
+
+              </div>
+
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

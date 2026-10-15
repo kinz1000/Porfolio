@@ -1,0 +1,291 @@
+<section
+  id="contactame"
+  class="contact-section"
+>
+<span class="section-kicker  light-background">
+  05 /
+  {{
+    selectedLang === 'ES'
+      ? 'CONTACTO'
+      : 'CONTACT'
+  }}
+</span>
+  <div class="contact-container">
+
+    <!-- =====================================================
+         INFORMACIÓN
+         ===================================================== -->
+
+    <div class="contact-info">
+
+      <h3>
+        {{ getTranslation('contactMe') }}
+      </h3>
+
+      <hr class="underline-blue" />
+
+      <h2
+        [innerHTML]="getTranslation('contactHeader')"
+      >
+      </h2>
+
+      <p>
+        {{ getTranslation('contactDescription') }}
+      </p>
+
+
+      <div class="contact-item">
+
+        <span class="icon">
+          📞
+        </span>
+
+        <span class="text">
+          {{ getTranslation('phoneNumber') }}
+        </span>
+
+      </div>
+
+
+      <div class="contact-item">
+
+        <span class="icon">
+          ✉️
+        </span>
+
+        <span class="text">
+          {{ getTranslation('emailAddress') }}
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         FORMULARIO
+         ===================================================== -->
+
+    <div class="form-container">
+
+      <div
+        class="status-light"
+        [ngClass]="statusLightClass"
+      >
+      </div>
+
+
+      <form
+        [formGroup]="contactForm"
+        (ngSubmit)="onSubmit()"
+        novalidate
+      >
+
+        <h2>
+          {{ getTranslation('contactFormTitle') }}
+        </h2>
+
+
+        <!-- NOMBRE + EMAIL -->
+        <div class="flex-row">
+
+          <div
+            class="
+              form-group
+              name-field
+            "
+          >
+
+            <label for="name">
+              {{ getTranslation('labelName') }}
+            </label>
+
+            <input
+              id="name"
+              type="text"
+              formControlName="name"
+              [placeholder]="
+                getTranslation(
+                  'placeholderName'
+                )
+              "
+            />
+
+            <small>
+              {{
+                contactForm
+                  .get('name')
+                  ?.touched
+                &&
+                contactForm
+                  .get('name')
+                  ?.invalid
+                  ?
+                  getTranslation(
+                    'errorNameRequired'
+                  )
+                  :
+                  ''
+              }}
+            </small>
+
+          </div>
+
+
+          <div
+            class="
+              form-group
+              email-field
+            "
+          >
+
+            <label for="email">
+              {{ getTranslation('labelEmail') }}
+            </label>
+
+            <input
+              id="email"
+              type="email"
+              formControlName="email"
+              [placeholder]="
+                getTranslation(
+                  'placeholderEmail'
+                )
+              "
+            />
+
+            <small>
+              {{
+                contactForm
+                  .get('email')
+                  ?.touched
+                &&
+                contactForm
+                  .get('email')
+                  ?.invalid
+                  ?
+                  getTranslation(
+                    'errorEmailInvalid'
+                  )
+                  :
+                  ''
+              }}
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <!-- TÍTULO -->
+        <div class="form-group">
+
+          <label for="title">
+            {{ getTranslation('labelTitle') }}
+          </label>
+
+          <input
+            id="title"
+            type="text"
+            formControlName="title"
+            [placeholder]="
+              getTranslation(
+                'placeholderTitle'
+              )
+            "
+          />
+
+          <small>
+            {{
+              contactForm
+                .get('title')
+                ?.touched
+              &&
+              contactForm
+                .get('title')
+                ?.invalid
+                ?
+                getTranslation(
+                  'errorTitleRequired'
+                )
+                :
+                ''
+            }}
+          </small>
+
+        </div>
+
+
+        <!-- MENSAJE -->
+        <div class="form-group">
+
+          <label for="message">
+            {{ getTranslation('labelMessage') }}
+          </label>
+
+          <textarea
+            id="message"
+            rows="6"
+            formControlName="message"
+            [placeholder]="
+              getTranslation(
+                'placeholderMessage'
+              )
+            "
+          >
+          </textarea>
+
+          <small>
+            {{
+              contactForm
+                .get('message')
+                ?.touched
+              &&
+              contactForm
+                .get('message')
+                ?.invalid
+                ?
+                getTranslation(
+                  'errorMessageRequired'
+                )
+                :
+                ''
+            }}
+          </small>
+
+        </div>
+
+
+        <!-- BOTÓN -->
+        <button
+          type="submit"
+          [disabled]="contactForm.invalid"
+        >
+          {{ getTranslation('sendButton') }}
+        </button>
+
+
+        <!-- ERROR -->
+        <p
+          *ngIf="errorMessage"
+          class="error"
+        >
+          {{ errorMessage }}
+        </p>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       FIRMA
+       ===================================================== -->
+
+  <p class="signature-phrase">
+    {{ getTranslation('signaturePhrase') }}
+  </p>
+
+</section>

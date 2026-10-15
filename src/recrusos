@@ -1,0 +1,51 @@
+<section id="introduccion" class="section" #introduccionSection>
+  <div class="texto-introduccion">
+
+    <!-- Saludo -->
+    <h3>{{ getTranslation('hello') }}</h3>
+
+    <!-- Nombre o animación de texto -->
+    <h1>
+      <span class="wrap">{{ displayText }}</span>
+    </h1>
+
+    <!-- Título profesional -->
+    <h2>{{ getTranslation('jobTitle') }}</h2>
+
+    <!-- Descripción breve -->
+    <p class="descripcion-pequeña">{{ getTranslation('description') }}</p>
+
+    <!-- Botones -->
+    <div class="botones-intro">
+      <button class="btn btn-elegante" (click)="cambiarComponente()">
+        {{ getTranslation('moreAbout') }}
+      </button>
+      <a href="/CV_I_DAVID.pdf" download class="btn btn-descargar">
+        {{ getTranslation('downloadCV') }}
+      </a>
+    </div>
+  </div>
+
+  <!-- Columna derecha con imagen y logos -->
+  <div class="columna-derecha">
+    <div class="image-container">
+      <img src="/imagenfinal.png" alt="Perfil" />
+    </div>
+    <div class="logos-container">
+      <a href="https://www.linkedin.com/in/david-quintana-657066347/" target="_blank" rel="noopener noreferrer" class="logo-link">
+        <img src="/in.png" alt="LinkedIn" class="logo-circle" />
+      </a>
+
+      <a href="https://github.com/kinz1000" target="_blank" rel="noopener noreferrer" class="logo-link">
+        <img src="/github.png" alt="GitHub" class="logo-circle" />
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll hacia abajo -->
+  <div class="scroll-downs">
+    <div class="mousey">
+      <div class="scroller"></div>
+    </div>
+  </div>
+</section> 

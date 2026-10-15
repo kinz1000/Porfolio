@@ -1,0 +1,209 @@
+<section
+  id="sobre-mi"
+  class="about-tech-section"
+>
+<span class="section-kicker">
+  01 /
+  {{
+    selectedLang === 'ES'
+      ? 'SOBRE MÍ'
+      : 'ABOUT ME'
+  }}
+</span>
+  <div class="about-tech-container">
+
+    <!-- =====================================================
+         COLUMNA IZQUIERDA
+         ===================================================== -->
+
+    <div class="about-tech-left">
+
+      <div class="image-wrapper">
+
+        <div class="imagen-contenedor">
+
+         
+
+        </div>
+
+
+        <h1 class="titulo-imagen">
+
+          <span class="nombre">
+            DAVID QUINTANA
+          </span>
+
+          <span class="apellido">
+            FERNÁNDEZ
+          </span>
+
+        </h1>
+
+      </div>
+
+
+      <!-- TARJETA DE CÓDIGO -->
+
+   <div class="code-card">
+  <div class="code-header">
+    <span class="dot red-dot"></span>
+    <span class="dot yellow-dot"></span>
+    <span class="dot green-dot"></span>
+  </div>
+
+  <div
+    class="code-body"
+    [innerHTML]="getCodeText()"
+  ></div>
+</div>
+
+    </div>
+
+
+    <!-- =====================================================
+         COLUMNA DERECHA
+         ===================================================== -->
+
+    <div class="about-tech-right">
+
+   <div class="about-copy">
+
+  <p class="intro-line">
+
+    👋
+
+    <strong>
+      {{
+        selectedLang === 'ES'
+          ? '¡Hola!'
+          : 'Hello!'
+      }}
+    </strong>
+
+    <span class="color">
+
+      {{
+        selectedLang === 'ES'
+          ? 'Soy desarrollador de software, especializado principalmente en Java y desarrollo backend, con experiencia profesional en proyectos reales.'
+          : 'I am a software developer focused mainly on Java and backend development, with professional experience working on real-world projects.'
+      }}
+
+    </span>
+
+  </p>
+
+
+  <p>
+
+    {{
+      selectedLang === 'ES'
+        ? 'Actualmente trabajo como desarrollador en Indra, dentro de un entorno empresarial orientado a sistemas de pagos. Mi trabajo combina desarrollo backend con Java y Spring, bases de datos SQL, integración entre sistemas y tareas frontend con Angular.'
+        : 'I currently work as a software developer at Indra, in an enterprise environment focused on payment systems. My work combines backend development with Java and Spring, SQL databases, system integration and frontend development with Angular.'
+    }}
+
+  </p>
+
+
+  <h3>
+    💻
+    {{
+      selectedLang === 'ES'
+        ? 'Desarrollo de software en entornos reales'
+        : 'Software development in real environments'
+    }}
+  </h3>
+
+
+  <p>
+
+    {{
+      selectedLang === 'ES'
+        ? 'Durante mi experiencia profesional he trabajado con Java, Spring MVC, Hibernate, SQL, Postman y Angular, participando en mantenimiento, nuevas funcionalidades, validaciones, integración con servicios y resolución de incidencias. Esto me ha permitido entender mejor cómo se desarrolla, prueba y mantiene software dentro de proyectos grandes.'
+        : 'Throughout my professional experience I have worked with Java, Spring MVC, Hibernate, SQL, Postman and Angular, contributing to maintenance, new features, validations, service integrations and issue resolution. This has given me a better understanding of how software is developed, tested and maintained within large projects.'
+    }}
+
+  </p>
+
+
+  <h3>
+    🚀
+    {{
+      selectedLang === 'ES'
+        ? 'Proyectos personales y automatización'
+        : 'Personal projects and automation'
+    }}
+  </h3>
+
+
+  <p>
+
+    {{
+      selectedLang === 'ES'
+        ? 'Fuera del trabajo desarrollo proyectos propios para seguir aprendiendo y probar nuevas ideas. Entre ellos se encuentra un bot inmobiliario desarrollado con Python, SQLite y Docker que automatiza la detección y gestión de nuevos anuncios, además de este portfolio desarrollado con Angular.'
+        : 'Outside work I build personal projects to continue learning and test new ideas. These include a real estate bot developed with Python, SQLite and Docker that automates the detection and management of new property listings, as well as this portfolio built with Angular.'
+    }}
+
+  </p>
+
+
+  <h3>
+    🎓
+    {{
+      selectedLang === 'ES'
+        ? 'Ingeniería en Inteligencia Artificial'
+        : 'Artificial Intelligence Engineering'
+    }}
+  </h3>
+
+
+  <p>
+
+    {{
+      selectedLang === 'ES'
+        ? 'Actualmente compagino mi trabajo con el Grado en Ingeniería en Inteligencia Artificial en la UNED. Mi objetivo es reforzar mi perfil como desarrollador incorporando conocimientos de lógica, matemáticas, algoritmos e inteligencia artificial que pueda aplicar en futuros proyectos de software.'
+        : 'I currently combine my professional work with a degree in Artificial Intelligence Engineering at UNED. My goal is to strengthen my profile as a developer by gaining knowledge in logic, mathematics, algorithms and artificial intelligence that I can apply to future software projects.'
+    }}
+
+  </p>
+
+
+  <h3>
+    🎯
+    {{
+      selectedLang === 'ES'
+        ? 'Mi objetivo profesional'
+        : 'My professional goal'
+    }}
+  </h3>
+
+
+  <p>
+
+    {{
+      selectedLang === 'ES'
+        ? 'Quiero seguir evolucionando como desarrollador, asumir proyectos cada vez más completos y ampliar mi experiencia tanto en backend como en producto y frontend. Me interesa especialmente trabajar en soluciones donde pueda combinar programación, lógica, automatización e inteligencia artificial.'
+        : 'I want to continue growing as a developer, take on increasingly complete projects and expand my experience across backend, product and frontend development. I am particularly interested in solutions where I can combine programming, logic, automation and artificial intelligence.'
+    }}
+
+  </p>
+
+</div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ESTATUA -->
+
+  <img
+    src="/r3.png"
+    [alt]="
+      selectedLang === 'ES'
+        ? 'Estatua decorativa'
+        : 'Decorative statue'
+    "
+    class="estatua"
+  />
+
+</section>

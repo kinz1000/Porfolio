@@ -1,0 +1,619 @@
+:host {
+  display: block;
+}
+
+
+/* =========================================================
+   SECCIÓN GENERAL
+   ========================================================= */
+
+.career-section {
+  width: 100%;
+
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+
+  padding: 120px 40px 80px;
+
+  background-color: #1f1f1f;
+
+  color: #fff;
+
+  overflow: hidden;
+
+  font-family: var(--font-text);
+}
+
+.career-container {
+  width: 100%;
+
+  max-width: 1500px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   COLUMNAS
+   ========================================================= */
+
+.career-column {
+  width: 100%;
+
+  max-width: 680px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   TÍTULOS
+   ========================================================= */
+
+.career-title {
+  position: relative;
+
+  margin-top: 0;
+  margin-bottom: 45px;
+
+  color: #f5d67b;
+
+  font-family: var(--font-title);
+
+  font-size: 1.8rem;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+.career-title::after {
+  content: '';
+
+  display: block;
+
+  width: 80px;
+  height: 3px;
+
+  margin-top: 10px;
+
+  border-radius: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ffb400,
+      #ff7a00
+    );
+
+  box-shadow:
+    0 0 6px
+    rgba(255, 180, 0, 0.4);
+}
+
+
+/* =========================================================
+   TIMELINE
+   ========================================================= */
+
+.timeline {
+  position: relative;
+
+  width: 100%;
+
+  margin: 0;
+
+  padding: 10px 0;
+
+  list-style: none;
+}
+
+.timeline::before {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 50%;
+
+  width: 4px;
+
+  transform: translateX(-50%);
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(80, 80, 80, 0),
+      rgb(80, 80, 80) 8%,
+      rgb(80, 80, 80) 92%,
+      rgba(80, 80, 80, 0)
+    );
+
+  z-index: 0;
+}
+
+.timeline-item {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 135px;
+
+  padding: 18px 0;
+}
+
+.timeline-item::after {
+  content: '';
+
+  display: block;
+
+  clear: both;
+}
+
+.timeline-item::before {
+  content: '';
+
+  position: absolute;
+
+  top: 28px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 14px;
+  height: 14px;
+
+  border:
+    4px solid
+    rgb(255, 217, 112);
+
+  border-radius: 50%;
+
+  background-color: #5c5c5c;
+
+  z-index: 5;
+}
+
+
+/* =========================================================
+   ITEMS
+   ========================================================= */
+
+.timeline-item {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 135px;
+
+  padding: 18px 0;
+}
+
+.timeline-item::after {
+  content: '';
+
+  display: block;
+
+  clear: both;
+}
+
+
+/* =========================================================
+   CONTENIDO
+   ========================================================= */
+
+.timeline-content {
+  position: relative;
+
+  width: calc(50% - 30px);
+
+  z-index: 2;
+}
+
+
+/* derecha */
+
+.direction-r {
+  margin-left: auto;
+
+  text-align: left;
+}
+
+
+/* izquierda */
+
+.direction-l {
+  margin-right: auto;
+
+  text-align: right;
+}
+
+
+/* =========================================================
+   CABECERA
+   ========================================================= */
+
+.flag-wrapper {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.direction-l .flag-wrapper {
+  flex-direction: row-reverse;
+}
+
+.direction-r .flag-wrapper {
+  flex-direction: row;
+}
+
+
+/* =========================================================
+   FLAG
+   ========================================================= */
+
+.flag-uned {
+  font-family: var(--font-text);
+
+  font-size: 0.78rem;
+
+  white-space: normal;
+
+  max-width: 190px;
+
+  line-height: 1.05;
+
+  text-align: right;
+
+  padding: 6px 9px;
+}
+
+.flag {
+  position: relative;
+
+  display: inline-block;
+
+  padding: 7px 11px;
+
+  border-radius: 5px;
+
+  background-color: #5c5c5c;
+
+  color: #fff;
+
+  font-family: var(--font-text);
+
+  font-weight: 600;
+
+  line-height: 1.2;
+
+  box-shadow:
+    0 2px 5px
+    rgba(0, 0, 0, 0.22);
+}
+
+
+/* =========================================================
+   PUNTO TIMELINE
+   ========================================================= */
+
+.direction-l .flag::before,
+.direction-r .flag::before {
+  display: none;
+}
+
+
+/* izquierda */
+
+.direction-l .flag::before {
+  right: -39px;
+}
+
+
+/* derecha */
+
+.direction-r .flag::before {
+  left: -39px;
+}
+
+
+/* =========================================================
+   FLECHAS
+   ========================================================= */
+
+.direction-l .flag::after {
+  content: '';
+
+  position: absolute;
+
+  top: 50%;
+  left: 100%;
+
+  transform: translateY(-50%);
+
+  border: 8px solid transparent;
+
+  border-left-color: #5c5c5c;
+}
+
+.direction-r .flag::after {
+  content: '';
+
+  position: absolute;
+
+  top: 50%;
+  right: 100%;
+
+  transform: translateY(-50%);
+
+  border: 8px solid transparent;
+
+  border-right-color: #5c5c5c;
+}
+
+
+/* =========================================================
+   FECHAS
+   ========================================================= */
+
+.time-wrapper {
+  display: inline-flex;
+
+  align-items: center;
+
+  flex-shrink: 0;
+}
+
+.time {
+  display: inline-block;
+
+  padding: 5px 7px;
+
+  border-radius: 3px;
+
+  background-color: #f8f8f8;
+
+  color: #295c6a;
+
+  font-family: var(--font-mono);
+
+  font-size: 0.7rem;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN
+   ========================================================= */
+
+.desc {
+  margin-top: 14px;
+
+  color: #d3d3d3;
+
+  font-family: var(--font-text);
+
+  font-size: 0.83rem;
+  font-style: italic;
+
+  line-height: 1.55;
+}
+
+.direction-r .desc {
+  padding-left: 10px;
+}
+
+.direction-l .desc {
+  padding-right: 10px;
+}
+
+
+/* =========================================================
+   CERTIFICADOS
+   ========================================================= */
+
+.btn-certificado {
+  margin-top: 12px;
+}
+
+.direction-r .btn-certificado {
+  padding-left: 10px;
+}
+
+.direction-l .btn-certificado {
+  padding-right: 10px;
+}
+
+.cert-btn {
+  display: inline-block;
+
+  padding: 8px 18px;
+
+  border-radius: 3px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #969696,
+      #f3e850
+    );
+
+  color: #222;
+
+  font-family: var(--font-text);
+
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 3px 8px
+    rgba(0, 0, 0, 0.3);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.cert-btn:hover {
+  color: #222;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f1ea7a,
+      #969696
+    );
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 5px 12px
+    rgba(0, 0, 0, 0.4);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1199.98px) {
+
+  .career-section {
+    padding:
+      110px 30px
+      80px;
+  }
+
+  .career-column {
+    max-width: 760px;
+  }
+
+  .career-title {
+    margin-bottom: 35px;
+  }
+}
+
+
+/* =========================================================
+   MÓVIL
+   ========================================================= */
+
+@media (max-width: 767.98px) {
+
+  .timeline::before {
+    left: 12px;
+
+    transform: none;
+  }
+
+  .timeline-item::before {
+    left: 12px;
+
+    transform: translateX(-50%);
+  }
+
+  .timeline-content,
+  .direction-r,
+  .direction-l {
+    width: calc(100% - 45px);
+
+    margin-left: 45px;
+
+    margin-right: 0;
+
+    text-align: left;
+  }
+
+  .direction-l .flag::after,
+  .direction-r .flag::after {
+    top: 50%;
+
+    left: auto;
+
+    right: 100%;
+
+    transform: translateY(-50%);
+
+    border: 8px solid transparent;
+
+    border-right-color: #5c5c5c;
+  }
+
+  .direction-l .flag-wrapper,
+  .direction-r .flag-wrapper {
+    flex-direction: row;
+  }
+}
+
+
+/* =========================================================
+   MÓVIL PEQUEÑO
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+  .career-section {
+    padding-inline: 15px;
+  }
+
+  .career-title {
+    font-size: 1.3rem;
+
+    letter-spacing: 1px;
+  }
+
+  .career-title::after {
+    width: 60px;
+  }
+
+  .flag {
+    font-size: 0.82rem;
+  }
+
+  .time {
+    font-size: 0.62rem;
+  }
+
+  .desc {
+    font-size: 0.77rem;
+  }
+
+  .cert-btn {
+    padding: 7px 13px;
+
+    font-size: 0.68rem;
+  }
+}
+
+
+/* =========================================================
+   ESCRITORIO
+   ========================================================= */
+
+@media (min-width: 768px) {
+
+  .career-section {
+    align-items: flex-start;
+
+    padding-top: 90px;
+
+    padding-bottom: 60px;
+  }
+
+  .timeline-item {
+    min-height: 170px;
+  }
+}

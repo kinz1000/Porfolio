@@ -1,0 +1,438 @@
+<section
+  id="proyectos"
+  class="projects-section"
+>
+
+  <div class="projects-container">
+
+
+    <!-- ================================================
+         HEADER
+         ================================================ -->
+
+    <header class="projects-header">
+
+      <div>
+
+        <span class="section-index">
+          03 / PROJECTS
+        </span>
+
+        <h2>
+
+          {{
+            selectedLang === 'ES'
+              ? 'PROYECTOS'
+              : 'PROJECTS'
+          }}
+
+        </h2>
+
+      </div>
+
+
+      <p>
+
+        {{
+          selectedLang === 'ES'
+            ? 'Una selección de proyectos donde aplico desarrollo, automatización y diseño para convertir ideas en productos funcionales.'
+            : 'A selection of projects where I apply development, automation and design to turn ideas into functional products.'
+        }}
+
+      </p>
+
+    </header>
+
+
+
+    <!-- ================================================
+         DESKTOP EXPLORER
+         ================================================ -->
+
+    <div class="projects-explorer">
+
+
+      <!-- LISTA -->
+
+      <div class="projects-list">
+
+        <article
+          *ngFor="
+            let project of projects;
+            let i = index
+          "
+          class="project-row"
+
+          [class.active]="
+            activeIndex === i
+          "
+
+          [class.disabled]="
+            !project.available
+          "
+
+          (mouseenter)="
+            selectProject(i)
+          "
+
+          (click)="
+            selectProject(i)
+          "
+        >
+
+          <div class="project-row-top">
+
+            <span class="project-number">
+              {{ project.number }}
+            </span>
+
+
+            <span class="project-year">
+              {{ project.date }}
+            </span>
+
+          </div>
+
+
+          <div class="project-row-content">
+
+            <div>
+
+              <span class="project-status">
+
+                {{
+                  project.status
+                    ? project.status[
+                        selectedLang
+                      ]
+                    : ''
+                }}
+
+              </span>
+
+
+              <h3>
+
+                {{
+                  project.title[
+                    selectedLang
+                  ]
+                }}
+
+              </h3>
+
+
+              <p>
+
+                {{
+                  project.category[
+                    selectedLang
+                  ]
+                }}
+
+              </p>
+
+            </div>
+
+
+            <span class="project-arrow">
+              ↗
+            </span>
+
+          </div>
+
+
+          <div
+            *ngIf="
+              project.technologies.length
+            "
+            class="row-tech"
+          >
+
+            <span
+              *ngFor="
+                let technology
+                of project.technologies
+                | slice:0:4
+              "
+            >
+              {{ technology }}
+            </span>
+
+          </div>
+
+        </article>
+
+      </div>
+
+
+
+      <!-- ================================================
+           PREVIEW
+           ================================================ -->
+
+      <aside class="project-preview">
+
+
+        <div class="preview-header">
+
+          <span>
+            {{
+              activeProject.number
+            }}
+          </span>
+
+          <span>
+            {{
+              activeProject.status
+                ? activeProject.status[
+                    selectedLang
+                  ]
+                : ''
+            }}
+          </span>
+
+        </div>
+
+
+
+        <div class="preview-image">
+
+          <img
+            [src]="
+              activeProject.image
+            "
+            [alt]="
+              activeProject.title[
+                selectedLang
+              ]
+            "
+          />
+
+        </div>
+
+
+
+        <div class="preview-content">
+
+          <span class="preview-category">
+
+            {{
+              activeProject.category[
+                selectedLang
+              ]
+            }}
+
+          </span>
+
+
+          <h3>
+
+            {{
+              activeProject.title[
+                selectedLang
+              ]
+            }}
+
+          </h3>
+
+
+          <p>
+
+            {{
+              activeProject.description[
+                selectedLang
+              ]
+            }}
+
+          </p>
+
+
+
+          <!-- STACK -->
+
+          <div
+            *ngIf="
+              activeProject
+                .technologies
+                .length
+            "
+            class="preview-stack"
+          >
+
+            <span
+              *ngFor="
+                let technology
+                of activeProject
+                  .technologies
+              "
+            >
+
+              {{ technology }}
+
+            </span>
+
+          </div>
+
+
+
+          <!-- BOTONES -->
+
+          <div
+            *ngIf="
+              activeProject.available
+            "
+            class="preview-actions"
+          >
+
+            <a
+              *ngIf="
+                activeProject.github
+              "
+              [href]="
+                activeProject.github
+              "
+              target="_blank"
+              rel="noopener noreferrer"
+              class="github-button"
+            >
+
+              <span>
+                GitHub
+              </span>
+
+              <span>
+                ↗
+              </span>
+
+            </a>
+
+
+            <button
+              type="button"
+              class="details-button"
+              (click)="
+                toggleDetails(
+                  activeIndex
+                )
+              "
+            >
+
+              {{
+                expandedProject ===
+                activeIndex
+
+                  ? (
+                      selectedLang ===
+                      'ES'
+                        ? 'Cerrar'
+                        : 'Close'
+                    )
+
+                  : (
+                      selectedLang ===
+                      'ES'
+                        ? 'Detalles'
+                        : 'Details'
+                    )
+              }}
+
+              <span>
+                +
+              </span>
+
+            </button>
+
+          </div>
+
+
+
+          <!-- DETAILS -->
+
+          <div
+            *ngIf="
+              expandedProject ===
+              activeIndex
+              &&
+              activeProject.features
+            "
+            class="project-details"
+          >
+
+            <span class="details-label">
+
+              {{
+                selectedLang === 'ES'
+                  ? 'FUNCIONALIDADES'
+                  : 'FEATURES'
+              }}
+
+            </span>
+
+
+            <ul>
+
+              <li
+                *ngFor="
+                  let feature
+                  of activeProject
+                    .features![
+                      selectedLang
+                    ]
+                "
+              >
+
+                {{ feature }}
+
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- CONTADOR -->
+
+        <div class="preview-footer">
+
+          <span>
+            {{
+              activeIndex + 1
+            }}
+          </span>
+
+
+          <div class="preview-progress">
+
+            <span
+              [style.width.%]="
+                (
+                  (activeIndex + 1)
+                  /
+                  projects.length
+                )
+                *
+                100
+              "
+            >
+            </span>
+
+          </div>
+
+
+          <span>
+            {{ projects.length }}
+          </span>
+
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+</section>

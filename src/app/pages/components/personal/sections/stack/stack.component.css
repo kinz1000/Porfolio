@@ -1,0 +1,917 @@
+:host {
+  display: block;
+}
+
+
+/* =========================================================
+   SECCIÓN
+   ========================================================= */
+
+.stack-section {
+  width: 100%;
+  min-height: 100vh;
+
+  padding:
+    85px
+    30px
+    60px;
+
+  background-color: #c3c3c3;
+
+  overflow: hidden;
+
+  scroll-margin-top: 80px;
+
+  font-family: var(--font-text);
+}
+
+
+.stack-container {
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+.stack-title {
+  position: relative;
+
+  width: fit-content;
+
+  margin: 0 auto;
+
+  font-family:
+    var(--font-title);
+
+  font-size:
+    clamp(
+      3rem,
+      6vw,
+      5.2rem
+    );
+
+  font-weight: 900;
+
+  letter-spacing:
+    clamp(
+      0.25rem,
+      0.8vw,
+      0.8rem
+    );
+
+  text-align: center;
+
+  text-transform: uppercase;
+
+  background:
+    linear-gradient(
+      90deg,
+      #fff,
+      #000 60%,
+      #000 70%,
+      #000 80%,
+      #fff 100%
+    );
+
+  background-size:
+    200% 100%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color:
+    transparent;
+
+  animation:
+    text-shine
+    9s
+    linear
+    infinite;
+}
+
+
+.stack-title::before,
+.stack-title::after {
+  content: '';
+
+  position: absolute;
+
+  top: 50%;
+
+  width: 70px;
+  height: 2px;
+
+  background-color: #000;
+}
+
+
+.stack-title::before {
+  left: -90px;
+}
+
+
+.stack-title::after {
+  right: -90px;
+}
+
+
+/* =========================================================
+   ANIMACIÓN TÍTULO
+   ========================================================= */
+
+@keyframes text-shine {
+
+  0% {
+    background-position:
+      -200% 0;
+  }
+
+  100% {
+    background-position:
+      200% 0;
+  }
+
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN
+   ========================================================= */
+
+.stack-description {
+  max-width: 900px;
+
+  margin:
+    12px
+    auto
+    0;
+
+  color: #222;
+
+  font-family:
+    var(--font-text);
+
+  font-size: 0.9rem;
+  font-style: italic;
+
+  line-height: 1.55;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   COLUMNAS
+   ========================================================= */
+
+.stack-columns {
+  width: 100%;
+  max-width: 1350px;
+
+  margin: 45px auto 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  gap: 80px;
+}
+
+
+.stack-column {
+  position: relative;
+
+  width: 520px;
+  height: 480px;
+
+  max-width: 100%;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   CÍRCULO CENTRAL
+   ========================================================= */
+
+.static-circle {
+  position: absolute;
+
+  width: 115px;
+  height: 115px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border:
+    2px
+    solid
+    #7c7c7c;
+
+  border-radius: 50%;
+
+  background-color: #000;
+
+  color: #fff;
+
+  font-family:
+    var(--font-mono);
+
+  font-size: 1.5rem;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  box-shadow:
+    0 0 17px
+    rgba(0, 0, 0, 0.4);
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   ÓRBITA
+   ========================================================= */
+
+.container-stack {
+  position: relative;
+
+  width: 270px;
+  height: 270px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  border-radius: 50%;
+}
+
+
+/* =========================================================
+   ELEMENTOS ÓRBITA
+   ========================================================= */
+
+.wrap-stack {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 43px;
+  height: 43px;
+
+  transform-origin: center;
+
+  cursor: pointer;
+}
+
+
+.wrap-stack a {
+  position: absolute;
+
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border:
+    1.5px
+    ridge
+    #ffd35b;
+
+  border-radius: 10px;
+
+  background-color: #000;
+
+  background-repeat: no-repeat;
+
+  background-position:
+    center center;
+
+  background-size: 68%;
+
+  transition:
+    transform 0.2s ease,
+    background-size 0.2s ease,
+    background-color 0.2s ease;
+}
+
+
+/* =========================================================
+   NOMBRE DEL ICONO
+   ========================================================= */
+
+.icon__name {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  width: max-content;
+  max-width: 90px;
+
+  color: #fff;
+
+  font-family:
+    var(--font-mono);
+
+  font-size: 11px;
+  font-weight: 600;
+
+  line-height: 1.1;
+
+  text-align: center;
+
+  opacity: 0;
+
+  filter: blur(5px);
+
+  transition:
+    opacity 0.3s ease,
+    filter 0.3s ease;
+
+  pointer-events: none;
+
+  z-index: 3;
+}
+
+
+.wrap-stack a:hover {
+  transform: scale(1.08);
+
+  background-size: 0;
+
+  background-color: #222;
+}
+
+
+.wrap-stack a:hover .icon__name {
+  opacity: 1;
+
+  filter: blur(0);
+}
+
+
+/* =========================================================
+   SKILLS - DESARROLLO
+   ========================================================= */
+
+.icon--python a {
+  background-image:
+    url(
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg'
+    );
+}
+
+
+.icon--java a {
+  background-image:
+    url(
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg'
+    );
+}
+
+
+.icon--kotlin a {
+  background-image:
+    url(
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg'
+    );
+}
+
+
+.icon--sql a {
+  background-image:
+    url(
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg'
+    );
+}
+
+
+.icon--typescript a {
+  background-image:
+    url(
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg'
+    );
+}
+
+
+.icon--angular a {
+  background-image:
+    url(
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg'
+    );
+}
+
+
+.icon--jquery a {
+  background-image:
+    url(
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg'
+    );
+}
+
+
+.icon--firebase a {
+  background-image:
+    url(
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg'
+    );
+}
+
+
+/* =========================================================
+   SKILLS - IA / INFORMÁTICA
+   ========================================================= */
+
+.icon--ai a,
+.icon--math a,
+.icon--logic a,
+.icon--algorithms a {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background-image: none;
+}
+
+
+/* IA */
+
+.icon--ai a::before {
+  content: '🧠';
+
+  font-size: 1.2rem;
+}
+
+
+/* Matemáticas */
+
+.icon--math a::before {
+  content: '∑';
+
+  font-family:
+    var(--font-mono);
+
+  font-size: 1.55rem;
+
+  color: #ffd35b;
+}
+
+
+/* Lógica */
+
+.icon--logic a::before {
+  content: 'λ';
+
+  font-family:
+    var(--font-mono);
+
+  font-size: 1.45rem;
+
+  color: #ffd35b;
+}
+
+
+/* Algoritmos */
+
+.icon--algorithms a::before {
+  content: '⚙';
+
+  font-size: 1.35rem;
+}
+
+
+.icon--ai a::before,
+.icon--math a::before,
+.icon--logic a::before,
+.icon--algorithms a::before {
+  font-weight: 900;
+
+  line-height: 1;
+
+  transition:
+    opacity 0.2s ease;
+}
+
+
+.icon--ai a:hover::before,
+.icon--math a:hover::before,
+.icon--logic a:hover::before,
+.icon--algorithms a:hover::before {
+  opacity: 0;
+}
+
+
+/* =========================================================
+   TOOLS
+   ========================================================= */
+
+.icon--github a {
+  background-image:
+    url('/logos/git.png');
+}
+
+
+.icon--postman a {
+  background-image:
+    url(
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg'
+    );
+}
+
+
+.icon--android a {
+  background-image:
+    url(
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg'
+    );
+}
+
+
+.icon--intellij a {
+  background-image:
+    url(
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg'
+    );
+}
+
+
+.icon--vscode a {
+  background-image:
+    url(
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg'
+    );
+}
+
+
+.icon--eclipse a {
+  background-image:
+    url(
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eclipse/eclipse-original.svg'
+    );
+}
+
+
+/* MobaXterm */
+
+.icon--mobaxterm a {
+  background-image:
+    url('/logos/mobaxterm.png');
+}
+
+
+/* FileZilla */
+
+.icon--filezilla a {
+  background-image:
+    url('/logos/filezilla.png');
+}
+
+
+/* FortiClient */
+
+.icon--forticlient a {
+  background-image:
+    url('/logos/forticlient.png');
+}
+
+
+/* Teams */
+
+.icon--teams a {
+  background-image:
+    url('/logos/teams.png');
+}
+
+
+/* Outlook */
+
+.icon--outlook a {
+  background-image:
+    url('/logos/outlook.png');
+}
+
+
+/* =========================================================
+   PORTÁTIL / PANTALLA MEDIA
+   ========================================================= */
+
+@media (max-width: 1399.98px) {
+
+  .stack-columns {
+    max-width: 1150px;
+
+    margin-top: 45px;
+  }
+
+
+  .stack-column {
+    width: 460px;
+    height: 450px;
+  }
+
+
+  .static-circle {
+    width: 105px;
+    height: 105px;
+
+    font-size: 1.35rem;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1199.98px) {
+
+  .stack-section {
+    padding:
+      80px
+      25px
+      60px;
+  }
+
+
+  .stack-columns {
+    margin-top: 60px;
+  }
+
+
+  .stack-column {
+    width: 430px;
+    height: 430px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET VERTICAL
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+
+  .stack-section {
+    min-height: auto;
+
+    padding:
+      90px
+      20px
+      80px;
+  }
+
+
+  .stack-columns {
+    margin-top: 70px;
+  }
+
+
+  .stack-column {
+    width: 430px;
+    height: 430px;
+
+    margin-bottom: 80px;
+  }
+
+}
+
+
+/* =========================================================
+   MÓVIL
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+  .stack-section {
+    width: 100%;
+    min-height: auto;
+
+    padding:
+      65px
+      10px
+      40px;
+
+    overflow: hidden;
+  }
+
+
+  .stack-container {
+    width: 100%;
+    max-width: 100%;
+
+    padding: 0;
+
+    margin: 0 auto;
+  }
+
+
+  .stack-title {
+    font-size: 2.3rem;
+
+    letter-spacing: 0.22rem;
+  }
+
+
+  .stack-title::before,
+  .stack-title::after {
+    display: none;
+  }
+
+
+  .stack-description {
+    width: 100%;
+    max-width: 340px;
+
+    margin:
+      10px
+      auto
+      0;
+
+    padding: 0 10px;
+
+    font-size: 0.72rem;
+
+    line-height: 1.4;
+  }
+
+
+  .stack-columns {
+    width: 100%;
+    max-width: 100%;
+
+    margin:
+      25px
+      auto
+      0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 15px;
+  }
+
+
+  .stack-column {
+    width: 100%;
+    height: 310px;
+
+    margin: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  .container-stack {
+    position: relative;
+
+    width: 200px;
+    height: 200px;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+  }
+
+
+  .static-circle {
+    width: 78px;
+    height: 78px;
+
+    font-size: 0.82rem;
+
+    letter-spacing: 1px;
+  }
+
+
+  .wrap-stack {
+    width: 36px;
+    height: 36px;
+  }
+
+
+  .wrap-stack a {
+    border-radius: 7px;
+
+    background-size: 65%;
+  }
+
+
+  .icon__name {
+    max-width: 65px;
+
+    font-size: 8px;
+  }
+
+
+  .icon--ai a::before {
+    font-size: 1rem;
+  }
+
+
+  .icon--math a::before {
+    font-size: 1.25rem;
+  }
+
+
+  .icon--logic a::before {
+    font-size: 1.2rem;
+  }
+
+
+  .icon--algorithms a::before {
+    font-size: 1.1rem;
+  }
+
+}
+
+
+@media (max-width: 375px) {
+
+  .stack-section {
+    padding-inline: 6px;
+  }
+
+
+  .stack-title {
+    font-size: 2rem;
+  }
+
+
+  .stack-description {
+    max-width: 290px;
+
+    font-size: 0.68rem;
+  }
+
+
+  .stack-columns {
+    margin-top: 20px;
+
+    gap: 5px;
+  }
+
+
+  .stack-column {
+    height: 265px;
+  }
+
+
+  .container-stack {
+    width: 170px;
+    height: 170px;
+  }
+
+
+  .static-circle {
+    width: 66px;
+    height: 66px;
+
+    font-size: 0.7rem;
+  }
+
+
+  .wrap-stack {
+    width: 31px;
+    height: 31px;
+  }
+
+}

@@ -1,149 +1,605 @@
-/* You can add global styles to this file, and also import other style files */
+/* =========================================================
+   FUENTES
+   ========================================================= */
+
+@import url(
+  'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap'
+);
+
+
+/* =========================================================
+   LIBRERÍAS
+   ========================================================= */
+
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
 @import 'swiper/css';
 @import 'swiper/css/effect-fade';
 @import 'swiper/css/pagination';
-@import 'swiper/css';
-@import 'swiper/css/effect-fade';
-@import 'swiper/css/pagination';
-/* Fondo global */
-body {
-  background-color: #C3C3C3; /* cambia este al color que quieras */
-  color: white;              /* opcional */
-  
+
+
+/* =========================================================
+   VARIABLES GLOBALES
+   ========================================================= */
+
+:root {
+  --font-title:
+    'Cormorant Garamond',
+    serif;
+
+  --font-text:
+    'Manrope',
+    sans-serif;
+
+  --font-mono:
+    'JetBrains Mono',
+    monospace;
+
+  --color-bg-light:
+    #c3c3c3;
+
+  --color-bg-dark:
+    #191919;
+
+  --color-gold:
+    #c9a549;
+
+  --color-yellow:
+    #ffc800;
+
+  --color-text-light:
+    #ffffff;
+
+  --color-text-dark:
+    #171717;
+}
+
+
+/* =========================================================
+   BASE GLOBAL
+   ========================================================= */
+
+html {
   height: 100%;
+
+  scroll-behavior: smooth;
+
+  overflow-y: scroll;
+}
+
+
+body {
+  min-height: 100%;
+
   margin: 0;
   padding: 0;
- 
-   
+
+  background-color:
+    var(--color-bg-light);
+
+  color:
+    var(--color-text-light);
+
+  font-family:
+    var(--font-text);
+
+  overflow-x: hidden;
 }
-html {
-  scroll-behavior: smooth;         /* ya lo tienes */
-  scroll-snap-type: y mandatory;   /* habilita el scroll snap vertical */
-  height: 100%;
-  overflow-y: scroll;          
-      /* el scroll vertical está en html */
+
+
+* {
+  box-sizing: border-box;
+
+  scrollbar-width: thin;
+  scrollbar-color:
+    #ffc800
+    #1a1a1a;
 }
+
+
+/* =========================================================
+   TIPOGRAFÍA GLOBAL
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family:
+    var(--font-title);
+
+  font-weight: 600;
+}
+
+
+p,
+a,
+button,
+input,
+textarea,
+select,
+label,
+li {
+  font-family:
+    var(--font-text);
+}
+
+
+code,
+pre,
+kbd,
+samp {
+  font-family:
+    var(--font-mono);
+}
+
+
+/* =========================================================
+   ELEMENTOS TÉCNICOS / NUMERACIONES
+   ========================================================= */
+
+.section-kicker,
+.section-index,
+.project-number,
+.project-year,
+.project-status,
+.preview-category,
+.preview-header,
+.results-counter,
+.time,
+.detail-number,
+.detail-label,
+.details-label,
+.code-card,
+.code-body {
+  font-family:
+    var(--font-mono);
+}
+
+
+/* =========================================================
+   LOADER GLOBAL
+   ========================================================= */
 
 #app-loader {
   position: fixed;
+
   top: 0;
   left: 0;
+
   width: 100%;
   height: 100%;
-  background-color: #191919;
+
   display: flex;
+
   align-items: center;
   justify-content: center;
+
+  background-color:
+    #191919;
+
   z-index: 9999;
 }
-/*
-.loader {
-  border: 6px solid #f3f3f3;
-  border-top: 6px solid #ffc800;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 1s linear infinite;
-}
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
- HTML: <div class="loader"></div> */
+
 .loader {
-  width: fit-content;
-  font-size: 55px;
-  line-height: 1.5;
-  font-family: system-ui,sans-serif;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #000000;
-  -webkit-text-stroke: 2px #000000;
+  width:
+    fit-content;
+
+  color:
+    #000;
+
+  font-family:
+    var(--font-text);
+
+  font-size:
+    55px;
+
+  font-weight:
+    700;
+
+  line-height:
+    1.5;
+
+  text-transform:
+    uppercase;
+
+  -webkit-text-stroke:
+    2px
+    #000;
 
   background:
-    radial-gradient(1.13em at 50% 1.6em, #ffc800 99%, #0000 100%) calc(50% - 1.6em) 0 / 3.2em 100% text,
-    radial-gradient(1.13em at 50% -0.8em, #00000000 99%, #ffc800 101%) 50% 0.8em / 3.2em 100% repeat-x text;
+    radial-gradient(
+      1.13em
+      at
+      50%
+      1.6em,
+      #ffc800 99%,
+      transparent 100%
+    )
+    calc(50% - 1.6em)
+    0 /
+    3.2em
+    100%
+    text,
 
-    animation: l9 2s linear infinite;
-}
-.loader:before {
-  content: "Loading";
-}
-@keyframes l9 {
-  to {background-position: calc(50% + 1.6em) 0,calc(50% + 3.2em) .8em}
+    radial-gradient(
+      1.13em
+      at
+      50%
+      -0.8em,
+      transparent 99%,
+      #ffc800 101%
+    )
+    50%
+    0.8em /
+    3.2em
+    100%
+    repeat-x
+    text;
+
+  animation:
+    loaderWave
+    2s
+    linear
+    infinite;
 }
 
-/* Scrollbar global */
+
+.loader::before {
+  content:
+    'Loading';
+}
+
+
+@keyframes loaderWave {
+
+  to {
+    background-position:
+      calc(50% + 1.6em)
+      0,
+
+      calc(50% + 3.2em)
+      0.8em;
+  }
+
+}
+
+
+/* =========================================================
+   SCROLLBAR GLOBAL
+   ========================================================= */
+
 ::-webkit-scrollbar {
-  width: 12px;
+  width:
+    12px;
 }
+
 
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
-  border-radius: 6px;
+  background:
+    #1a1a1a;
+
+  border-radius:
+    6px;
 }
+
 
 ::-webkit-scrollbar-thumb {
-  background: #ffc800;
-  border-radius: 6px;
-  border: 2px solid #1a1a1a;
+  background:
+    #ffc800;
+
+  border:
+    2px solid
+    #1a1a1a;
+
+  border-radius:
+    6px;
 }
+
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ffee06;
+  background:
+    #ffee06;
 }
 
-/* Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #ffc800 #1a1a1a;
-}
+
+/* =========================================================
+   BUSCADOR / HIGHLIGHT
+   ========================================================= */
+
 mark.highlight {
-  background-color: rgb(53, 198, 255);
-  color: black;
-  border-radius: 1px;
+  padding:
+    1px
+    2px;
 
-  transition: all 0.3s ease;
+  border-radius:
+    2px;
+
+  background-color:
+    rgba(
+      255,
+      200,
+      0,
+      0.75
+    );
+
+  color:
+    #000;
+
+  transition:
+    background-color
+    0.25s
+    ease,
+    box-shadow
+    0.25s
+    ease;
 }
+
 
 mark.highlight.active {
-  background-color: rgb(0, 38, 255) !important;
-  color: rgb(0, 0, 0) !important;
-  box-shadow: 0 0 8px 2px rgba(0, 0, 255, 0.6);
+  background-color:
+    #ffc800 !important;
+
+  color:
+    #000 !important;
+
+  box-shadow:
+    0
+    0
+    10px
+    2px
+    rgba(
+      255,
+      200,
+      0,
+      0.55
+    );
 }
 
 
+/* =========================================================
+   SECTION KICKER
+   01 / INTRO
+   02 / TRAYECTORIA
+   ETC.
+   ========================================================= */
 
-/* Estilos para colores del texto */
+.section-kicker {
+  position: absolute;
+
+  top:
+    58px;
+
+  left:
+    210px;
+
+  z-index:
+    30;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  gap:
+    6px;
+
+  color:
+    #f5c000;
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    0.68rem;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    2px;
+
+  line-height:
+    1;
+
+  text-transform:
+    uppercase;
+
+  white-space:
+    nowrap;
+
+  pointer-events:
+    none;
+}
+
+
+/* =========================================================
+   KICKER EN FONDO CLARO
+   ========================================================= */
+
+.section-kicker.light-background {
+  color:
+    #6b5200;
+
+  font-weight:
+    800;
+}
+
+
+/* =========================================================
+   CLASES DE COLOR REUTILIZABLES
+   ========================================================= */
+
 .orange {
-  color: #ffcc66;
+  color:
+    #ffcc66;
 }
+
 
 .yellow {
-  color: #f7dc6f;
+  color:
+    #f7dc6f;
 }
 
-.red {
-  color: #ff6b6b;
-}
 
+.red,
 .red-B {
-  color: #f74646;
-}
-.red {
-  color: #f74646;
-}
-.number {
-  color: #999;
-  margin-right: 4px;
+  color:
+    #f74646;
 }
 
+
+.green,
 .green-T {
-  color: #60d260;
-}
-.green{
-  color: #60d260;
+  color:
+    #60d260;
 }
 
+
+.number {
+  margin-right:
+    4px;
+
+  color:
+    #999;
+
+  font-family:
+    var(--font-mono);
+}
+
+
+/* =========================================================
+   UTILIDADES GENERALES
+   ========================================================= */
+
+img {
+  max-width:
+    100%;
+}
+
+
+button,
+input,
+textarea,
+select {
+  font:
+    inherit;
+}
+
+
+a {
+  color:
+    inherit;
+}
+
+
+/* =========================================================
+   CLASES TIPOGRÁFICAS REUTILIZABLES
+   ========================================================= */
+
+.font-title {
+  font-family:
+    var(--font-title);
+}
+
+
+.font-text {
+  font-family:
+    var(--font-text);
+}
+
+
+.font-mono {
+  font-family:
+    var(--font-mono);
+}
+
+
+/* =========================================================
+   TÍTULOS DE SECCIÓN
+   ========================================================= */
+
+.section-title,
+.projects-title,
+.stack-title,
+.career-title,
+.titulo-imagen {
+  font-family:
+    var(--font-title);
+}
+
+
+/* =========================================================
+   NAVBAR / UI
+   ========================================================= */
+
+.navbar,
+.nav-link,
+.navbar-brand,
+button,
+input,
+textarea,
+select {
+  font-family:
+    var(--font-text);
+}
+
+
+/* =========================================================
+   RESPONSIVE TABLET
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+
+  .section-kicker {
+    top:
+      22px;
+
+    left:
+      20px;
+
+    font-size:
+      0.62rem;
+
+    letter-spacing:
+      1.7px;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE MÓVIL
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+  .section-kicker {
+    top:
+      18px;
+
+    left:
+      14px;
+
+    font-size:
+      0.56rem;
+
+    letter-spacing:
+      1.4px;
+  }
+
+
+  .loader {
+    font-size:
+      36px;
+
+    -webkit-text-stroke:
+      1.5px
+      #000;
+  }
+
+}

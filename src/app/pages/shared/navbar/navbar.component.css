@@ -1,532 +1,1200 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* =========================================================
+   HOST
+   ========================================================= */
+
+:host {
+  display: block;
 }
 
-.navbar-tecnic {
-  background-color: #2c3e50;
-}
 
-.navbar-personal {
-  background-color: #8e44ad;
-}
+/* =========================================================
+   NAVBAR
+   ========================================================= */
 
-.navbar {
+.portfolio-navbar {
   position: fixed;
+
   top: 0;
   left: 0;
+  right: 0;
+
   width: 100%;
-   /* evitar que se pase del ancho de ventana */
-   /* para que no sea demasiado pequeño */
-  padding: 25px 100px 25px 100px; /* padding simétrico horizontal */
-  box-sizing: border-box;
-  font-family: Tahoma;
-  font-weight: bold;
-  font-size: 14px;
-  z-index: 1000;
-  background-color: #191919; /* o segun clase */
-  overflow: hidden;          /* evitar scroll horizontal */
-  white-space: nowrap;       /* evita que texto se rompa */
-}
+  min-height: 82px;
 
-.right-controls {
- margin-left: auto; /* empuja el grupo a la derecha */
-  display: flex;
-  align-items: center;
-  gap: 10px; /* espacio entre búsqueda y toggle */
-}
-.nav-container {
-  display: flex;
-  flex-wrap: nowrap;     /* NO permite que los hijos salten a otra linea */
-  justify-content: flex-start;
-  align-items: center;
-  gap: 20px;
-  width: 100%;
-  max-width: 1800px;
-  margin: 0 auto;        /* para centrar horizontalmente */
-  padding-left: 0;
-  box-sizing: border-box;
-}
-
-/* Contenedor búsqueda a la derecha */
-.search-container {
-   
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-/* Botón lupa */
-.search-button {
-  background-color: transparent;
-  border: 2px solid #fdfdfd;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
   padding: 0;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  flex-shrink: 0;
+
+  background:
+    rgba(
+      20,
+      20,
+      20,
+      0.98
+    ) !important;
+
+  border-bottom: none;
+
+  box-shadow:
+    0 8px 30px
+    rgba(
+      0,
+      0,
+      0,
+      0.2
+    );
+
+  backdrop-filter:
+    blur(10px);
+
+  font-family:
+    'Poppins',
+    sans-serif;
+
+  font-weight: 500;
+
+  z-index: 1000;
 }
 
-/* Cuando búsqueda está activa: fondo amarillo y rota 90 grados */
-.search-container.active .search-button {
-  background-color: #f5c000;
-  transform: rotate(90deg);
+
+/* =========================================================
+   CONTENEDOR INTERNO
+   ========================================================= */
+
+.navbar-inner {
+  width: 100%;
+
+  max-width: 1650px;
+
+  margin-inline: auto;
+
+  padding:
+    16px
+    clamp(
+      22px,
+      5vw,
+      80px
+    );
 }
 
-/* SVG icono lupa */
+
+/* =========================================================
+   FECHA
+   ========================================================= */
+
+.fecha-navbar {
+  margin-right: 0;
+
+  color:
+    #c9a549 !important;
+
+  font-family:
+    Georgia,
+    'Times New Roman',
+    serif;
+
+  font-size:
+    clamp(
+      0.9rem,
+      1.1vw,
+      1.05rem
+    );
+
+  font-weight: 600;
+
+  letter-spacing:
+    0.4px;
+
+  white-space: nowrap;
+
+  cursor: default;
+}
+
+
+/* =========================================================
+   SEPARADOR
+   ========================================================= */
+
+.barra-vertical {
+  margin-inline:
+    24px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.35
+    );
+
+  font-size:
+    1.6rem;
+
+  font-weight: 300;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   NAVEGACIÓN
+   ========================================================= */
+
+.navbar-nav {
+  align-items: center;
+
+  gap: 8px;
+}
+
+
+.nav-link {
+  position: relative;
+
+  padding:
+    0.5rem
+    0.55rem !important;
+
+  border-radius: 0;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.82
+    ) !important;
+
+  font-size:
+    0.82rem;
+
+  font-weight: 500;
+
+  letter-spacing:
+    0.2px;
+
+  cursor: pointer;
+
+  transition:
+    color
+    0.22s
+    ease;
+}
+
+
+/* línea inferior */
+
+.nav-link::after {
+  content: '';
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 1px;
+
+  width: 0;
+  height: 1px;
+
+  transform:
+    translateX(-50%);
+
+  background:
+    #c9a549;
+
+  transition:
+    width
+    0.25s
+    ease;
+}
+
+
+.nav-link:hover {
+  color:
+    #d9bc6a !important;
+
+  transform: none;
+}
+
+
+.nav-link:hover::after {
+  width: 55%;
+}
+
+
+.nav-link.active {
+  color:
+    #d9bc6a !important;
+
+  box-shadow: none;
+}
+
+
+.nav-link.active::after {
+  width: 65%;
+}
+
+
+/* =========================================================
+   CONTROLES DERECHA
+   ========================================================= */
+
+.navbar-controls {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  margin-left: auto;
+}
+
+
+/* =========================================================
+   BUSCADOR
+   ========================================================= */
+
+.search-container {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+}
+
+
+.search-button {
+  width: 38px;
+  height: 38px;
+
+  flex:
+    0
+    0
+    38px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.38
+    );
+
+  border-radius: 4px;
+
+  background:
+    transparent;
+
+  cursor: pointer;
+
+  transition:
+    border-color
+    0.22s
+    ease,
+    background-color
+    0.22s
+    ease;
+}
+
+
 .search-button svg {
+  width: 17px;
+  height: 17px;
+
+  fill:
+    rgba(
+      255,
+      255,
+      255,
+      0.78
+    );
+
   pointer-events: none;
-  transition: fill 0.3s ease;
-  fill: #ffffff;
+
+  transition:
+    fill
+    0.22s
+    ease;
 }
 
-/* SVG cambia a negro cuando activo (contraste) */
-.search-container.active .search-button svg {
-  fill: #191919;
-}
 
-/* Hover botón */
 .search-button:hover {
-  background-color: #FFC90E;
-  transition: background-color 0.3s ease;
+  border-color:
+    #c9a549;
+
+  background:
+    rgba(
+      201,
+      165,
+      73,
+      0.08
+    );
 }
 
-/* Barra de búsqueda */
+
+.search-button:hover svg {
+  fill:
+    #d9bc6a;
+}
+
+
+.search-container.active
+.search-button {
+  border-color:
+    #c9a549;
+
+  background:
+    transparent;
+}
+
+
+.search-container.active
+.search-button svg {
+  fill:
+    #d9bc6a;
+}
+
+
+/* =========================================================
+   SEARCH BAR
+   ========================================================= */
+
 .search-bar {
   width: 0;
+
   opacity: 0;
+
   pointer-events: none;
-  transition: width 0.3s ease, opacity 0.3s ease;
+
   overflow: hidden;
+
   display: flex;
+
   align-items: center;
-  gap: 12px; /* un poco más de espacio */
-  background-color: #333;
-  border-radius: 6px;
-  border: 1px solid #FFC90E;
-  padding: 5px 14px; /* más padding para separar contenido de borde */
-  margin-left: 10px;
+
+  gap: 10px;
+
+  margin-left: 0;
+
+  padding: 0;
+
+  border:
+    0 solid
+    #c9a549;
+
+  border-radius: 3px;
+
+  background:
+    #202020;
+
+  transition:
+    width
+    0.3s
+    ease,
+    opacity
+    0.25s
+    ease,
+    margin
+    0.3s
+    ease,
+    padding
+    0.3s
+    ease,
+    border-width
+    0.3s
+    ease;
 }
 
-/* Barra expandida visible */
-.search-container.active .search-bar {
-  width: 320px; /* más ancho para que entren input + flechas */
+
+.search-container.active
+.search-bar {
+  width: 300px;
+
   opacity: 1;
+
   pointer-events: auto;
+
+  margin-left: 10px;
+
+  padding:
+    5px
+    9px;
+
+  border-width: 1px;
 }
 
-/* Input búsqueda */
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+
 .search-input {
+  min-width: 0;
+
   flex: 1;
-  background-color: transparent;
+
+  padding: 4px;
+
   border: none;
-  color: white;
-  font-size: 14px;
+
   outline: none;
-  padding-right: 10px;
-  min-width: 0; /* para evitar overflow */
+
+  background:
+    transparent;
+
+  color:
+    #e8e8e8;
+
+  font-size:
+    0.8rem;
 }
+
+
+.search-input::placeholder {
+  color:
+    #777;
+}
+
+
+/* =========================================================
+   CONTROLES BÚSQUEDA
+   ========================================================= */
 
 .search-controls {
   display: flex;
+
   align-items: center;
-  gap: 8px;
-  color: #FFC90E;
-  font-size: 14px;
-  user-select: none;
-  flex-shrink: 0; /* para que no se reduzca */
+
+  gap: 6px;
+
+  flex-shrink: 0;
 }
 
-/* Botones navegación flechas */
+
+.results-counter {
+  color:
+    #c9a549;
+
+  font-family:
+    'JetBrains Mono',
+    monospace;
+
+  font-size:
+    0.68rem;
+
+  white-space: nowrap;
+}
+
+
 .search-nav-button {
-  background: transparent;
-  border: 1px solid #FFC90E;
-  color: #FFC90E;
-  cursor: pointer;
-  width: 28px;
-  height: 28px;
-  border-radius: 4px;
+  width: 25px;
+  height: 25px;
+
   display: flex;
+
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  line-height: 1;
-  transition: background-color 0.3s ease;
+
   padding: 0;
-}
 
-.search-nav-button:hover {
-  background-color: #FFC90E;
-  color: #191919;
-}
+  border:
+    1px solid
+    rgba(
+      201,
+      165,
+      73,
+      0.45
+    );
 
-/* Barra vertical decorativa */
-.barra-vertical {
-  display: inline-block;
-  font-size: 30px;
-  line-height: 1;
-  color: white;
-  vertical-align: middle;
-  margin: 0 10px;
-}
-
-.logo {
-  color: #FFC90E;
-  font-size: 20px;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 1px;
-    cursor: pointer; 
-  
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-family: Tahoma, sans-serif;
-  font-weight: bold;
-  padding: 0.5rem 0.5rem;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-  font-size: 14px;
-}
-
-.nav-links a:hover {
-  color: #FFC90E;
-  transform: translateY(-2px);
-}
-
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-.menu-toggle span {
-  width: 25px;
-  height: 3px;
-  background-color: white;
-  margin: 3px 0;
   border-radius: 2px;
+
+  background:
+    transparent;
+
+  color:
+    #c9a549;
+
+  cursor: pointer;
+
+  font-size:
+    0.62rem;
+
+  transition:
+    background-color
+    0.2s
+    ease,
+    color
+    0.2s
+    ease,
+    border-color
+    0.2s
+    ease;
 }
 
-@media (max-width: 768px) {
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-  
-    flex-direction: column;
-    padding: 1rem;
-    display: none;
-  }
 
-  .nav-links.active {
-    display: flex;
-  }
+.search-nav-button:hover:not(:disabled) {
+  border-color:
+    #c9a549;
 
-  .menu-toggle {
-    display: flex;
-  }
+  background:
+    #c9a549;
+
+  color:
+    #151515;
 }
 
 
+.search-nav-button:disabled {
+  opacity: 0.28;
 
-/* Estilos toogles------------------------------------------------ */
-.toggle {
-  margin-left: auto;
+  cursor: default;
+}
+
+
+/* =========================================================
+   IDIOMA
+   ========================================================= */
+
+.language-toggle {
+  position: relative;
+
+  width: 78px;
+  height: 34px;
+
   flex-shrink: 0;
-  width: 100px;
-  height: 40px;
-  user-select: none;
 }
 
-/* Ocultar checkbox original */
-.toggle input {
-  opacity: 0;
+
+.language-toggle input {
+  position: absolute;
+
   width: 0;
   height: 0;
-  position: absolute;
+
+  opacity: 0;
 }
 
-/* Label que actúa como toggle */
-label {
-  border: 2px solid #FFC90E;
-  cursor: pointer;
-  background-color: #edfdb4;
-  border-radius: 20px;
-  display: block;
+
+.language-toggle label {
   position: relative;
-  height: 40px;
-  width: 100px;
-  
-  /* Transición mejorada para fondo y borde */
-  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  display: block;
+
+  width: 78px;
+  height: 34px;
+
+  margin: 0;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    #c9a549;
+
+  border-radius: 4px;
+
+  background:
+    transparent;
+
+  cursor: pointer;
 }
 
-/* Track detrás del thumb */
+
 .track {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  background-color: #000000;
-  top: 0;
-  left: 0;
-  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  inset: 0;
+
+  background:
+    transparent;
 }
 
-/* El "botón" redondo que se mueve */
+
 .thumb {
   position: absolute;
-  top: 3px;
-  left: 7px;
-  width: 34px;
-  height: 30px;
-  background-color: #ffc800;
-  border-radius: 50%;
 
-  /* Transición suave y con curva natural para el movimiento */
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+  top: 5px;
+  left: 5px;
+
+  width: 22px;
+  height: 22px;
+
+  border-radius: 2px;
+
+  background:
+    #c9a549;
+
   z-index: 2;
+
+  transition:
+    transform
+    0.3s
+    ease,
+    background-color
+    0.2s
+    ease;
 }
 
-/* Cambia color al hacer hover en el label */
-label:hover .thumb {
-  background-color: #daab00;
+
+.language-toggle label:hover
+.thumb {
+  background:
+    #d9bc6a;
 }
 
-/* Labels EN y ES */
-label .label-on,
-label .label-off {
+
+/* =========================================================
+   LABELS IDIOMA
+   ========================================================= */
+
+.label-en,
+.label-es {
   position: absolute;
+
   top: 50%;
-  transform: translateY(-50%);
-  font-weight: bold;
-  font-size: 14px;
-  pointer-events: none;
-  user-select: none;
-  width: 40px;
+
+  width: 28px;
+
+  transform:
+    translateY(-50%);
+
+  font-family:
+    'JetBrains Mono',
+    monospace;
+
+  font-size:
+    0.64rem;
+
+  font-weight: 700;
+
   text-align: center;
+
+  pointer-events: none;
+
   z-index: 1;
 }
 
-/* EN label */
-label .label-on {
-  left: 10px;
-  color: #333;
-  transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+.label-en {
+  left: 3px;
+
+  color:
+    #191919;
 }
 
-/* ES label */
-label .label-off {
-  right: 10px;
-  color: #FFC90E;
-  transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+.label-es {
+  right: 4px;
+
+  color:
+    #c9a549;
 }
 
-/* Estado checked */
-input:checked + label {
-  background-color: #333;
+
+.language-toggle input:checked
++ label
+.thumb {
+  transform:
+    translateX(44px);
 }
 
-/* Track cambia fondo */
-input:checked + label .track {
-  background-color: #030303;
+
+.language-toggle input:checked
++ label
+.label-en {
+  color:
+    #c9a549;
 }
 
-/* Thumb se mueve con transición fluida */
-input:checked + label .thumb {
-  transform: translateX(60px);
+
+.language-toggle input:checked
++ label
+.label-es {
+  color:
+    #191919;
 }
 
-/* Cambios colores de labels al cambiar toggle */
-input:checked + label .label-on {
-  color: #FFC90E;
+
+/* =========================================================
+   VOLVER AL PORTFOLIO
+   ========================================================= */
+
+.back-item {
+  display: flex;
+
+  align-items: center;
+
+  margin-left: 10px;
 }
 
-input:checked + label .label-off {
-  color: #333;
+
+.back-portfolio-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  padding:
+    7px
+    11px;
+
+  border:
+    1px solid
+    rgba(
+      201,
+      165,
+      73,
+      0.4
+    );
+
+  border-radius: 3px;
+
+  background:
+    transparent;
+
+  color:
+    #bbb;
+
+  font-family:
+    'Poppins',
+    sans-serif;
+
+  font-size:
+    0.72rem;
+
+  font-weight: 500;
+
+  letter-spacing:
+    0.3px;
+
+  cursor: pointer;
+
+  transition:
+    color
+    0.2s
+    ease,
+    border-color
+    0.2s
+    ease,
+    background-color
+    0.2s
+    ease;
 }
 
-/* Ajuste específico para evitar conflicto de posición al estar checked */
-input[type="checkbox"]:checked + label .thumb {
-  left: -3px; /* mantiene el mismo left, pero el translateX hace el movimiento */
+
+.back-portfolio-button:hover {
+  border-color:
+    #c9a549;
+
+  background:
+    rgba(
+      201,
+      165,
+      73,
+      0.08
+    );
+
+  color:
+    #d9bc6a;
 }
 
-/* para marcar don estas seccion---------------------------------- */
 
-.nav-links li a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-.nav-links li a:hover {
-  box-shadow: 0 1px 1px 0 rgba(255, 255, 255, 0.4); /* sombra suave beige al pasar el ratón */
-}
-.nav-links li.active a {
-  color: #ffc800; /* resalta la sección activa */
-  font-weight: bold;
-}/* ====== RESPONSIVE ====== */
+.back-arrow {
+  font-size:
+    0.95rem;
 
-
-
-@media (max-width: 768px) {
-    /* ------------------- CONTENEDORES PRINCIPALES DE LA BARRA ------------------- */
-    .navbar {
-        /* Reducimos el padding y quitamos el padding vertical excesivo para los elementos apilados */
-        padding: 10px 15px; 
-        /* La altura se ajustará automáticamente a las dos filas */
-        height: auto; 
-   
-    }
-.nav-container {
-        flex-wrap: wrap; 
-        align-items: flex-start;
-        gap: 5px; 
-    }
-    /* ------------------- PRIMERA FILA: LOGO / ENLACES ------------------- */
-    
-    .logo {
-       display: none;
-    }
-    
-   .nav-links {
-        /* CLAVE: Establecer un orden alto para que vaya segundo (abajo) */
-        order: 2; 
-        
-        /* Mantenemos el ancho y el centrado */
-        width: 100%; 
-        display: flex !important;
-        position: static;
-        padding: 0;
-        flex-direction: row;
-        flex-wrap: wrap; 
-        justify-content: center; 
-        gap: 5px;
-        
-        /* Eliminamos el margin-bottom de aquí (ahora va en .right-controls) */
-        margin-bottom: 0; 
-    }
-    
-    .nav-links a {
-        font-size: 12px; 
-        padding: 0.4rem 0.5rem; /* Ajuste para que se vean mejor */
-    }
-
-    /* Ocultar la barra vertical separadora en móvil */
-    .barra-vertical {
-        display: none;
-    }
-    
-    /* ------------------- SEGUNDA FILA: CONTROLES DERECHOS ------------------- */
-    
-   .right-controls {
-        /* CLAVE: Establecer un orden bajo para que vaya primero (arriba) */
-        order: 1; 
-        
-        /* Mantenemos el ancho y la alineación de la segunda fila */
-        width: 100%; 
-        margin-left: 0; 
-        justify-content: space-between; 
-        flex-shrink: 0; 
-        gap: 10px;
-        
-        /* Añadimos un margen inferior para separarlo de los enlaces */
-        margin-bottom: 10px; 
-    }
-
-    /* La búsqueda debe ir a la izquierda */
-    .search-container {
-        order: 1; /* Posición 1: Izquierda */
-        margin-right: auto; /* Empuja el toggle a la derecha (si right-controls no tuviera space-between) */
-    }
-
-    /* El toggle debe ir a la derecha */
-    .toggle {
-        order: 2; /* Posición 2: Derecha */
-        margin-left: auto; /* Solo por seguridad, space-between es el que manda */
-    }
-
-    /* Ocultar el logo para dejar más espacio a los enlaces */
-    .logo {
-      display: none;
-    }
-
-    /* ------------------- AJUSTES DE TAMAÑO EXISTENTES ------------------- */
-    
-    /* Reducir el tamaño del toggle */
-    .toggle {
-      width: 65px;
-      height: 30px;
-    }
-      
-    /* Ajustar label del toggle */
-    .toggle label {
-      height: 30px;
-      width: 65px;
-      border-radius: 15px;
-    }
-
-    /* Ajustar thumb del toggle */
-    .toggle .thumb {
-      top: 3px;
-      left: 5px;
-      width: 24px;
-      height: 24px;
-    }
-
-    /* Ajustar el movimiento del thumb para el nuevo width */
-    input:checked + label .thumb {
-      transform: translateX(35px);
-    }
-      
-    /* Ajustar tamaño y posición de EN/ES */
-    .toggle .label-on,
-    .toggle .label-off {
-      font-size: 10px;
-      width: 30px;
-    }
-    .toggle .label-on {
-      left: 2px;
-    }
-    .toggle .label-off {
-      right: 2px;
-    }
-      
-    /* Ocultamos el ícono de la lupa/búsqueda para ganar espacio, si no está activa */
-    .search-button {
-      width: 30px;
-      height: 30px;
-      border-width: 1px;
-    }
-    
-    /* Evita que la barra de búsqueda se expanda demasiado */
-    .search-container.active .search-bar {
-      width: 180px !important; 
-    }
+  line-height: 1;
 }
 
-/* Mantenemos tu media query para 400px solo para el toggle si es necesaria */
-@media (max-width: 400px) {
-  /* ... tus estilos de 400px ... */
-  .toggle {
-    width: 65px;
-    height: 30px;
+
+/* =========================================================
+   BOOTSTRAP TOGGLER
+   ========================================================= */
+
+.navbar-toggler {
+  border:
+    1px solid
+    #c9a549;
+
+  border-radius: 3px;
+
+  box-shadow:
+    none !important;
+}
+
+
+.navbar-toggler:focus {
+  box-shadow:
+    none !important;
+}
+
+
+.navbar-toggler-icon {
+  width:
+    1.2em;
+
+  height:
+    1.2em;
+}
+
+
+/* =========================================================
+   PORTÁTIL
+   ========================================================= */
+
+@media (max-width: 1199.98px) {
+
+  .navbar-inner {
+    padding-inline:
+      30px;
   }
-  input:checked + label .thumb {
-    transform: translateX(35px); 
+
+
+  .fecha-navbar {
+    font-size:
+      0.92rem;
   }
+
+
+  .barra-vertical {
+    margin-inline:
+      14px;
+  }
+
+
+  .nav-link {
+    padding-inline:
+      0.4rem !important;
+
+    font-size:
+      0.78rem;
+  }
+
+
+  .navbar-controls {
+    gap:
+      14px;
+  }
+
+
+  .search-container.active
+  .search-bar {
+    width:
+      250px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET / MÓVIL
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+
+  .portfolio-navbar {
+    min-height:
+      70px;
+  }
+
+
+  .navbar-inner {
+    padding:
+      12px
+      18px;
+  }
+
+
+  .fecha-navbar {
+    max-width:
+      65%;
+
+    overflow:
+      hidden;
+
+    font-size:
+      0.78rem;
+
+    text-overflow:
+      ellipsis;
+  }
+
+
+  .navbar-collapse {
+    margin-top:
+      10px;
+
+    padding:
+      16px
+      0;
+
+    border-top:
+      1px solid
+      rgba(
+        201,
+        165,
+        73,
+        0.2
+      );
+
+    background:
+      #141414;
+  }
+
+
+  .navbar-collapse.show {
+    max-height:
+      calc(
+        100vh - 70px
+      );
+
+    overflow-y:
+      auto;
+  }
+
+
+  .navbar-nav {
+    width:
+      100%;
+
+    align-items:
+      stretch;
+
+    gap:
+      0;
+
+    margin-bottom:
+      16px !important;
+  }
+
+
+  .nav-item {
+    width:
+      100%;
+  }
+
+
+  .nav-link {
+    width:
+      100%;
+
+    padding:
+      11px
+      8px !important;
+
+    border-bottom:
+      1px solid
+      rgba(
+        255,
+        255,
+        255,
+        0.05
+      );
+
+    font-size:
+      0.85rem;
+
+    text-align:
+      left;
+  }
+
+
+  .nav-link::after {
+    display:
+      none;
+  }
+
+
+  .nav-link:hover,
+  .nav-link.active {
+    background:
+      rgba(
+        201,
+        165,
+        73,
+        0.06
+      );
+  }
+
+
+  .navbar-controls {
+    width:
+      100%;
+
+    margin-left:
+      0;
+
+    padding-top:
+      14px;
+
+    display:
+      flex;
+
+    justify-content:
+      space-between;
+
+    gap:
+      14px;
+  }
+
+
+  .search-container {
+    flex:
+      1;
+  }
+
+
+  .search-container.active {
+    width:
+      100%;
+  }
+
+
+  .search-container.active
+  .search-bar {
+    width:
+      min(
+        100%,
+        320px
+      );
+  }
+
+
+  .back-item {
+    width:
+      100%;
+
+    margin:
+      8px
+      0
+      0;
+  }
+
+
+  .back-portfolio-button {
+    width:
+      100%;
+
+    justify-content:
+      flex-start;
+
+    padding:
+      10px
+      12px;
+  }
+
+}
+
+
+/* =========================================================
+   MÓVIL PEQUEÑO
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+  .navbar-inner {
+    padding-inline:
+      12px;
+  }
+
+
+  .fecha-navbar {
+    font-size:
+      0.7rem;
+  }
+
+
+  .navbar-toggler {
+    padding:
+      4px
+      7px;
+  }
+
+
+  .navbar-controls {
+    align-items:
+      flex-start;
+  }
+
+
+  .search-container.active {
+    align-items:
+      flex-start;
+  }
+
+
+  .search-container.active
+  .search-bar {
+    width:
+      calc(
+        100vw - 145px
+      );
+
+    flex-direction:
+      column;
+
+    align-items:
+      stretch;
+  }
+
+
+  .search-controls {
+    justify-content:
+      flex-end;
+  }
+
+
+  .language-toggle {
+    width:
+      68px;
+
+    height:
+      30px;
+  }
+
+
+  .language-toggle label {
+    width:
+      68px;
+
+    height:
+      30px;
+  }
+
+
+  .thumb {
+    width:
+      18px;
+
+    height:
+      18px;
+
+    top:
+      5px;
+  }
+
+
+  .language-toggle input:checked
+  + label
+  .thumb {
+    transform:
+      translateX(38px);
+  }
+
+
+  .label-en,
+  .label-es {
+    width:
+      24px;
+
+    font-size:
+      0.58rem;
+  }
+
 }

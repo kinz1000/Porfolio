@@ -1,0 +1,80 @@
+<section id="stack" class="stack-section">
+<span class="section-kicker  light-background">
+  03 / STACK
+</span>
+  <div class="container-fluid stack-container">
+
+    <h1 class="stack-title">
+      STACK
+    </h1>
+
+    <p class="stack-description">
+      {{ getTranslation('stackDescription') }}
+    </p>
+
+ <div class="stack-columns">
+
+  <!-- SKILLS -->
+  <div class="stack-column">
+
+    <div class="static-circle">
+      Skills
+    </div>
+
+    <ul
+      #containerStackLeft
+      class="container-stack"
+      (click)="rotateCircles('left')"
+    >
+      <li
+        *ngFor="let item of circleArrayLeft"
+        #wrapElLeft
+        class="wrap-stack"
+        [ngClass]="item.class"
+        [title]="item.name"
+      >
+        <a>
+          <span class="icon__name">
+            {{ item.name }}
+          </span>
+        </a>
+      </li>
+    </ul>
+
+  </div>
+
+
+  <!-- TOOLS -->
+  <div class="stack-column">
+
+    <div class="static-circle">
+      Tools
+    </div>
+
+    <ul
+      #containerStackRight
+      class="container-stack"
+      (click)="rotateCircles('right')"
+    >
+      <li
+        *ngFor="let item of circleArrayRight"
+        #wrapElRight
+        class="wrap-stack"
+        [ngClass]="item.class"
+        [title]="item.name"
+      >
+        <a>
+          <span class="icon__name">
+            {{ item.name }}
+          </span>
+        </a>
+      </li>
+    </ul>
+
+  </div>
+
+</div>
+
+  </div>
+
+</section>

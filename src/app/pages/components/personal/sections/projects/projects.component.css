@@ -1,0 +1,1022 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+
+/* =========================================================
+   SECTION
+   ========================================================= */
+.projects-section {
+  width: 100%;
+  min-height: 100vh;
+
+  padding:
+    55px
+    70px
+    80px;
+
+  box-sizing: border-box;
+
+  background-color: #191919;
+
+  color: #fff;
+
+  scroll-margin-top: 100px;
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.projects-container {
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.projects-header {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    0.75fr;
+
+  align-items: end;
+
+  gap: 80px;
+
+  margin-bottom: 70px;
+}
+
+
+/* =========================================================
+   INDEX
+   ========================================================= */
+
+.section-index {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: #d9bc6a ;
+
+  font-family:
+    'JetBrains Mono',
+    monospace;
+
+  font-size: 0.7rem;
+
+  letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.projects-header h2 {
+  margin: 0;
+
+  color: #fff;
+
+  font-family:
+    'Poppins',
+    sans-serif;
+
+  font-size:
+    clamp(
+      3.8rem,
+      7vw,
+      7.5rem
+    );
+
+  font-weight: 800;
+
+  line-height: 0.85;
+
+  letter-spacing: -6px;
+
+  text-transform: uppercase;
+}
+
+
+.projects-header p {
+  max-width: 480px;
+
+  margin:
+    0
+    0
+    5px
+    auto;
+
+  color: #8d8d8d;
+
+  font-size: 0.95rem;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   EXPLORER
+   ========================================================= */
+
+.projects-explorer {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.95fr)
+    minmax(470px, 1.05fr);
+
+  gap: 55px;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   PROJECT LIST
+   ========================================================= */
+
+.projects-list {
+  width: 100%;
+
+  border-top:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.13
+    );
+}
+
+
+/* =========================================================
+   PROJECT ROW
+   ========================================================= */
+
+.project-row {
+  position: relative;
+
+  min-height: 180px;
+
+  padding:
+    25px
+    12px;
+
+  box-sizing: border-box;
+
+  border-bottom:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.13
+    );
+
+  cursor: pointer;
+
+  transition:
+    padding
+    0.25s
+    ease,
+    background-color
+    0.25s
+    ease;
+}
+
+
+.project-row:hover,
+.project-row.active {
+  padding-left: 25px;
+
+  background-color:
+    rgba(
+      255,
+      255,
+      255,
+      0.045
+    );
+}
+
+
+.project-row.disabled {
+  opacity: 0.45;
+}
+
+
+/* =========================================================
+   ROW TOP
+   ========================================================= */
+
+.project-row-top {
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  align-items: center;
+
+  margin-bottom: 18px;
+}
+
+
+.project-number,
+.project-year {
+  font-family:
+    'JetBrains Mono',
+    monospace;
+
+  font-size: 0.65rem;
+}
+
+
+.project-number {
+  color: #d9bc6a ;
+}
+
+
+.project-year {
+  color: #666;
+}
+
+
+/* =========================================================
+   ROW CONTENT
+   ========================================================= */
+
+.project-row-content {
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  gap: 20px;
+}
+
+
+.project-status {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #6d6d6d;
+
+  font-family:
+    'JetBrains Mono',
+    monospace;
+
+  font-size: 0.6rem;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+
+.project-row h3 {
+  margin:
+    0
+    0
+    5px;
+
+  color: #eee;
+
+  font-family:
+    'Poppins',
+    sans-serif;
+
+  font-size: 1.6rem;
+
+  font-weight: 700;
+
+  transition:
+    color
+    0.25s
+    ease;
+}
+
+
+.project-row:hover h3,
+.project-row.active h3 {
+  color: #d9bc6a ;
+}
+
+
+.project-row-content p {
+  margin: 0;
+
+  color: #777;
+
+  font-size: 0.75rem;
+}
+
+
+/* =========================================================
+   ARROW
+   ========================================================= */
+
+.project-arrow {
+  align-self: center;
+
+  color: #d9bc6a ;
+
+  font-size: 1.5rem;
+
+  opacity: 0;
+
+  transform:
+    translate(
+      -10px,
+      10px
+    );
+
+  transition:
+    opacity
+    0.25s
+    ease,
+    transform
+    0.25s
+    ease;
+}
+
+
+.project-row:hover
+.project-arrow,
+.project-row.active
+.project-arrow {
+  opacity: 1;
+
+  transform:
+    translate(
+      0,
+      0
+    );
+}
+
+
+/* =========================================================
+   ROW TECH
+   ========================================================= */
+
+.row-tech {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 7px;
+
+  margin-top: 18px;
+}
+
+
+.row-tech span {
+  padding:
+    4px
+    8px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.12
+    );
+
+  border-radius: 20px;
+
+  color: #818181;
+
+  font-size: 0.62rem;
+}
+
+
+/* =========================================================
+   PREVIEW
+   ========================================================= */
+
+.project-preview {
+  position: sticky;
+
+  top: 120px;
+
+  min-height: 700px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding:
+    22px;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.09
+    );
+
+  border-radius: 5px;
+
+  background-color: #222;
+
+  overflow: hidden;
+
+  box-shadow:
+    0
+    25px
+    60px
+    rgba(
+      0,
+      0,
+      0,
+      0.22
+    );
+}
+
+
+/* =========================================================
+   PREVIEW HEADER
+   ========================================================= */
+
+.preview-header {
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  margin-bottom: 22px;
+
+  color: #777;
+
+  font-family:
+    'JetBrains Mono',
+    monospace;
+
+  font-size: 0.62rem;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+
+.preview-header span:first-child {
+  color: #d9bc6a ;
+}
+
+
+/* =========================================================
+   PREVIEW IMAGE
+   ========================================================= */
+
+.preview-image {
+  width: 100%;
+
+  height: 300px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 30px;
+
+  box-sizing: border-box;
+
+  background-color: #171717;
+
+  overflow: hidden;
+}
+
+
+.preview-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  transition:
+    transform
+    0.4s
+    ease;
+}
+
+
+.project-preview:hover
+.preview-image img {
+  transform:
+    scale(1.035);
+}
+
+
+/* =========================================================
+   PREVIEW CONTENT
+   ========================================================= */
+
+.preview-content {
+  padding:
+    30px
+    15px
+    15px;
+}
+
+
+.preview-category {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #f5c000;
+
+  font-family:
+    'JetBrains Mono',
+    monospace;
+
+  font-size: 0.62rem;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+
+.preview-content h3 {
+  margin:
+    0
+    0
+    18px;
+
+  color: #fff;
+
+  font-family:
+    'Poppins',
+    sans-serif;
+
+  font-size:
+    clamp(
+      2.2rem,
+      3vw,
+      3.5rem
+    );
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: -2px;
+}
+
+
+.preview-content > p {
+  max-width: 600px;
+
+  margin:
+    0
+    0
+    25px;
+
+  color: #aaa;
+
+  font-size: 0.83rem;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   STACK
+   ========================================================= */
+
+.preview-stack {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-bottom: 30px;
+}
+
+
+.preview-stack span {
+  padding:
+    7px
+    11px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.13
+    );
+
+  border-radius: 30px;
+
+  color: #ccc;
+
+  font-size: 0.68rem;
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.preview-actions {
+  display: flex;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+}
+
+
+.github-button,
+.details-button {
+  min-width: 135px;
+
+  height: 44px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content:
+    space-between;
+
+  gap: 20px;
+
+  padding:
+    0
+    15px;
+
+  box-sizing: border-box;
+
+  font-family:
+    inherit;
+
+  font-size: 0.75rem;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    background-color
+    0.25s
+    ease,
+    color
+    0.25s
+    ease,
+    border-color
+    0.25s
+    ease;
+}
+
+
+.github-button {
+  border:
+    1px solid
+    #f5c000;
+
+  background-color:
+    #f5c000;
+
+  color: #111;
+}
+
+
+.github-button:hover {
+  background-color:
+    #ffd437;
+}
+
+
+.details-button {
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.18
+    );
+
+  background:
+    transparent;
+
+  color: #fff;
+}
+
+
+.details-button:hover {
+  border-color:
+    #fff;
+
+  background-color:
+    rgba(
+      255,
+      255,
+      255,
+      0.05
+    );
+}
+
+
+/* =========================================================
+   DETAILS
+   ========================================================= */
+
+.project-details {
+  margin-top: 30px;
+
+  padding-top: 25px;
+
+  border-top:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.1
+    );
+
+  animation:
+    projectDetailsIn
+    0.3s
+    ease;
+}
+
+
+@keyframes projectDetailsIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+.details-label {
+  display: block;
+
+  margin-bottom: 15px;
+
+  color: #f5c000;
+
+  font-family:
+    'JetBrains Mono',
+    monospace;
+
+  font-size: 0.6rem;
+
+  letter-spacing: 2px;
+}
+
+
+.project-details ul {
+  margin: 0;
+
+  padding-left: 18px;
+}
+
+
+.project-details li {
+  margin-bottom: 7px;
+
+  color: #aaa;
+
+  font-size: 0.75rem;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   PREVIEW FOOTER
+   ========================================================= */
+
+.preview-footer {
+  margin-top: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    20px
+    1fr
+    20px;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding:
+    15px;
+
+  color: #666;
+
+  font-family:
+    'JetBrains Mono',
+    monospace;
+
+  font-size: 0.6rem;
+}
+
+
+.preview-progress {
+  height: 2px;
+
+  background-color:
+    rgba(
+      255,
+      255,
+      255,
+      0.1
+    );
+}
+
+
+.preview-progress span {
+  display: block;
+
+  height: 100%;
+
+  background-color:
+    #f5c000;
+
+  transition:
+    width
+    0.35s
+    ease;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+
+  .projects-section {
+    padding:
+      105px
+      30px
+      60px;
+  }
+
+
+  .projects-header {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+
+    margin-bottom: 50px;
+  }
+
+
+  .projects-header p {
+    margin-left: 0;
+  }
+
+
+  .projects-explorer {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+
+  .project-preview {
+    position: relative;
+
+    top: auto;
+
+    min-height: 650px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+  .projects-section {
+    padding:
+      90px
+      14px
+      45px;
+  }
+
+
+  .projects-header h2 {
+    font-size:
+      clamp(
+        3.2rem,
+        16vw,
+        4.4rem
+      );
+
+    letter-spacing: -4px;
+  }
+
+
+  .projects-header p {
+    font-size: 0.82rem;
+  }
+
+
+  .project-row {
+    min-height: 145px;
+
+    padding:
+      20px
+      5px;
+  }
+
+
+  .project-row:hover,
+  .project-row.active {
+    padding-left: 10px;
+  }
+
+
+  .project-row h3 {
+    font-size: 1.3rem;
+  }
+
+
+  .row-tech {
+    gap: 5px;
+  }
+
+
+  .project-preview {
+    min-height: auto;
+
+    padding: 10px;
+  }
+
+
+  .preview-image {
+    height: 230px;
+
+    padding: 25px;
+  }
+
+
+  .preview-content {
+    padding:
+      25px
+      10px
+      15px;
+  }
+
+
+  .preview-content h3 {
+    font-size: 2rem;
+  }
+
+
+  .preview-actions {
+    flex-direction: column;
+  }
+
+
+  .github-button,
+  .details-button {
+    width: 100%;
+  }
+
+}

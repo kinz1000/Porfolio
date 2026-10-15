@@ -1,0 +1,357 @@
+<section
+  id="habilidades"
+  class="skills-section"
+>
+
+  <div class="skills-container">
+
+
+    <!-- =====================================================
+         CABECERA
+         ===================================================== -->
+
+    <header class="skills-header">
+
+      <div class="skills-heading">
+
+        <span class="section-number">
+          02
+        </span>
+
+        <h2>
+
+          {{
+            selectedLang === 'ES'
+              ? 'HABILIDADES'
+              : 'SOCIAL'
+          }}
+
+          <span>
+            {{
+              selectedLang === 'ES'
+                ? 'SOCIALES'
+                : 'SKILLS'
+            }}
+          </span>
+
+        </h2>
+
+      </div>
+
+
+      <p class="skills-intro">
+
+        {{
+          selectedLang === 'ES'
+            ? 'No todo en desarrollo consiste en escribir código. Así trabajo con otras personas, afronto problemas y organizo mi trabajo.'
+            : 'Software development is not only about writing code. This is how I work with people, approach problems and organise my work.'
+        }}
+
+      </p>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTENIDO INTERACTIVO
+         ===================================================== -->
+
+    <div class="skills-explorer">
+
+
+      <!-- LISTA -->
+
+      <div class="skills-list">
+
+        <button
+          *ngFor="
+            let skill of skills;
+            let i = index
+          "
+          type="button"
+          class="skill-row"
+          [class.active]="
+            activeIndex === i
+          "
+          (click)="selectSkill(i)"
+          (mouseenter)="selectSkill(i)"
+        >
+
+          <span class="skill-number">
+            {{ skill.number }}
+          </span>
+
+
+          <span class="skill-main">
+
+            <strong>
+              {{
+                skill.title[
+                  selectedLang
+                ]
+              }}
+            </strong>
+
+            <small>
+              {{
+                skill.short[
+                  selectedLang
+                ]
+              }}
+            </small>
+
+          </span>
+
+
+          <span class="skill-arrow">
+            ↗
+          </span>
+
+        </button>
+
+      </div>
+
+
+      <!-- PANEL DERECHO -->
+
+      <article
+        class="skill-detail"
+        [attr.data-index]="
+          activeIndex
+        "
+      >
+
+        <div class="detail-top">
+
+          <span class="detail-number">
+            {{
+              activeSkill.number
+            }}
+          </span>
+
+
+          <span class="detail-label">
+
+            {{
+              selectedLang === 'ES'
+                ? 'HABILIDAD'
+                : 'SKILL'
+            }}
+
+          </span>
+
+        </div>
+
+
+        <h3>
+
+          {{
+            activeSkill.title[
+              selectedLang
+            ]
+          }}
+
+        </h3>
+
+
+        <p class="detail-description">
+
+          {{
+            activeSkill.description[
+              selectedLang
+            ]
+          }}
+
+        </p>
+
+
+        <div class="detail-divider"></div>
+
+
+        <span class="detail-subtitle">
+
+          {{
+            selectedLang === 'ES'
+              ? 'EN LA PRÁCTICA'
+              : 'IN PRACTICE'
+          }}
+
+        </span>
+
+
+        <p class="detail-application">
+
+          {{
+            activeSkill.application[
+              selectedLang
+            ]
+          }}
+
+        </p>
+
+
+        <div class="detail-index">
+
+          <span>
+            {{
+              activeIndex + 1
+            }}
+          </span>
+
+          <div class="detail-progress">
+
+            <span
+              [style.width.%]="
+                (
+                  (activeIndex + 1)
+                  /
+                  skills.length
+                )
+                *
+                100
+              "
+            >
+            </span>
+
+          </div>
+
+          <span>
+            {{ skills.length }}
+          </span>
+
+        </div>
+
+      </article>
+
+    </div>
+
+
+    <!-- =====================================================
+         FRASE
+         ===================================================== -->
+
+ <div class="skills-quote">
+
+  <span class="quote-symbol quote-open">
+    “
+  </span>
+
+  <p>
+    {{
+      selectedLang === 'ES'
+        ? 'La capacidad técnica resuelve problemas. La forma de trabajar con otras personas determina hasta dónde puede llegar una solución.'
+        : 'Technical ability solves problems. The way we work with people determines how far a solution can go.'
+    }}
+  </p>
+
+  <span class="quote-symbol quote-close">
+    ”
+  </span>
+
+</div>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="skills-footer">
+
+      <div class="footer-column">
+
+        <h4>
+          {{
+            selectedLang === 'ES'
+              ? 'Navegación'
+              : 'Navigation'
+          }}
+        </h4>
+
+        <a href="/personal">
+          {{
+            selectedLang === 'ES'
+              ? 'Portfolio'
+              : 'Portfolio'
+          }}
+        </a>
+
+        <a href="/personal#trayectoria">
+          {{
+            selectedLang === 'ES'
+              ? 'Trayectoria'
+              : 'Career'
+          }}
+        </a>
+
+        <a href="/personal#proyectos">
+          {{
+            selectedLang === 'ES'
+              ? 'Proyectos'
+              : 'Projects'
+          }}
+        </a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>
+          {{
+            selectedLang === 'ES'
+              ? 'Legal'
+              : 'Legal'
+          }}
+        </h4>
+
+        <a href="/TermsandConditions">
+          {{
+            selectedLang === 'ES'
+              ? 'Términos y condiciones'
+              : 'Terms and Conditions'
+          }}
+        </a>
+
+        <a href="/Privacyandcookis">
+          {{
+            selectedLang === 'ES'
+              ? 'Privacidad & Cookies'
+              : 'Privacy & Cookies'
+          }}
+        </a>
+
+      </div>
+
+
+      <div class="footer-column footer-contact">
+
+        <h4>
+          {{
+            selectedLang === 'ES'
+              ? 'Contacto'
+              : 'Contact'
+          }}
+        </h4>
+
+        <a
+          href="https://github.com/kinz1000"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub ↗
+        </a>
+
+        <a
+          href="#"
+          target="_blank"
+        >
+          LinkedIn ↗
+        </a>
+
+      </div>
+
+    </footer>
+
+  </div>
+
+</section>
