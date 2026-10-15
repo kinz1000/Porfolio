@@ -602,4 +602,38 @@ select {
       #000;
   }
 
+}/* =========================================================
+   MOBILE SCROLL FIX
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+
+  html,
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    overscroll-behavior-y: auto;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body {
+    touch-action: pan-y;
+  }
+
+  .hero-section,
+  .career-section,
+  .stack-section,
+  .projects-section,
+  .contact-section,
+  .about-tech-section,
+  .social-skills-section {
+    height: auto;
+    min-height: auto;
+
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
 }
